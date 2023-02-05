@@ -1,0 +1,117 @@
+------ CADASTRO USUÁRIOS ------
+
+*------------ ATENÇÃO --------------*
+|                                   |
+|                                   |
+|    DADOS PARA BANCO DE DADOS      |   
+|                                   |
+|                                   |
+
+----------[user]
+Nome Completo*
+CPF*
+RG*
+Orgao emissor*
+data emisao*
+estado emissor*
+carteira trabalho numero serie*
+email*
+data nasc*
+idade*
+nome mae*
+nome pai *
+sexo*
+estado civil*
+filhos*
+
+---------[local]
+bairro *
+cidade*
+estado*
+endereço* 
+numero*
+Cep*
+complemento 
+
+-------[escolaridade]
+instituição *
+nivel*
+curso*
+tipo de curso*
+período*
+duração*
+previsao formatura*
+turno*
+endereço*
+bairro*
+cidade*
+estado*
+telefone instituição*
+
+-----[experiencia]
+empresa*
+cargo*
+data inicio*
+data fim*
+tipo contrato*
+atividades*
+
+-----[formação graduações]
+nome *
+instituição que cursou*
+duração*
+periodo*
+área de formação*
+
+------[cursos livres]
+nome
+instituição*
+status do curso {em andamento - concluido}*
+área do curso* 
+nível*
+habilidades*
+complemento
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+------ CADASTRO EMPRESAS ------
+
+******************
+
+empresa deverá passar por validação para conta ser criada
+
+******************
+nome
+nome fantasia
+área
+cnpj
+endereço
+bairro
+cidade
+estado
+pais
+
+------------- // CADASTRANDO UMA VAGA DE ESTÁGIO // ---------
+
+nome da vaga 
+código {auto}
+nível *
+cursos {filtrar para estudantes que estão matriculados nesse curso apenas}*
+salário*
+VT
+VR 
+VA 
+home office
+turno*
+descrição*
+periodo necessário*
+requisitos*
+endereço*
+bairro*
+cidade*
+
+
