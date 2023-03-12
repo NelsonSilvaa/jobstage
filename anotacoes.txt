@@ -8,14 +8,14 @@
 |                                   |
 
 ----------[user]
-Nome Completo*
-CPF*
-RG*
-Orgao emissor*
-data emisao*
+Nome Completo** --
+CPF** --
+RG*--
+Orgao emissor*--
+data emisao*--
 estado emissor*
 carteira trabalho numero serie*
-email*
+email**--
 data nasc*
 idade*
 nome mae*
@@ -24,13 +24,25 @@ sexo*
 estado civil*
 filhos*
 
+
+[cadastro usuario]
+NOME 
+CPF
+EMAIL
+CEP
+BAIRRO
+CIDADE 
+ESTADO 
+SENHA 
+CONFIRME SENHA
+
 ---------[local]
-bairro *
-cidade*
-estado*
+bairro **
+cidade**
+estado**
 endereço* 
 numero*
-Cep*
+Cep**
 complemento 
 
 -------[escolaridade]
@@ -87,6 +99,10 @@ empresa deverá passar por validação para conta ser criada
 ******************
 nome
 nome fantasia
+EMAIL
+CONTATO WPP
+SENHA 
+CONFIRME SENHA
 área
 cnpj
 endereço
