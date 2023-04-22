@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if(empty($_SESSION)){
+        header("Location: ../../index.php");
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -245,6 +253,7 @@
     
         <div style="margin-top: 20px;">
             <button type="submit" class="btn btn-primary btn-lg btn-block" value="enviar">Salvar</button>
+            <a href="../../src/logout.php"><button type="submit" class="btn btn-danger btn-lg btn-block" value="enviar">Sair</button><a>
         </div>
        
     
