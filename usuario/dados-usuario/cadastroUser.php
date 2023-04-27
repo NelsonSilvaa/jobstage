@@ -14,9 +14,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <meta http-equiv="Cache-Control" content="no-cache" />
 </head>
 <body>
+<div class="card">
+
 
 <div class="container">
     <div class="container-dados">
@@ -40,15 +43,15 @@
         <div class="tab-content" id="myTabContent">
     <!-- dados -->
             <div class="tab-pane fade show active" id="dados" role="tabpanel" aria-labelledby="dados-tab">
-                <form method="post" action="./src/inserir_dados.php">
+                <form method="post" action="../../src/read-inputs/dados.php">
                     <div class="form-row">
                         <div class="col">
                             <label for="Nome">Nome Completo <span style="color: red;">*</span> </label>
                             <input type="text" class="form-control" placeholder="" name="nome" id="nome">
                         </div>
                         <div class="col">
-                            <label for="Email">Email<span style="color: red;">*</span></label>
-                            <input type="email" class="form-control" placeholder="" name="email" id="email">
+                            <label for="email">Email<span style="color: red;">*</span></label>
+                            <input type="email" class="form-control" placeholder="" name="email" id="email" require>
                         </div>
                     </div>
             
@@ -87,7 +90,7 @@
                         </div>
                         <div class="col">
                             <label for="data-emissao">Data emissão<span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" placeholder="" name="data-emissao id="data-emissao">
+                            <input type="text" class="form-control" placeholder="" name="data-emissao" id="data-emissao">
                         </div>
                         <div class="col">
                             <label for="orgao-emissor">Orgão Emissor<span style="color: red;">*</span></label>
@@ -98,12 +101,14 @@
                             <input type="text" class="form-control" placeholder="" name="estado" id="estado">
                         </div>
                     </div>
-                    
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                </div>
                 </form>
             </div>
     <!-- FORMAÇAO -->
             <div class="tab-pane fade" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
-                <form>
+                <form method="post" action="../../src/read-inputs/formacao.php">
                     <div class="form-row">
                         <div class="col">
                             <label for="curso">Curso<span style="color: red;">*</span></label>
@@ -129,11 +134,14 @@
                             <input type="text" class="form-control" placeholder="" name="status" id="status">
                         </div>
                     </div>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                </div>
                 </form>
             </div>
     <!-- EXPERIENCIA  -->
             <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
-                <form>
+                <form method="post" action="../../src/read-inputs/experiencia.php">
                     <div class="form-row">
                         <div class="col">
                             <label for="empresa">Empresa</label>
@@ -147,12 +155,12 @@
             
                     <div class="form-row">
                         <div class="col">
-                            <label for="inicio">Inicio</label>
-                            <input type="text" class="form-control" placeholder="" name="inicio" id="inicio">
+                            <label for="data-inicio">Inicio</label>
+                            <input type="text" class="form-control" placeholder="" name="data-inicio" id="inicio">
                         </div>
                         <div class="col">
-                            <label for="fim">Fim</label>
-                            <input type="text" class="form-control" placeholder="" name="fim" id="fim">
+                            <label for="data-fim">Fim</label>
+                            <input type="text" class="form-control" placeholder="" name="data-fim" id="fim">
                         </div>
                         <div class="col">
                             <label for="tipo_contrato">Tipo contrato</label>
@@ -164,11 +172,14 @@
                         <label for="atividades">Atividades</label>
                         <textarea class="form-control" name="atividades" id="atividades" rows="3"></textarea>
                     </div>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                </div>
                 </form>
             </div>
     <!-- ESCOLARIDADE -->
             <div class="tab-pane fade" id="escolaridade" role="tabpanel" aria-labelledby="escolaridade-tab">
-                <form>
+                <form method="post" action="../../src/read-inputs/escolaridade.php">
 
                     <div class="form-row">
                         <div class="col">
@@ -213,12 +224,14 @@
                             <input type="file" class="form-control" placeholder="" name="declaracao" id="declaracao">
                         </div>
                     </div>
-            
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                </div>
                 </form>
             </div>
     <!-- CURSOS -->
             <div class="tab-pane fade" id="cursos" role="tabpanel" aria-labelledby="cursos-tab">
-                <form>
+                <form method="post" action="../../src/read-inputs/cursos.php">
                     <div class="form-row">
                         <div class="col">
                             <label for="nome-curso">Nome</label>
@@ -245,17 +258,17 @@
                         </div>
                         
                     </div>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                </div>
                 </form>
             </div>
         </div>
        
     </div>
-    
-        <div style="margin-top: 20px;">
-            <button type="submit" class="btn btn-primary btn-lg btn-block" value="enviar">Salvar</button>
-            <a href="../../src/logout.php"><button type="submit" class="btn btn-danger btn-lg btn-block" value="enviar">Sair</button><a>
-        </div>
-       
+</div>
+        
+        <a href="../../src/logout.php"><button type="submit" class="btn btn-danger btn-lg btn-block" value="enviar">Sair</button><a>
     
 </div>
 

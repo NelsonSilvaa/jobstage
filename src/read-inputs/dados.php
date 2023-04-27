@@ -2,18 +2,39 @@
 // Verifica se os dados foram submetidos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta-se ao banco de dados
-    include("conexao.php");
+    include("../conexao.php");
 
-    // Recupera os dados do formulário
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
+     
+// Verifica se foi enviado um POST
+
+    // Lê os valores dos campos
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $data_nasc = $_POST['data-nasc'];
+    $idade = $_POST['idade'];
+    $nome_mae = $_POST['nome-mae'];
+    $nome_pai = $_POST['nome-pai'];
+    $rg = $_POST['rg'];
+    $data_emissao = $_POST['data-emissao'];
+    $orgao_emissor = $_POST['orgao-emissor'];
+    $estado = $_POST['estado'];
+   
+    echo "$nome"; 
+    
+    
+    // Faça algo com os valores lidos
+    // ...
+}
+?>
 
 
 
 
 
 
-    // query que faz o join de todas as tabelas do banco
+
+    <!-- // query que faz o join de todas as tabelas do banco
     $sql_join = "SELECT * from usuario as U
     inner join usuario_formacao as UF
     on U.ID_USUARIO = UF.ID_USUARIO
@@ -58,4 +79,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fecha a conexão com o banco de dados
     mysqli_close($conn);
 }
-?>
+?> -->
