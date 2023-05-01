@@ -130,4 +130,18 @@ endereço*
 bairro*
 cidade*
 
+-----------------------------------------------------------------------------------
+INSERINDO DADOS RELACIONADOS NO BANCO
 
+primeiro de tudo a aba de dados será obrigatória, e as outras abas estarão desativadas até a aba dados estar
+completamente preenchida
+
+quando for iserir qualquer dado de qualquer uma das abas relacioonar i inner join da tabela usuario
+
+relacionar com a tabela de relacionamento de acordo com a aba que está sendo inserido dados
+ex:
+
+insert into formacao values (...)
+insert into USUARIO_FORMACAO VALUES (ID_USUARIO, ID_FORMACAO)
+
+OBS: achar um jeito de pegar id do usuario no banco de dados da sessão 

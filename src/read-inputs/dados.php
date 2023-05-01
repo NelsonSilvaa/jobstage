@@ -20,7 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $orgao_emissor = $_POST['orgao-emissor'];
     $estado = $_POST['estado'];
    
-    echo "$nome"; 
+echo $nome;
+
+    // $sql = "INSERT INTO usuario  VALUES ('$nome', '$email', $cpf, $data_nasc, $idade, '$nome_mae', '$nome_pai', $rg, $data_emissao, '$orgao_emissor', '$estado')";
     
     
     // Faça algo com os valores lidos
