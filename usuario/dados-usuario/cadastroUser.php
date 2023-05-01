@@ -101,7 +101,7 @@
                                 <div class="col">
                                     <label for="estado">Estado<span style="color: red;">*</span></label>
                                     <select type="text" class="form-control" placeholder="" name="estado" id="estado">
-                                        <option value=""></option>
+                                        <option value="TESTE">TESTE</option>
                                     </select>
                                 </div>
                             </div>
