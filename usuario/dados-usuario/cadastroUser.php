@@ -1,8 +1,38 @@
 <?php 
-    session_start();
+session_start();
+
     if(empty($_SESSION)){
         header("Location: ../../index.php");
     }
+    include("../../src/conexao.php");
+
+$user_id = $_SESSION['ID_USUARIO'];
+
+    $sql_formacao = "SELECT  COUNT(*) as total FROM formacao WHERE ID_USUARIO = $user_id";
+    $sql_experiencia = "SELECT COUNT(*) as total FROM experiencia WHERE ID_USUARIO = $user_id";
+    $sql_cursos = "SELECT COUNT(*) as total FROM curso_extra WHERE ID_USUARIO = $user_id";
+
+    $resultado_F = mysqli_query($conn, $sql_formacao);
+    $resultado_E = mysqli_query($conn, $sql_experiencia);
+    $resultado_C = mysqli_query($conn, $sql_cursos);
+
+    // // Verifica se houve erro na consulta
+    // if (!$resultado) {
+    //     die('Erro ao executar consulta: ' . mysqli_error($conn));
+    // }
+
+
+    $total_F = mysqli_fetch_assoc($resultado_F);
+    // $total_registros_F = $resultado_F['total'];
+
+    $total_E = mysqli_fetch_assoc($resultado_E);
+    // $total_registros_E = $total_registros_E['total'];
+
+    $total_C = mysqli_fetch_assoc($resultado_C);
+    // $total_registros_C = $total_registros_C['total'];
+
+
+
 ?>
 
 
@@ -101,7 +131,34 @@
                                 <div class="col">
                                     <label for="estado">Estado<span style="color: red;">*</span></label>
                                     <select type="text" class="form-control" placeholder="" name="estado" id="estado">
-                                        <option value="TESTE">TESTE</option>
+                                        <option value=""></option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
                                     </select>
                                 </div>
                             </div>
@@ -113,7 +170,15 @@
             <!-- FORMAÇAO -->
                     <div class="tab-pane fade" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
                         <!-- se não existir nenhuma frmação cadastrada no banco ele nãpo mostra a tabela -->
-                        <?php if((1<10)) {?>  
+
+                        <?php if($total_F['total'] > 0) {
+                            $sql = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id";
+                            
+                            $res = $conn->query($sql);
+
+                            $qtd = $res->num_rows;
+                        ?>  
+
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -124,30 +189,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">45</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Editar</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    </tr>
+                                <!-- LOOP para mostrar cformação cadastrada -->
+                                <?php if($qtd > 0) { 
+                                    while ($row = $res->fetch_object()){    
+                                        print "<tr>";
+                                        print    "<td scope='row'>".$row->NIVEL."</td>";
+                                        print    "<td>".$row->INSTITUICAO."</td>";
+                                        print    "<td>".$row->CURSO."</td>";
+                                        print    "<td>".$row->STATUS."</td>";
+                                        print    "<td>"."EDITAR"."</td>";
+                                        print "</tr>";
+                                    }
+                                ?>
+
                                 </tbody>
                             </table>
+                        <?php } ?>
                         <?php 
-                        }else{ echo "nenhuma formação cadastrada!";}
+                        } else { 
+                            echo '<p style="color: red; font-size:20px">Nenhuma formação encontrada!</p>';
+                        }
                         ?>
+
                         <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova formação
@@ -172,7 +235,7 @@
                                     <div class="col">
                                         <label for="nivel">Nível<span style="color: red;">*</span></label>
                                         <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
-                                            <option value="fundamental">Fundamental</option>
+                                            <option value="AAA">Fundamental</option>
                                             <option value="ensino médio">Ensino médio</option>
                                             <option value="tecnico">Técnico</option>
                                             <option value="tecnologo">Tecnólogo</option>
@@ -241,7 +304,7 @@
                                     </tbody>
                                 </table>
                             <?php 
-                            }else{ echo "nenhuma formação cadastrada!";}
+                            }else{ echo '<p style="color: red; font-size:20px">Nenhuma experiência encontrada!</p>';}
                             ?>
                          <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
@@ -388,7 +451,7 @@
                                 </tbody>
                             </table>
                         <?php 
-                        }else{ echo "nenhuma formação cadastrada!";}
+                        }else{ echo  '<p style="color: red; font-size:20px">Nenhum curso encontrado!</p>';}
                         ?>
                         <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
