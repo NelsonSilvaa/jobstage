@@ -77,7 +77,7 @@ $user_id = $_SESSION['ID_USUARIO'];
         <div class="card">
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
-            <!-- dados -->
+            <!-- DADOS -->
                     <div class="tab-pane fade show active" id="dados" role="tabpanel" aria-labelledby="dados-tab">
                         <form method="post" action="../../src/read-inputs/dados.php">
                             <div class="form-row">
@@ -190,6 +190,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <th scope="col">Instituição</th>
                                     <th scope="col">Curso</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Opção</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -201,8 +202,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->INSTITUICAO."</td>";
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
-                                        print    "<td>".'<a data-toggle="collapse" href="#collapseEDIT" role="button" aria-expanded="false" aria-controls="collapseEDIT" style="margin: 0 auto">EDITAR</a>'."</td>";
-                                        print    "<td>"."REMOVER"."</td>";
+                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">EDITAR</button> 
+                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal">Remover</button>
+                                                      '."</td>";
                                         print "</tr>";
                                     }
                                 ?>
@@ -222,113 +224,147 @@ $user_id = $_SESSION['ID_USUARIO'];
                             </a>
                         </p>
 
-<!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
+                        <!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
+                        <div class="modal fade exampleModalCenter" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="alert alert-info" role="alert"  style="width:100%;">
+                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está  <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
+                                        </div>
+                               
+                                    </div>
+                                <div class="modal-body">
+                                    
 
-                        <div class="collapse" id="collapseEDIT">
-                            <div class="card card-body">
-                            <div class="alert alert-info" role="alert">
-                                <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está  <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
-                            </div>
-                            <form method="post" action="../../src/read-inputs/formacao.php">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="curso">Curso<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                    <div class="" id="">
+                                        <div class="card card-body">
+                            
+                                            <form method="post" action="../../src/read-inputs/formacao.php">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <label for="curso">Curso<span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="instituicao">Instituição<span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <label for="nivel">Nível<span style="color: red;">*</span></label>
+                                                        <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
+                                                            <option value="AAA">Fundamental</option>
+                                                            <option value="ensino médio">Ensino médio</option>
+                                                            <option value="tecnico">Técnico</option>
+                                                            <option value="tecnologo">Tecnólogo</option>
+                                                            <option value="bacharelado">Bacharelado</option>
+                                                            <option value="mestrado">Mestrado</option>
+                                                            <option value="doutorado">Doutorado</option>
+                                                            <option value="livre">Livre</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="duracao">Duração<span style="color: red;">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="status">Status<span style="color: red;">*</span></label>
+                                                        <select type="text" class="form-control" placeholder="" name="status" id="status">
+                                                            <option value=""></option>
+                                                            <option value="completo">Completo</option>
+                                                            <option value="em andamento">Em andamento</option>
+                                                            <option value="interrompido">Interrompido</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+
+                                </div>
+                                    <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </div>
-                        
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="nivel">Nível<span style="color: red;">*</span></label>
-                                        <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
-                                            <option value="AAA">Fundamental</option>
-                                            <option value="ensino médio">Ensino médio</option>
-                                            <option value="tecnico">Técnico</option>
-                                            <option value="tecnologo">Tecnólogo</option>
-                                            <option value="bacharelado">Bacharelado</option>
-                                            <option value="mestrado">Mestrado</option>
-                                            <option value="doutorado">Doutorado</option>
-                                            <option value="livre">Livre</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
-                                    </div>
-                                    <div class="col">
-                                        <label for="status">Status<span style="color: red;">*</span></label>
-                                        <select type="text" class="form-control" placeholder="" name="status" id="status">
-                                            <option value=""></option>
-                                            <option value="completo">Completo</option>
-                                            <option value="em andamento">Em andamento</option>
-                                            <option value="interrompido">Interrompido</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px;">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Alterar</button>
-                                </div>
-                            </form>
                             </div>
                         </div>
 
+
+                    <!-- MODAL PARA DELETAR -->
+                    <div class="modal fade" id="deletarModal" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="alert alert-danger" role="alert"  style="width:100%;">
+                                        <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="modal-footer-deletar">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                                    <button type="button" class="btn btn-primary">SIM</button>  
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FORMULARIO PAR ADICIONAR NOVOS DADOS -->
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                             
-                            <form method="post" action="../../src/read-inputs/formacao.php">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="curso">Curso<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                <form method="post" action="../../src/read-inputs/formacao.php">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="curso">asdasdasad<span style="color: red;">*</span></label>
+                                            <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                        </div>
+                                        <div class="col">
+                                            <label for="instituicao">Instituição<span style="color: red;">*</span></label>
+                                            <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                            
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <label for="nivel">Nível<span style="color: red;">*</span></label>
+                                            <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
+                                                <option value="AAA">Fundamental</option>
+                                                <option value="ensino médio">Ensino médio</option>
+                                                <option value="tecnico">Técnico</option>
+                                                <option value="tecnologo">Tecnólogo</option>
+                                                <option value="bacharelado">Bacharelado</option>
+                                                <option value="mestrado">Mestrado</option>
+                                                <option value="doutorado">Doutorado</option>
+                                                <option value="livre">Livre</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="duracao">Duração<span style="color: red;">*</span></label>
+                                            <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                        </div>
+                                        <div class="col">
+                                            <label for="status">Status<span style="color: red;">*</span></label>
+                                            <select type="text" class="form-control" placeholder="" name="status" id="status">
+                                                <option value=""></option>
+                                                <option value="completo">Completo</option>
+                                                <option value="em andamento">Em andamento</option>
+                                                <option value="interrompido">Interrompido</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                        
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="nivel">Nível<span style="color: red;">*</span></label>
-                                        <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
-                                            <option value="AAA">Fundamental</option>
-                                            <option value="ensino médio">Ensino médio</option>
-                                            <option value="tecnico">Técnico</option>
-                                            <option value="tecnologo">Tecnólogo</option>
-                                            <option value="bacharelado">Bacharelado</option>
-                                            <option value="mestrado">Mestrado</option>
-                                            <option value="doutorado">Doutorado</option>
-                                            <option value="livre">Livre</option>
-                                        </select>
+                                    <div style="margin-top: 20px;">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
                                     </div>
-                                    <div class="col">
-                                        <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
-                                    </div>
-                                    <div class="col">
-                                        <label for="status">Status<span style="color: red;">*</span></label>
-                                        <select type="text" class="form-control" placeholder="" name="status" id="status">
-                                            <option value=""></option>
-                                            <option value="completo">Completo</option>
-                                            <option value="em andamento">Em andamento</option>
-                                            <option value="interrompido">Interrompido</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px;">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                     </div>
 
             <!-- EXPERIENCIA  -->
-            
                     <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
                         <?php 
                             if($total_E['total'] > 0) {

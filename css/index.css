@@ -16,3 +16,24 @@
     border-radius: 10px solid black;
 }
 
+.table-striped{
+    text-align: center;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+}
+
+
+.modal-footer .modal-footer-deletar .btn-danger,
+.modal-footer .btn-secondary
+{
+    margin-right: 10px;
+}
+
+.modal-footer .modal-footer-deletar button,
+.modal-footer button
+{
+    width: 100px;
+}
