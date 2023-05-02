@@ -294,27 +294,21 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        <th scope="row">45</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Editar</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr>
+                                    <?php if($qtd > 0) { 
+                                    while ($row = $res->fetch_object()){    
+                                        print "<tr>";
+                                        print    "<td scope='row'>".$row->EMPRESA."</td>";
+                                        print    "<td>".$row->CARGO."</td>";
+                                        print    "<td>".$row->TIPO_CONTRATO."</td>";
+                                        print    "<td>".$row->INICIO."</td>";
+                                        print    "<td>".$row->FIM."</td>";
+                                        print    "<td>"."EDITAR"."</td>";
+                                        print "</tr>";
+                                    }
+                                    ?>
                                     </tbody>
                                 </table>
+                                <?php } ?>
                             <?php 
                             }else{ echo '<p style="color: red; font-size:20px">Nenhuma experiência encontrada!</p>';}
                             ?>
@@ -331,26 +325,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="empresa">Empresa</label>
-                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresa">
+                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresa" required>
                                         </div>
                                         <div class="col">
                                             <label for="cargo">Cargo</label>
-                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargo">
+                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargo" required>
                                         </div>
                                     </div>
                             
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="data-inicio">Inicio</label>
-                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio">
+                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio" required>
                                         </div>
                                         <div class="col">
                                             <label for="data-fim">Fim</label>
-                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fim">
+                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fim" required>
                                         </div>
                                         <div class="col">
                                             <label for="tipo_contrato">Tipo contrato</label>
-                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato">
+                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" required>
                                                 <option value=""></option>
                                                 <option value="CLT">CLT</option>
                                                 <option value="PJ">PJ</option>
@@ -362,7 +356,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             
                                     <div class="form-group">
                                         <label for="atividades">Atividades</label>
-                                        <textarea class="form-control" name="atividades" id="atividades" rows="3"></textarea>
+                                        <textarea class="form-control" name="atividades" id="atividades" rows="3" required></textarea>
                                     </div>
                                     <div style="margin-top: 20px;">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
