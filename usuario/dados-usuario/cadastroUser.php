@@ -201,7 +201,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->INSTITUICAO."</td>";
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
-                                        print    "<td>"."EDITAR"."</td>";
+                                        print    "<td>".'<a data-toggle="collapse" href="#collapseEDIT" role="button" aria-expanded="false" aria-controls="collapseEDIT" style="margin: 0 auto">EDITAR</a>'."</td>";
+                                        print    "<td>"."REMOVER"."</td>";
                                         print "</tr>";
                                     }
                                 ?>
@@ -220,6 +221,61 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 Nova formação
                             </a>
                         </p>
+
+<!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
+
+                        <div class="collapse" id="collapseEDIT">
+                            <div class="card card-body">
+                            <div class="alert alert-info" role="alert">
+                                <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está  <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
+                            </div>
+                            <form method="post" action="../../src/read-inputs/formacao.php">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="curso">Curso<span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                    </div>
+                                    <div class="col">
+                                        <label for="instituicao">Instituição<span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                                    </div>
+                                </div>
+                        
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="nivel">Nível<span style="color: red;">*</span></label>
+                                        <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
+                                            <option value="AAA">Fundamental</option>
+                                            <option value="ensino médio">Ensino médio</option>
+                                            <option value="tecnico">Técnico</option>
+                                            <option value="tecnologo">Tecnólogo</option>
+                                            <option value="bacharelado">Bacharelado</option>
+                                            <option value="mestrado">Mestrado</option>
+                                            <option value="doutorado">Doutorado</option>
+                                            <option value="livre">Livre</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="duracao">Duração<span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                    </div>
+                                    <div class="col">
+                                        <label for="status">Status<span style="color: red;">*</span></label>
+                                        <select type="text" class="form-control" placeholder="" name="status" id="status">
+                                            <option value=""></option>
+                                            <option value="completo">Completo</option>
+                                            <option value="em andamento">Em andamento</option>
+                                            <option value="interrompido">Interrompido</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Alterar</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                             
