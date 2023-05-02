@@ -83,26 +83,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="Nome">Nome Completo <span style="color: red;">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?> required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="email">Email<span style="color: red;">*</span></label>
-                                    <input type="email" class="form-control" placeholder="<?php echo isset($dadoQuery['EMAIL']) ? $dadoQuery['EMAIL']: '' ?>" name="email" id="email" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="email" class="form-control" placeholder="<?php echo isset($dadoQuery['EMAIL']) ? $dadoQuery['EMAIL']: '' ?>" name="email" id="email" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">CPF<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['CPF']) ? $dadoQuery['CPF']: '' ?>" name="cpf" id="cpf" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['CPF']) ? $dadoQuery['CPF']: '' ?>" name="cpf" id="cpf" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="data-nasc">Data Nasc.<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="data-nasc" id="data-nasc" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="data-nasc" id="data-nasc" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Idade<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['IDADE']) ? $dadoQuery['IDADE']: '' ?>" name="idade" id="idade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['IDADE']) ? $dadoQuery['IDADE']: '' ?>" name="idade" id="idade" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                             
                             </div>
@@ -111,30 +111,30 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">Nome da mãe<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_MAE']) ? $dadoQuery['NOME_MAE']: '' ?>"  name="nome-mae" id="nome-mae" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_MAE']) ? $dadoQuery['NOME_MAE']: '' ?>"  name="nome-mae" id="nome-mae" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Nome do pai</label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_PAI']) ? $dadoQuery['NOME_PAI']: '' ?>" name="nome-pai" id="nome-pai" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_PAI']) ? $dadoQuery['NOME_PAI']: '' ?>" name="nome-pai" id="nome-pai" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="col">
                                     <label for="rg">RG<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['RG']) ? $dadoQuery['RG']: '' ?>" name="rg" id="rg" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['RG']) ? $dadoQuery['RG']: '' ?>" name="rg" id="rg" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="data-emissao">Data emissão<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="orgao-emissor">Orgão Emissor<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="estado">Estado<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?> required>
+                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?> required>
                                         <option value=""></option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>
@@ -167,7 +167,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>Salvar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>>Salvar</button>
                         </div>
                         </form>
                     </div>
@@ -373,27 +373,27 @@ $user_id = $_SESSION['ID_USUARIO'];
                     </div>
             <!-- ESCOLARIDADE -->
                     <div class="tab-pane fade" id="escolaridade" role="tabpanel" aria-labelledby="escolaridade-tab">
-                        <form method="post" action="../../src/read-inputs/escolaridade.php">
+                        <form method="post" action="../../src/read-inputs/escolaridade.php" enctype="multipart/form-data">
 
                             <div class="form-row">
                                 <div class="col">
                                     <label for="curso-escolaridade">Curso<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="curso-escolaridade" id="curso-escolaridade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($escQuery['CURSO']) ? $escQuery['CURSO']: '' ?>" name="curso-escolaridade" id="curso-escolaridade" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="instituicao-escolaridade">Instituição<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="instituicao-escolaridade" id="instituicao-escolaridade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($escQuery['INSTITUICAO']) ? $escQuery['INSTITUICAO']: '' ?>" name="instituicao-escolaridade" id="instituicao-escolaridade" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for="contato">Contato<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="contato" id="contato" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($escQuery['CONTATO']) ? $escQuery['CONTATO']: '' ?>" name="contato" id="contato" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="turno">Turno<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" placeholder="" name="turno" id="turno" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <select type="text" class="form-control" name="turno" id="turno" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> disabled>
                                         <option value="manha">Manhã</option>
                                         <option value="tarde">Tarde</option>
                                         <option value="noite">Noite</option>
@@ -404,27 +404,27 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="prev-formatura">Previsao formatura<span style="color: red;">*</span></label>
-                                    <input type="month" class="form-control" placeholder="" name="prev-formatura" id="prev-formatura" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="month" class="form-control" placeholder="<?php echo isset($escQuery['PREVISAO_FORMATURA']) ? $escQuery['PREVISAO_FORMATURA']: '' ?>" name="prev-formatura" id="prev-formatura" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="periodo">Período<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="periodo" id="periodo" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($escQuery['PERIODO']) ? $escQuery['PERIODO']: '' ?>" name="periodo" id="periodo" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                         
                                 </div>
                                 <div class="col">
                                     <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="duracao" id="duracao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($escQuery['DURACAO']) ? $escQuery['DURACAO']: '' ?>" name="duracao" id="duracao" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'readonly'; ?> required>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">DECLARAÇÃO MATRÍCULA<span style="color: red;">*</span></label>
-                                    <input type="file" class="form-control" placeholder="" name="declaracao" id="declaracao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
+                                    <input type="file" class="form-control" placeholder="" name="declaracao" id="declaracao" <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'disabled'; ?> required>
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado_formacao'])) echo 'disabled'?>>Salvar</button>
                         </div>
                         </form>
                     </div>

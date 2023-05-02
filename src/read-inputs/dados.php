@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['ID_USUARIO'];
     
     // variavel para bloquear ID após usuario enviar dados pela primeira vez
-    $_SESSION['formulario_enviado'] = true;
+    $_SESSION['formulario_enviado_dados'] = true;
 
     // Lê os valores dos campos
     $nome = $_POST['nome'];
