@@ -83,26 +83,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="Nome">Nome Completo <span style="color: red;">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?> required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="email">Email<span style="color: red;">*</span></label>
-                                    <input type="email" class="form-control" placeholder="<?php echo isset($dadoQuery['EMAIL']) ? $dadoQuery['EMAIL']: '' ?>" name="email" id="email" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="email" class="form-control" placeholder="<?php echo isset($dadoQuery['EMAIL']) ? $dadoQuery['EMAIL']: '' ?>" name="email" id="email" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">CPF<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['CPF']) ? $dadoQuery['CPF']: '' ?>" name="cpf" id="cpf" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['CPF']) ? $dadoQuery['CPF']: '' ?>" name="cpf" id="cpf" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="data-nasc">Data Nasc.<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="data-nasc" id="data-nasc" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="data-nasc" id="data-nasc" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Idade<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['IDADE']) ? $dadoQuery['IDADE']: '' ?>" name="idade" id="idade" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['IDADE']) ? $dadoQuery['IDADE']: '' ?>" name="idade" id="idade" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                             
                             </div>
@@ -111,30 +111,30 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">Nome da mãe<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_MAE']) ? $dadoQuery['NOME_MAE']: '' ?>"  name="nome-mae" id="nome-mae" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_MAE']) ? $dadoQuery['NOME_MAE']: '' ?>"  name="nome-mae" id="nome-mae" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Nome do pai</label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_PAI']) ? $dadoQuery['NOME_PAI']: '' ?>" name="nome-pai" id="nome-pai" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_PAI']) ? $dadoQuery['NOME_PAI']: '' ?>" name="nome-pai" id="nome-pai" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?>>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="col">
                                     <label for="rg">RG<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['RG']) ? $dadoQuery['RG']: '' ?>" name="rg" id="rg" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['RG']) ? $dadoQuery['RG']: '' ?>" name="rg" id="rg" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="data-emissao">Data emissão<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="orgao-emissor">Orgão Emissor<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>required>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="estado">Estado<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?> required>
+                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
                                         <option value=""></option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>
@@ -167,7 +167,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'readonly'; ?>>Salvar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?>>Salvar</button>
                         </div>
                         </form>
                     </div>
@@ -430,38 +430,39 @@ $user_id = $_SESSION['ID_USUARIO'];
                     </div>
             <!-- CURSOS -->
                     <div class="tab-pane fade" id="cursos" role="tabpanel" aria-labelledby="cursos-tab">
-                        <?php if(!(1<10)) {?>  
+                    <?php 
+                            if($total_C['total'] > 0) {
+
+                            $sql = "SELECT * FROM curso_extra WHERE ID_USUARIO = $user_id";
+                            
+                            $res = $conn->query($sql);
+
+                            $qtd = $res->num_rows;
+                        ?> 
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Nível</th>
+                                    <th scope="col">Instituição</th>
                                     <th scope="col">Nome</th>
-                                    <th scope="col">instituição</th>
                                     <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">45</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Editar</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    </tr>
+                                <?php if($qtd > 0) { 
+                                    while ($row = $res->fetch_object()){    
+                                        print "<tr>";
+                                        print    "<td scope='row'>".$row->NIVEL_TECNICO."</td>";
+                                        print    "<td>".$row->INSTITUICAO."</td>";
+                                        print    "<td>".$row->NOME."</td>";
+                                        print    "<td>".$row->STATUS."</td>";
+                                        print    "<td>"."EDITAR"."</td>";
+                                        print "</tr>";
+                                    }
+                                ?>
                                 </tbody>
                             </table>
+                        <?php }?>
                         <?php 
                         }else{ echo  '<p style="color: red; font-size:20px">Nenhum curso encontrado!</p>';}
                         ?>
@@ -477,18 +478,18 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="nome-curso">Nome</label>
-                                            <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-curso">
+                                            <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-curso" required>
                                         </div>
                                         <div class="col">
                                             <label for="instituicao-curso">Instituição</label>
-                                            <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-curso">
+                                            <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-curso"required>
                                         </div>
                                     </div>
                             
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="status-curso">Status</label>
-                                            <select type="text" class="form-control" placeholder="" name="status-curso" id="status-curso">
+                                            <select type="text" class="form-control" placeholder="" name="status-curso" id="status-curso"required>
                                                 <option value=""></option>
                                                 <option value="completo">Completo</option>
                                                 <option value="em andamento">Em andamento</option>
@@ -497,11 +498,11 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </div>
                                         <div class="col">
                                             <label for="duracao-curso">Duração</label>
-                                            <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-curso">
+                                            <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-curso"required>
                                         </div>
                                         <div class="col">
                                             <label for="n-tecnico">Nivel Técnico</label>
-                                            <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnico">
+                                            <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnico"required>
                                         </div>
                                         
                                     </div>
