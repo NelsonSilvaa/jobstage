@@ -16,11 +16,6 @@ $user_id = $_SESSION['ID_USUARIO'];
     $resultado_E = mysqli_query($conn, $sql_experiencia);
     $resultado_C = mysqli_query($conn, $sql_cursos);
 
-    // // Verifica se houve erro na consulta
-    // if (!$resultado) {
-    //     die('Erro ao executar consulta: ' . mysqli_error($conn));
-    // }
-
 
     $total_F = mysqli_fetch_assoc($resultado_F);
     // $total_registros_F = $resultado_F['total'];
@@ -32,6 +27,15 @@ $user_id = $_SESSION['ID_USUARIO'];
     // $total_registros_C = $total_registros_C['total'];
 
 
+    // pesquisas SQL
+    $queryDados = "SELECT * FROM usuario WHERE ID_USUARIO = $user_id"; 
+    $resultadoD = mysqli_query($conn, $queryDados);
+    $dadoQuery = mysqli_fetch_assoc($resultadoD);
+
+
+    $queryEscolaridade = "SELECT * FROM escolaridade WHERE ID_USUARIO = $user_id"; 
+    $resultadoE = mysqli_query($conn, $queryEscolaridade);
+    $escQuery = mysqli_fetch_assoc($resultadoE);
 
 ?>
 
@@ -79,26 +83,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="Nome">Nome Completo <span style="color: red;">*</span> </label>
-                                    <input type="text" class="form-control" placeholder="" name="nome" id="nome">
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?> required>
                                 </div>
                                 <div class="col">
                                     <label for="email">Email<span style="color: red;">*</span></label>
-                                    <input type="email" class="form-control" placeholder="" name="email" id="email" require>
+                                    <input type="email" class="form-control" placeholder="<?php echo isset($dadoQuery['EMAIL']) ? $dadoQuery['EMAIL']: '' ?>" name="email" id="email" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">CPF<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="cpf" id="cpf">
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['CPF']) ? $dadoQuery['CPF']: '' ?>" name="cpf" id="cpf" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="data-nasc">Data Nasc.<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" placeholder="" name="data-nasc" id="data-nasc">
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="data-nasc" id="data-nasc" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Idade<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="" name="idade" id="idade">
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['IDADE']) ? $dadoQuery['IDADE']: '' ?>" name="idade" id="idade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                             
                             </div>
@@ -107,30 +111,30 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for=" ">Nome da mãe<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder=""  name="nome-mae" id="nome-mae">
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_MAE']) ? $dadoQuery['NOME_MAE']: '' ?>"  name="nome-mae" id="nome-mae" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for=" ">Nome do pai</label>
-                                    <input type="text" class="form-control" placeholder="" name="nome-pai" id="nome-pai">
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['NOME_PAI']) ? $dadoQuery['NOME_PAI']: '' ?>" name="nome-pai" id="nome-pai" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="col">
                                     <label for="rg">RG<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" placeholder="" name="rg" id="rg">
+                                    <input type="number" class="form-control" placeholder="<?php echo isset($dadoQuery['RG']) ? $dadoQuery['RG']: '' ?>" name="rg" id="rg" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="data-emissao">Data emissão<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" placeholder="" name="data-emissao" id="data-emissao">
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="orgao-emissor">Orgão Emissor<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="orgao-emissor" id="orgao-emissor">
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>required>
                                 </div>
                                 <div class="col">
                                     <label for="estado">Estado<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" placeholder="" name="estado" id="estado">
+                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?> required>
                                         <option value=""></option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>
@@ -163,7 +167,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>Salvar</button>
                         </div>
                         </form>
                     </div>
@@ -270,7 +274,15 @@ $user_id = $_SESSION['ID_USUARIO'];
             <!-- EXPERIENCIA  -->
             
                     <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
-                        <?php if(!(1<10)) {?>  
+                        <?php 
+                            if($total_E['total'] > 0) {
+
+                            $sql = "SELECT * FROM experiencia WHERE ID_USUARIO = $user_id";
+                            
+                            $res = $conn->query($sql);
+
+                            $qtd = $res->num_rows;
+                        ?>
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -366,22 +378,22 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="curso-escolaridade">Curso<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="curso-escolaridade" id="curso-escolaridade">
+                                    <input type="text" class="form-control" placeholder="" name="curso-escolaridade" id="curso-escolaridade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                                 <div class="col">
                                     <label for="instituicao-escolaridade">Instituição<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="instituicao-escolaridade" id="instituicao-escolaridade">
+                                    <input type="text" class="form-control" placeholder="" name="instituicao-escolaridade" id="instituicao-escolaridade" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for="contato">Contato<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="contato" id="contato">
+                                    <input type="text" class="form-control" placeholder="" name="contato" id="contato" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                                 <div class="col">
                                     <label for="turno">Turno<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" placeholder="" name="turno" id="turno">
+                                    <select type="text" class="form-control" placeholder="" name="turno" id="turno" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                         <option value="manha">Manhã</option>
                                         <option value="tarde">Tarde</option>
                                         <option value="noite">Noite</option>
@@ -392,23 +404,23 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="prev-formatura">Previsao formatura<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="prev-formatura" id="prev-formatura">
+                                    <input type="month" class="form-control" placeholder="" name="prev-formatura" id="prev-formatura" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                                 <div class="col">
                                     <label for="periodo">Período<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="periodo" id="periodo">
+                                    <input type="text" class="form-control" placeholder="" name="periodo" id="periodo" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                         
                                 </div>
                                 <div class="col">
                                     <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                    <input type="text" class="form-control" placeholder="" name="duracao" id="duracao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                             </div>
                     
                             <div class="form-row">
                                 <div class="col">
                                     <label for="">DECLARAÇÃO MATRÍCULA<span style="color: red;">*</span></label>
-                                    <input type="file" class="form-control" placeholder="" name="declaracao" id="declaracao">
+                                    <input type="file" class="form-control" placeholder="" name="declaracao" id="declaracao" <?php if(isset($_SESSION['formulario_enviado'])) echo 'disabled'; ?>>
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">

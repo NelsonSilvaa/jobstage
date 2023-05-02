@@ -3,6 +3,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta-se ao banco de dados
     include("../conexao.php");
+    
+    $_SESSION['formulario_enviado'] = false;
 
     $curso_escolaridade = $_POST['curso-escolaridade'];
     $instituicao_escolaridade = $_POST['instituicao-escolaridade'];
