@@ -37,6 +37,10 @@ $user_id = $_SESSION['ID_USUARIO'];
     $resultadoE = mysqli_query($conn, $queryEscolaridade);
     $escQuery = mysqli_fetch_assoc($resultadoE);
 
+    $queryFormacao = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id"; 
+    $resultadoF = mysqli_query($conn, $queryFormacao);
+    $formQuery = mysqli_fetch_assoc($resultadoF);
+
 ?>
 
 
@@ -253,7 +257,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
-                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está  <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
+                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
                                         </div>
                                
                                     </div>
@@ -263,22 +267,22 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <div class="" id="">
                                         <div class="card card-body">
                             
-                                            <form method="post" action="../../src/read-inputs/formacao.php">
+                                            <form method="post" action="../../src/update/updateFormacao.php">
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <label for="curso">Curso<span style="color: red;">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                                        <input type="text" class="form-control" placeholder="" name="curso" id="curso" value="<?php echo $formQuery['CURSO']?>">
                                                     </div>
                                                     <div class="col">
                                                         <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                                                        <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao"  value="<?php echo $formQuery['INSTITUICAO']?>">
                                                     </div>
                                                 </div>
                             
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <label for="nivel">Nível<span style="color: red;">*</span></label>
-                                                        <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
+                                                        <select type="text" class="form-control" name="nivel" id="nivel">
                                                             <option value="AAA">Fundamental</option>
                                                             <option value="ensino médio">Ensino médio</option>
                                                             <option value="tecnico">Técnico</option>
@@ -291,7 +295,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                     </div>
                                                     <div class="col">
                                                         <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                                        <input type="text" class="form-control" placeholder="" name="duracao" id="duracao"  value="<?php echo $formQuery['DURACAO']?>">
                                                     </div>
                                                     <div class="col">
                                                         <label for="status">Status<span style="color: red;">*</span></label>
@@ -303,15 +307,15 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </form>
                                         </div>
                                     </div>
 
                                 </div>
                                     <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
