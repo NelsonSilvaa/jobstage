@@ -50,6 +50,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
+    <script src="../../src/JS/jquery-3.6.4.js"></script>
 </head>
 <body>
 <div class="card">
@@ -186,6 +187,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                    <th scope="col">#</th>
                                     <th scope="col">Nível</th>
                                     <th scope="col">Instituição</th>
                                     <th scope="col">Curso</th>
@@ -196,16 +198,37 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 <tbody>
                                 <!-- LOOP para mostrar cformação cadastrada -->
                                 <?php if($qtd > 0) { 
+                                    $id_table = 1;
                                     while ($row = $res->fetch_object()){    
                                         print "<tr>";
+                                        print    "<td scope='row' data-row-id='$$row->ID_FORMACAO'>".$id_table."</td>";
                                         print    "<td scope='row'>".$row->NIVEL."</td>";
                                         print    "<td>".$row->INSTITUICAO."</td>";
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
                                         print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">EDITAR</button> 
-                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal">Remover</button>
+                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
                                                       '."</td>";
                                         print "</tr>";
+                                        
+                                        print '<div class="modal fade delete-modal-hide" id="deletarModal'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="alert alert-danger" role="alert"  style="width:100%; text-align:center;">
+                                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="modal-footer-deletar">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="excluirLinha(' . $row->ID_FORMACAO . ')" data-dismiss="modal">SIM</button>  
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div> ';
+                                        $id_table += 1;
                                     }
                                 ?>
 
@@ -229,7 +252,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <div class="alert alert-info" role="alert"  style="width:100%;">
+                                        <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
                                             <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está  <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
                                         </div>
                                
@@ -294,24 +317,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         </div>
 
 
-                    <!-- MODAL PARA DELETAR -->
-                    <div class="modal fade" id="deletarModal" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="alert alert-danger" role="alert"  style="width:100%;">
-                                        <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
-                                    </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="modal-footer-deletar">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                    <button type="button" class="btn btn-primary">SIM</button>  
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <!-- FORMULARIO PAR ADICIONAR NOVOS DADOS -->
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
@@ -319,7 +325,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 <form method="post" action="../../src/read-inputs/formacao.php">
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="curso">asdasdasad<span style="color: red;">*</span></label>
+                                            <label for="curso">Curso<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="" name="curso" id="curso">
                                         </div>
                                         <div class="col">
@@ -616,12 +622,13 @@ $user_id = $_SESSION['ID_USUARIO'];
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl"
         crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="jquery-3.6.0.min.js"></script> -->
+    <script src="../../src/JS/app.js"></script>
 </body>
 </html>

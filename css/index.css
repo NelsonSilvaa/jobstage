@@ -16,7 +16,7 @@
     border-radius: 10px solid black;
 }
 
-.table-striped{
+.table-striped .alert{
     text-align: center;
 }
 
@@ -24,7 +24,6 @@
     display: flex;
     justify-content: center;
 }
-
 
 .modal-footer .modal-footer-deletar .btn-danger,
 .modal-footer .btn-secondary
