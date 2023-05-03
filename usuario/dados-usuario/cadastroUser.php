@@ -238,7 +238,6 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         $queryFormacao = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id AND ID_FORMACAO = $row->ID_FORMACAO";
                                         $resultadoF = mysqli_query($conn, $queryFormacao);
                                         $formQuery = mysqli_fetch_assoc($resultadoF);
-
                                         // <!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
                                         print '<div class="modal fade exampleModalCenter" id="exampleModalCenter'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -251,11 +250,11 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                             </div>
                                                         <div class="modal-body">
                                                             
-                        
                                                             <div class="" id="">
                                                                 <div class="card card-body">
                                                     
                                                                     <form method="post" action="../../src/update/updateFormacao.php">
+                                                                        <input type="hidden" name="TIPO" value="EDITAR-FORMACAO">
                                                                         <input type="hidden" name="ID_FORM" value="'. $row->ID_FORMACAO .'">
                                                                         <div class="form-row">
                                                                             <div class="col">
@@ -419,7 +418,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalExp'.$id_table.'">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
-                                        
+                                        // DIV PARA DELETAR LINHAS
                                         print '<div class="modal fade delete-modal-hide" id="deletarModalExp'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -468,6 +467,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         <div class="card card-body">        
 
                                             <form method="post" action="../../src/read-inputs/experiencia.php">
+                                            <input type="hidden" name="TIPO" value="EDITAR-EXPERIENCIA">
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <label for="empresa">Empresa</label>
