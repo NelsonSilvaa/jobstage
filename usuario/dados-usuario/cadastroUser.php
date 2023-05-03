@@ -206,14 +206,15 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     $id_table = 1;
                                     while ($row = $res->fetch_object()){    
                                         print "<tr>";
-                                        print    "<td scope='row' data-row-id='$row->ID_FORMACAO' style='display:;'>".$id_table."</td>";
+                                        print    "<td scope='row' data-row-id='$row->ID_FORMACAO' style='display: none;'>".$id_table."</td>";
                                         print    "<td scope='row'>".$row->NIVEL."</td>";
                                         print    "<td>".$row->INSTITUICAO."</td>";
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
-                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
-                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
-                                                      '."</td>";
+                                        print    "<td>". 
+                                                        '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
+                                               '."</td>";
                                         print "</tr>";
                                         
                                         print '<div class="modal fade delete-modal-hide" id="deletarModal'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
@@ -234,7 +235,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                             </div>
                                         </div> ';
 
-                                        $queryFormacao = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id AND ID_FORMACAO = $row->ID_FORMACAO"; 
+                                        $queryFormacao = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id AND ID_FORMACAO = $row->ID_FORMACAO";
                                         $resultadoF = mysqli_query($conn, $queryFormacao);
                                         $formQuery = mysqli_fetch_assoc($resultadoF);
 
@@ -255,6 +256,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                 <div class="card card-body">
                                                     
                                                                     <form method="post" action="../../src/update/updateFormacao.php">
+                                                                        <input type="hidden" name="ID_FORM" value="'. $row->ID_FORMACAO .'">
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="curso">Curso<span style="color: red;">*</span></label>

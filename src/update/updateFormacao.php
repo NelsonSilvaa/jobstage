@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nivel = $_POST['nivel'];
     $duracao = $_POST['duracao'];
     $status = $_POST['status'];
-   
+    $numeroIdFormacao = $_POST['ID_FORM'];
+
 
  $sqlUpdate = " UPDATE formacao SET 
                 CURSO = '$curso', 
@@ -19,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 NIVEL = '$nivel', 
                 DURACAO = '$duracao', 
                 STATUS = '$status' 
-                WHERE ID_USUARIO = '$user_id'";
+                WHERE ID_USUARIO = '$user_id'
+                AND ID_FORMACAO = '$numeroIdFormacao'";
     
     if (mysqli_query($conn, $sqlUpdate)) {
         header ("location: ../../usuario/dados-usuario/cadastroUser.php");
