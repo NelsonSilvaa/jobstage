@@ -145,3 +145,55 @@ insert into formacao values (...)
 insert into USUARIO_FORMACAO VALUES (ID_USUARIO, ID_FORMACAO)
 
 OBS: achar um jeito de pegar id do usuario no banco de dados da sessão 
+
+
+
+
+
+
+
+
+
+
+
+<?php
+	$id = $_POST['id'];
+
+    isset($id)? $id : $id= 'formacao-tab'
+    
+	// Atualiza a classe "active" do link correspondente ao id da div
+	echo '<ul class="nav nav-tabs" id="myTab" role="tablist">';
+	echo '<li class="nav-item">';
+	echo '<a class="nav-link " id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="false">Dados</a>';
+	echo '</li>';
+	echo '<li class="nav-item">';
+	echo '<a class="nav-link '.($id == '#formacao' ? 'active' : '').'" id="formacao-tab" data-toggle="tab" href="#formacao" role="tab" aria-controls="formacao" aria-selected="false">Formação</a>';
+	echo '</li>';
+	echo '<li class="nav-item">';
+	echo '<a class="nav-link '.($id == '#experiencia' ? 'active' : '').'" id="experiencia-tab" data-toggle="tab" href="#experiencia" role="tab" aria-controls="experiencia" aria-selected="false">Experiência</a>';
+	echo '</li>';
+	echo '<li class="nav-item">';
+	echo '<a class="nav-link '.($id == '#escolaridade' ? 'active' : '').'" id="escolaridade-tab" data-toggle="tab" href="#escolaridade" role="tab" aria-controls="Escolaidade" aria-selected="false">Escolaridade</a>';
+	echo '</li>';
+	echo '<li class="nav-item">';
+	echo '<a class="nav-link '.($id == '#cursos' ? 'active' : '').'" id="cursos-tab" data-toggle="tab" href="#cursos" role="tab" aria-controls="cursos" aria-selected="false">Cursos</a>';
+	echo '</li>';
+	echo '</ul>';
+	?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

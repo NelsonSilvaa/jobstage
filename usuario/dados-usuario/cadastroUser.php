@@ -37,7 +37,6 @@ $user_id = $_SESSION['ID_USUARIO'];
     $resultadoE = mysqli_query($conn, $queryEscolaridade);
     $escQuery = mysqli_fetch_assoc($resultadoE);
 
-
     
 
 ?>
@@ -63,16 +62,16 @@ $user_id = $_SESSION['ID_USUARIO'];
     <div class="container-dados">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="true">Dados</a>
+                <a class="nav-link active" id="dados-tab" data-toggle="tab" href="#dados" role="tab" aria-controls="dados" aria-selected="false">Dados</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" id="formacao-tab" data-toggle="tab" href="#formacao" role="tab" aria-controls="formacao" aria-selected="false">Formação</a>
+                <a class="nav-link " id="formacao-tab" data-toggle="tab" href="#formacao" role="tab" aria-controls="formacao" aria-selected="false">Formação</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" id="experiencia-tab" data-toggle="tab" href="#experiencia" role="tab" aria-controls="experiencia" aria-selected="false">Experiência</a>
+                <a class="nav-link" id="experiencia-tab" data-toggle="tab" href="#experiencia" role="tab" aria-controls="experiencia" aria-selected="false">Experiência</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" id="escolaridade-tab" data-toggle="tab" href="#escolaridade" role="tab" aria-controls="Escolaidade" aria-selected="false">Escolaridade</a>
+                <a class="nav-link" id="escolaridade-tab" data-toggle="tab" href="#escolaridade" role="tab" aria-controls="Escolaidade" aria-selected="false">Escolaridade</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="cursos-tab" data-toggle="tab" href="#cursos" role="tab" aria-controls="cursos" aria-selected="false">Cursos</a>
@@ -646,18 +645,109 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <th scope="col">Instituição</th>
                                     <th scope="col">Nome</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Opção</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php if($qtd > 0) { 
+                                        $id_table = 1;
                                     while ($row = $res->fetch_object()){    
                                         print "<tr>";
-                                        print    "<td scope='row'>".$row->NIVEL_TECNICO."</td>";
-                                        print    "<td>".$row->INSTITUICAO."</td>";
-                                        print    "<td>".$row->NOME."</td>";
-                                        print    "<td>".$row->STATUS."</td>";
-                                        print    "<td>"."EDITAR"."</td>";
+                                        print    "<td scope='row' data-row-id='$row->ID_CURSO' style='display: none;'>".$id_table."</td>";
+                                        print   "<td scope='row'>".$row->NIVEL_TECNICO."</td>";
+                                        print   "<td>".$row->INSTITUICAO."</td>";
+                                        print   "<td>".$row->NOME."</td>";
+                                        print   "<td>".$row->STATUS."</td>";
+                                        print    "<td>". 
+                                                    '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModalCurso'.$id_table.'">EDITAR</button> 
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalCurso'.$id_table.'">REMOVER</button>
+                                                '."</td>";
                                         print "</tr>";
+                                        
+                                        print '<div class="modal fade delete-modal-hide" id="deletarModalCurso'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="alert alert-danger" role="alert"  style="width:100%; text-align:center;">
+                                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="modal-footer-deletar">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="excluirLinha(' . $row->ID_CURSO . ')" data-dismiss="modal">SIM</button>  
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div> ';
+                                        
+                                        $queryCurso = "SELECT * FROM curso_extra WHERE ID_USUARIO = $user_id AND ID_CURSO = $row->ID_CURSO"; 
+                                        $resultadoC_E = mysqli_query($conn, $queryCurso);
+                                        $cursoExpQuery = mysqli_fetch_assoc($resultadoC_E);
+                                        
+                                        // MODAL PARA EDITAR DADOS
+                                        print '<div class="modal fade exampleModalCenter" id="editModalCurso'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                                                                    <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
+                                                                </div>
+                                                    
+                                                            </div>
+                                                        <div class="modal-body">
+                                                            
+                                                            <div class="" id="">
+                                                                <div class="card card-body">
+                                                    
+                                                                    <form method="post" action="../../src/update/updateFormularios.php">
+                                                                        <input type="hidden" name="TIPO" value="EDITAR-FORMACAO">
+                                                                        <input type="hidden" name="ID_FORM" value="'. $row->ID_CURSO .'">
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <label for="nome-curso">Nome</label>
+                                                                                <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-curso" value='.$cursoExpQuery['NOME'].'>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label for="instituicao-curso">Instituição</label>
+                                                                                <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-curso" value='.$cursoExpQuery['INSTITUICAO'].'>
+                                                                            </div>
+                                                                        </div>
+                                                                
+                                                                        <div class="form-row">
+                                                                            <div class="col">
+                                                                                <label for="status-curso">Status</label>
+                                                                                <select type="text" class="form-control" placeholder="" name="status-curso" id="status-curso"required>
+                                                                                    <option value=""></option>
+                                                                                    <option value="completo">Completo</option>
+                                                                                    <option value="em andamento">Em andamento</option>
+                                                                                    <option value="interrompido">Interrompido</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label for="duracao-curso">Duração</label>
+                                                                                <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-curso" value='.$cursoExpQuery['DURACAO'].'>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label for="n-tecnico">Nivel Técnico</label>
+                                                                                <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnico" value='.$cursoExpQuery['NIVEL_TECNICO'].'>
+                                                                            </div>
+                                                                            
+                                                                        </div>                                                                       
+                                                                </div>
+                                                            </div>
+                        
+                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>';
+                                        $id_table += 1;
                                     }
                                 ?>
                                 </tbody>
