@@ -702,8 +702,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                 <div class="card card-body">
                                                     
                                                                     <form method="post" action="../../src/update/updateFormularios.php">
-                                                                        <input type="hidden" name="TIPO" value="EDITAR-FORMACAO">
-                                                                        <input type="hidden" name="ID_FORM" value="'. $row->ID_CURSO .'">
+                                                                        <input type="hidden" name="TIPO" value="EDITAR-CURSO">
+                                                                        <input type="hidden" name="ID_CURSO" value="'. $row->ID_CURSO .'">
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="nome-curso">Nome</label>

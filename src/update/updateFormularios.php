@@ -81,7 +81,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         break;
         case 'EDITAR-CURSO';
 
-        break;
+            $nome_curso = $_POST['nome-curso'];
+            $instituicao_curso = $_POST['instituicao-curso'];
+            $status_curso = $_POST['status-curso'];
+            $duracao_curso = $_POST['duracao-curso'];
+            $n_tecnico = $_POST['n-tecnico'];
+            $numeroIdCurso = $_POST['ID_CURSO'];
+        
+            $sqlUpdate = "UPDATE curso_extra SET
+                          NOME = '$nome_curso',
+                          INSTITUICAO = '$instituicao_curso',
+                          STATUS = '$status_curso',
+                          DURACAO = '$duracao_curso',
+                          NIVEL_TECNICO = '$n_tecnico'
+                          WHERE ID_USUARIO = '$user_id'
+                          AND ID_CURSO = '$numeroIdCurso'";
+            
+            if (mysqli_query($conn, $sqlUpdate)) {
+                header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+            } else {
+            // Erro ao inserir dados
+            echo "Erro ao inserir dados";
+            }
+        
+        
+            // Fechar a conexão com o banco de dados
+            mysqli_close($conn);
         default;
             
         break;
