@@ -8,20 +8,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // leitura do tipo de formulario que será editdo
     $tipo = $_POST['TIPO']; 
 
+    $user_id = $_SESSION['ID_USUARIO'];
+
     switch($tipo){
         case 'EDITAR-DADOS';
 
         break;
         case 'EDITAR-FORMACAO';
 
-            $user_id = $_SESSION['ID_USUARIO'];
+           
             $curso = $_POST['curso'];
             $instituicao = $_POST['instituicao'];
             $nivel = $_POST['nivel'];
             $duracao = $_POST['duracao'];
             $status = $_POST['status'];
             $numeroIdFormacao = $_POST['ID_FORM'];
-
 
             $sqlUpdate = " UPDATE formacao SET 
                             CURSO = '$curso', 
@@ -43,6 +44,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         break;
         case 'EDITAR-EXPERIENCIA';
+
+            $empresa = $_POST['empresa'];
+            $cargo = $_POST['cargo'];
+            $inicio = $_POST['data-inicio'];
+            $fim = $_POST['data-fim'];
+            $tipo_contrato = $_POST['tipo_contrato'];
+            $atividades = $_POST['atividades'];
+            $numeroIdExperiencia = $_POST['ID_EXP'];
+    
+            $sqlUpdate = "UPDATE experiencia SET
+                          EMPRESA = '$empresa',
+                          CARGO = '$cargo',
+                          INICIO = '$inicio',
+                          FIM = '$fim',
+                          TIPO_CONTRATO = '$tipo_contrato',
+                          ATIVIDADES = '$atividades'
+                          WHERE ID_USUARIO = '$user_id'
+                          AND ID_EXPERIENCIA = '$numeroIdExperiencia'";
+        
+            if (mysqli_query($conn, $sqlUpdate)) {
+                header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+            } else {
+            // Erro ao inserir dados
+            echo "Erro ao inserir dados " . mysqli_error($conn);
+            }
+        
+        
+            // Fechar a conexão com o banco de dados
+            mysqli_close($conn);
+
 
         break;
         case 'EDITAR-ESCOLARIDADE';

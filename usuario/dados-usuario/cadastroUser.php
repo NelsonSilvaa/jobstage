@@ -38,9 +38,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     $escQuery = mysqli_fetch_assoc($resultadoE);
 
 
-    $queryEXP = "SELECT * FROM experiencia WHERE ID_USUARIO = $user_id"; 
-    $resultadoExp = mysqli_query($conn, $queryEXP);
-    $expQuery = mysqli_fetch_assoc($resultadoExp);
+    
 
 ?>
 
@@ -253,7 +251,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                             <div class="" id="">
                                                                 <div class="card card-body">
                                                     
-                                                                    <form method="post" action="../../src/update/updateFormacao.php">
+                                                                    <form method="post" action="../../src/update/updateFormularios.php">
                                                                         <input type="hidden" name="TIPO" value="EDITAR-FORMACAO">
                                                                         <input type="hidden" name="ID_FORM" value="'. $row->ID_FORMACAO .'">
                                                                         <div class="form-row">
@@ -329,7 +327,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         
 
                    
-                    <!-- FORMULARIO PAR ADICIONAR NOVOS DADOS -->
+                        <!-- FORMULARIO PAR ADICIONAR NOVOS DADOS -->
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                             
@@ -414,10 +412,11 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->TIPO_CONTRATO."</td>";
                                         print    "<td>".$row->INICIO."</td>";
                                         print    "<td>".$row->FIM."</td>";
-                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditEXP">EDITAR</button> 
+                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalExp'.$id_table.'">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
+
                                         // DIV PARA DELETAR LINHAS
                                         print '<div class="modal fade delete-modal-hide" id="deletarModalExp'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -436,8 +435,78 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 </div>
                                             </div>
                                         </div> ';
+
+                                        $queryEXP = "SELECT * FROM experiencia WHERE ID_USUARIO = $user_id AND ID_EXPERIENCIA =  $row->ID_EXPERIENCIA"; 
+                                        $resultadoExp = mysqli_query($conn, $queryEXP);
+                                        $expQuery = mysqli_fetch_assoc($resultadoExp);
+
+                                        // MODAL PARA ATUALIZAR DADOS 
+                                        print  '<div class="modal fade ModalEditEXP" id="ModalEditEXP'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                                                                    <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
+                                                                </div>
+                                                    
+                                                            </div>
+                                                        <!-- modal - body -->
+                                                        <div class="modal-body">
+                                                            <div class="" id="">
+                                                                <div class="card card-body">        
+                        
+                                                                <form method="post" action="../../src/update/updateFormularios.php">
+                                                                <input type="hidden" name="TIPO" value="EDITAR-EXPERIENCIA">
+                                                                <input type="hidden" name="ID_EXP" value="'. $row->ID_EXPERIENCIA .'">
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="empresa">Empresa</label>
+                                                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresa" value="'.$expQuery['EMPRESA'].'">
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="cargo">Cargo</label>
+                                                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargo" value="'.$expQuery['CARGO'].'">
+                                                                        </div>
+                                                                    </div>
+                                                            
+                                                                    <div class="form-row">
+                                                                        <div class="col">
+                                                                            <label for="data-inicio">Inicio</label>
+                                                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio" value="'.$expQuery['INICIO'].'">
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="data-fim">Fim</label>
+                                                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fim"value="'. $expQuery['FIM'].'" >
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <label for="tipo_contrato">Tipo contrato</label>
+                                                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" value="'.$expQuery['TIPO_CONTRATO'].'">
+                                                                                <option value=""></option>
+                                                                                <option value="CLT">CLT</option>
+                                                                                <option value="PJ">PJ</option>
+                                                                                <option value="estagio">Estágio</option>
+                                                                                <option value="temporario">Temporário</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                            
+                                                                    <div class="form-group">
+                                                                        <label for="atividades">Atividades</label>
+                                                                        <textarea class="form-control" name="atividades" id="atividades" rows="3" value="'. $expQuery['ATIVIDADES'].'"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                            <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>';
                                         $id_table += 1;
-                                        print "</tr>";
+                                        
                                     }
                                     ?>
                                     </tbody>
@@ -451,72 +520,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 Nova Experiência
                             </a>
                         </p>
-                        <!-- MODAL PARA ATUALIZAR DADOS -->
-                        <div class="modal fade ModalEditEXP" id="ModalEditEXP" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
-                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> você está <a style="text-decoration:none;" class="alert-link">EDITANDO</a> essas informações!
-                                        </div>
-                               
-                                    </div>
-                                    <!-- modal - body -->
-                                <div class="modal-body">
-                                    <div class="" id="">
-                                        <div class="card card-body">        
-
-                                            <form method="post" action="../../src/read-inputs/experiencia.php">
-                                            <input type="hidden" name="TIPO" value="EDITAR-EXPERIENCIA">
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <label for="empresa">Empresa</label>
-                                                        <input type="text" class="form-control" placeholder="" name="empresa" id="empresa" value="<?php echo $expQuery['EMPRESA']?>">
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="cargo">Cargo</label>
-                                                        <input type="text" class="form-control" placeholder="" name="cargo" id="cargo" value="<?php echo $expQuery['CARGO']?>">
-                                                    </div>
-                                                </div>
-                                        
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <label for="data-inicio">Inicio</label>
-                                                        <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio" value="<?php echo $expQuery['INICIO']?>">
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="data-fim">Fim</label>
-                                                        <input type="date" class="form-control" placeholder="" name="data-fim" id="fim"value="<?php echo $expQuery['FIM']?>" >
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="tipo_contrato">Tipo contrato</label>
-                                                        <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" value="<?php echo $expQuery['TIPO_CONTRATO']?>">
-                                                            <option value=""></option>
-                                                            <option value="CLT">CLT</option>
-                                                            <option value="PJ">PJ</option>
-                                                            <option value="estagio">Estágio</option>
-                                                            <option value="temporario">Temporário</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                        
-                                                <div class="form-group">
-                                                    <label for="atividades">Atividades</label>
-                                                    <textarea class="form-control" name="atividades" id="atividades" rows="3" value="<?php echo $expQuery['ATIVIDADES']?>"></textarea>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-primary">Salvar</button>
-                                    </div>
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-
+                        
 
                         <!-- FORMULARIO PARA INSERIR DADOS -->
                         <div class="collapse" id="collapseExample">
