@@ -225,7 +225,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
                                                         <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="excluirLinha(' . $row->ID_FORMACAO . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')" data-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>
@@ -428,7 +428,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
                                                         <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="excluirLinha(' . $row->ID_EXPERIENCIA . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')" data-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>
@@ -675,7 +675,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
                                                         <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="excluirLinha(' . $row->ID_CURSO . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarCurso(' . $row->ID_CURSO . ')" data-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>

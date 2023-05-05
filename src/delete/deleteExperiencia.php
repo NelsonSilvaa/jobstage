@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     $id_linha = $_POST['id_linha'];
 
-    $sql_delete = "DELETE FROM formacao WHERE ID_FORMACAO = '$id_linha'";
+    $sql_delete = "DELETE FROM experiencia WHERE ID_EXPERIENCIA = '$id_linha'";
 
     if (mysqli_query($conn, $sql_delete)) {
         header ("location: ../../usuario/dados-usuario/cadastroUser.php");
