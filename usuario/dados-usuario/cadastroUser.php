@@ -4,7 +4,7 @@ session_start();
     if(empty($_SESSION)){
         header("Location: ../../index.php");
     }
-    include("../configs/conexao.php");
+    include("../../src/configs/conexao.php");
 
 $user_id = $_SESSION['ID_USUARIO'];
 
@@ -43,7 +43,7 @@ $user_id = $_SESSION['ID_USUARIO'];
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,11 +65,11 @@ $user_id = $_SESSION['ID_USUARIO'];
     <div class="navegacao">
         <nav class="navbar">
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Dados</a></li>
-            <li><a href="#">Vagas</a></li>
-            <li><a href="#">Candidaturas</a></li>
-            <li><a href="#">Currículo</a></li>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="cadastroUser.php">Dados</a></li>
+            <li><a href="../vagas.php">Vagas</a></li>
+            <li><a href="../candidaturas.php">Candidaturas</a></li>
+            <li><a href="curriculo.html">Currículo</a></li>
             <li style="background-color: red;"> <a href="../../src/logout.php">Sair</a></li>
         </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
                         <h4>Tela de Login</h4>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="./src/login.php">
+                        <form method="post" action="./src/configs/login.php">
                             <div class="form-group">
                                 <label for="usuario">Login</label>
                                 <input type="text" class="form-control" id="login" name="usuario" placeholder="Digite seu login">
