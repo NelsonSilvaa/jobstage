@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta-se ao banco de dados
-    include("../conexao.php");
+    include("../configs/conexao.php");
 
    
     $id_linha = $_POST['id_linha'];

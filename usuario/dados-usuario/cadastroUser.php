@@ -4,7 +4,7 @@ session_start();
     if(empty($_SESSION)){
         header("Location: ../../index.php");
     }
-    include("../../src/conexao.php");
+    include("../configs/conexao.php");
 
 $user_id = $_SESSION['ID_USUARIO'];
 

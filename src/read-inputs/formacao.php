@@ -3,7 +3,7 @@ session_start();
 // Verifica se os dados foram submetidos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta-se ao banco de dados
-    include("../conexao.php");
+    include("../configs/conexao.php");
 
     $user_id = $_SESSION['ID_USUARIO'];
     $curso = $_POST['curso'];
