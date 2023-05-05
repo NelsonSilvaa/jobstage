@@ -51,14 +51,30 @@ $user_id = $_SESSION['ID_USUARIO'];
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/layout.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
 </head>
 <body>
-<div class="card">
+<header>
+    <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
+</header>
+
+<div class="sec-dados">
+    
+    <div class="navegacao">
+        <nav class="navbar">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Dados</a></li>
+            <li><a href="#">Vagas</a></li>
+            <li><a href="#">Candidaturas</a></li>
+            <li><a href="#">Currículo</a></li>
+            <li style="background-color: red;"> <a href="../../src/logout.php">Sair</a></li>
+        </ul>
+    </div>
 
 
-<div class="container">
     <div class="container-dados">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -211,7 +227,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>". 
                                                         '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
                                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
-                                               '."</td>";
+                                            '."</td>";
                                         print "</tr>";
                                         
                                         print '<div class="modal fade delete-modal-hide" id="deletarModal'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
@@ -325,7 +341,7 @@ $user_id = $_SESSION['ID_USUARIO'];
 
                         
 
-                   
+                
                         <!-- FORMULARIO PAR ADICIONAR NOVOS DADOS -->
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
@@ -514,7 +530,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <?php 
                             }else{ echo '<p style="color: red; font-size:20px">Nenhuma experiência encontrada!</p>';}
                             ?>
-                         <p>
+                        <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova Experiência
                             </a>
@@ -807,14 +823,12 @@ $user_id = $_SESSION['ID_USUARIO'];
             </div>
         </div>
     </div>
+    
 </div>
-        
 
 
 
-
-
-        <a href="../../src/logout.php"><button type="submit" class="btn btn-danger btn-lg btn-block" value="enviar">Sair</button><a>
+       
     
 
 

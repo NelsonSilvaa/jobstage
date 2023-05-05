@@ -7,6 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/layout.css"/>
 </head>
 <body>
 <header>
@@ -27,9 +28,6 @@
 </section>
 
 <section id="secont-section" class="second-section">
-
-
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
