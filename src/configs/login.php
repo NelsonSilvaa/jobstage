@@ -24,7 +24,7 @@
     if($qtde > 0){
         $_SESSION["ID_USUARIO"] = $row->ID_USUARIO; // Armazena o ID do usuário na sessão
         $_SESSION["usuario"] = $usuario;
-        header ("location: ../../usuario/index.html");
+        header ("location: ../../empresas/cadastro-vagas.php");
         exit();
     }else{
         echo "<script> alert('erro') </scrip>";

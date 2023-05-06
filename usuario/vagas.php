@@ -50,20 +50,20 @@ session_start();
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                        <h5 class="card-title">NOME DA EMPRESA</h5>
+                        <h5 class="card-title">NOME DA VAGA</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">
                                 <ul>
-                                    <li>Setor:{informação do banco}</li>
+                                    <li>Nome Empresa:{informação do banco}</li>
                                     <li>Turno:{informação do banco}</li>
                                     <li>Bairro:{informação do banco}</li>
-                                    <li>Bolsa:{informação do banco}</li>
+                                    <li>Salario:{informação do banco}</li>
                                     <li>beneficio:VT/VR/VA/Home-Office/Hibrido/Day Off</li>
                                 </ul>
                                 </div>
-                            </div>
+                            </div>p
                             <div class="row">
                                 <div class="col-sm-12">
                                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#aaa" aria-expanded="false" aria-controls="aaa">
