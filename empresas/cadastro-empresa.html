@@ -7,6 +7,107 @@
     <title>Cadastro empresas</title>
 </head>
 <body>
-    
+    <a href="../src/JS/jquery-3.6.4.js"
 </body>
 </html>
+
+
+
+
+<form>
+    <div class="form-row">
+        <div class="col">
+            <label for="nomeVaga">Nome da vaga<span style="color: red;">*</span> </label>
+            <input type="text" class="form-control" placeholder="Nome da vaga" name="nomeVaga" id="nomeVaga" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="turno">Turno<span style="color: red;">*</span> </label>
+            <select type="text" class="form-control" placeholder="abc" name="turno" id="turno">
+                <option value=""></option>
+                <option value="Manhã"></option>
+                <option value="Tarde"></option>
+                <option value="Noite"></option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="turnoDas">Das<span style="color: red;">*</span> </label>
+            <input type="time" class="form-control"  name="turnoDas" id="turnoDas" required>
+        </div>
+        <div class="col">
+            <label for="turnoAte">Até<span style="color: red;">*</span> </label>
+            <input type="time" class="form-control" name="turnoAte" id="turnoAte" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="cidade">Cidade<span style="color: red;">*</span> </label>
+            <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" required>
+        </div>
+        <div class="col">
+            <label for="estado">Estado<span style="color: red;">*</span> </label>
+            <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" required>
+                <option value=""></option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="salario">Salário<span style="color: red;"></span> </label>
+            <input type="text" class="form-control" placeholder="Salário" name="salario" id="salario">
+        </div>
+        <div class="col">
+            <label for="contrato">Tipo de contrato<span style="color: red;">*</span> </label>
+            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" value="'.$expQuery['TIPO_CONTRATO'].'">
+                <option value=""></option>
+                <option value="CLT">CLT</option>
+                <option value="PJ">PJ</option>
+                <option value="estagio">Estágio</option>
+                <option value="temporario">Temporário</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="atividades">Atividades<span style="color: red;">*</span> </label>
+            <textarea class="form-control" name="atividades" id="atividades" rows="3" required></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+          <label for="requisitos">Requisitos:<span style="color: red;"></span> </label>
+          <textarea class="form-control" name="requisitos" id="requisitos" rows="3" required></textarea>
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+    </div>
+  </form>
