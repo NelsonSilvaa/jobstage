@@ -47,7 +47,7 @@
           <li><a href="editar-vagas.php">> Editar vagas</a></li>
           <li><a href="../candidaturas.php">Candidaturas</a></li>
           <li><a href="curriculo.php">Funcionários</a></li>
-          <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
+          <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
       </ul>
   </div>
 

@@ -10,7 +10,6 @@ header{
   .sec-dados{
     display: flex;
     flex-direction: row;
-    background-color: rgb(15, 204, 72);
     justify-content: space-between;
   }
   
@@ -76,4 +75,27 @@ header{
   text-overflow: ellipsis;
 }
 
-  
+.login-cadastro{
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: black;
+}
+
+.login, .cadastro{
+  display: inline-block;
+  width: 50%; 
+  background-color: rgb(0, 0, 0);
+}
+
+.conteudo-login{
+  display: flex;
+  justify-content: center;
+}
+
+.card-header{
+  text-align: center;
+}

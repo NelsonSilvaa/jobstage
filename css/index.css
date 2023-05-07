@@ -10,10 +10,22 @@
     background-color: rgb(82, 212, 202);
 }
 
+.second-section{
+    height: 80vh;
+}
+
 .container-dados{
     padding: 10px;
     margin: 10% 0 0 0;
     border-radius: 10px solid black;
+}
+
+.container-dados-login{
+    position: absolute;
+    top:30%;
+    left: 30%;
+    right: 30%;
+    max-width: 750px;
 }
 
 .table-striped .alert{
@@ -35,4 +47,25 @@
 .modal-footer button
 {
     width: 100px;
+}
+
+.form-group a{
+    color: blue;
+    text-decoration: underline;
+}
+
+.wallpaper-user{
+    background-image: url(../img/wallpaper-login-user.jpg);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.wallpaper-empresa{
+    background-image: url(../img/wallpaper-login-empresa.jpg);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    height: 100vh;
 }
