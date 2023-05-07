@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
     <link rel="stylesheet" type="text/css" href="../../css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/validacoes.css">
+    <link rel="stylesheet" type="text/css" href="../../css/sweetalert2.css">
+
 </head>
 <body>
 <header>
@@ -21,20 +24,22 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>asd</h4>
+                        <h4>LOGIN</h4>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="./src/configs/login.php">
+                        <form>
                             <div class="form-group">
                                 <label for="usuario">Login</label>
                                 <input type="text" class="form-control" id="login" name="usuario" placeholder="Digite seu email">
+                                <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
                             </div>
                             <div class="form-group">
                                 <label for="senha">Senha</label>
                                 <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+                                <span id="senha-error" style="display:none; color:red;">Campo obrigatório!</span>
                                 <a href="">Esqueceu a senha?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="alert()">Entrar</button>
                         </form>
                     </div>
                 </div>
@@ -48,5 +53,7 @@
         integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../../src/JS/processos.js"></script>
+<script src="../../src/JS/swetalert2.js"></script>
 </body>
 </html>
