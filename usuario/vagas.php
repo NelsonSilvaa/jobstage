@@ -32,7 +32,7 @@ session_start();
 <div class="sec-dados">
     
     <div class="navegacao">
-        <nav class="navbar">
+        <nav class="navbarP">
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="./dados-usuario/cadastroUser.php">Dados</a></li>

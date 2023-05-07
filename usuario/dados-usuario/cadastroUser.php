@@ -2,7 +2,7 @@
 session_start();
 
     if(empty($_SESSION)){
-        header("Location: ../../index.php");
+        header("Location: ../../index.html");
     }
     include("../../src/configs/conexao.php");
 
@@ -63,14 +63,14 @@ $user_id = $_SESSION['ID_USUARIO'];
 <div class="sec-dados">
     
     <div class="navegacao">
-        <nav class="navbar">
+        <nav class="navbarP">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.php">Inicio</a></li>
             <li><a href="cadastroUser.php">Dados</a></li>
             <li><a href="../vagas.php">Vagas</a></li>
             <li><a href="../candidaturas.php">Candidaturas</a></li>
-            <li><a href="curriculo.html">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../../src/logout.php">Sair</a></li>
+            <li><a href="curriculo.php">Currículo</a></li>
+            <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
         </ul>
     </div>
 

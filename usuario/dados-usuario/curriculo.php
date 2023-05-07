@@ -2,9 +2,9 @@
 session_start();
 
     if(empty($_SESSION)){
-        header("Location: ../../index.php");
+        header("Location: ../../index.html");
     }
-    include("../src/configs/conexao.php");
+    include("../../src/configs/conexao.php");
 
     $user_id = $_SESSION['ID_USUARIO'];
 
@@ -17,10 +17,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/layout.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <a href="../../index.html"
 </head>
 <body>
 <header>
@@ -30,20 +31,19 @@ session_start();
 <div class="sec-dados">
     
     <div class="navegacao">
-        <nav class="navbar">
+        <nav class="navbarP">
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="./dados-usuario/cadastroUser.php">Dados</a></li>
-            <li><a href="vagas.php">Vagas</a></li>
-            <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.html">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="cadastroUser.php">Dados</a></li>
+            <li><a href="../vagas.php">Vagas</a></li>
+            <li><a href="../candidaturas.php">Candidaturas</a></li>
+            <li><a href="curriculo.php">Currículo</a></li>
+            <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
         </ul>
     </div>
 
     <div class="container-dados">
-        <h1>SEJA BEM VINDO A JOBSTAGE!!!</h1>
-        <p>complete seu perfil na aba de dados para poder visualizar novas vagas de estágio!</p>
+        <h1>CURRICULO</h1>
     </div>
     
     

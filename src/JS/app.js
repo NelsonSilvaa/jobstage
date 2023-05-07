@@ -1,3 +1,5 @@
+// REQUISIÇÕES AJAX
+
 function deletarFormacao(row_id) {
   console.log(row_id);
   // Faz uma requisição AJAX para o servidor PHP
@@ -50,6 +52,24 @@ function deletarCurso(row_id) {
     },
     error: function() {
       alert('Erro ao se comunicar com o servidor!');
+    }
+  });
+};
+
+
+
+function loginEmpresa(){
+  $.ajax({
+    url: '',
+    type: 'POST',
+    data: { 
+            
+          },
+    success: function(data) {
+        
+    },
+    error: function() {
+      
     }
   });
 };
