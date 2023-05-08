@@ -1,6 +1,8 @@
 <?php
     session_start();
     
+    header("Cache-Control: no-cache, no-store, must-revalidate");
+
     include ('conexao.php');
 
     $tipo_login = $_POST['tipo_login']; // LofinUser ou LoginEmpresa
@@ -19,16 +21,12 @@ switch ($tipo_login){
         $login = $_POST['login'];
         $senha = $_POST['senha'];
        
-
         $sql =  "SELECT ID_USUARIO FROM usuario
                 WHERE email ='$login'
                 AND senha = '$senha'";
 
-
         $res = $conn->query($sql) or die($conn->error);
-
         $row = $res->fetch_object();
-
         $qtde = $res->num_rows;
 
         if($qtde > 0){
@@ -53,9 +51,7 @@ switch ($tipo_login){
 
 
         $res = $conn->query($sql) or die($conn->error);
-
         $row = $res->fetch_object();
-
         $qtde = $res->num_rows;
 
         if($qtde > 0){

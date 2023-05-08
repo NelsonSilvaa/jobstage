@@ -228,7 +228,7 @@ function cadEmpresa(){
         var nome = $('#nomeEmpresa').val();
         var cnpj = $('#cnpj').val();
         var email = $('#email').val();
-        
+        var tipoCad = $('#tipoCad').val();
         
         $.ajax({
             url: 'http://localhost/jobstage/src/configs/novoCadastro.php',
@@ -238,10 +238,12 @@ function cadEmpresa(){
                     cnpj: cnpj,
                     email: email,
                     senha: s1,
+                    tipo:tipoCad,
                 },
             dataType: "json",
             success: function(response) {
                 if (response.success) {
+                    $('input').val("");
                     Swal.fire(
                         'Cadastro criado com sucesso!',
                         response.message,
@@ -250,6 +252,7 @@ function cadEmpresa(){
                         window.location.replace(response.redirect);
                     });
                   } else {
+                    $('#formEmpresa')[0].reset();
                     Swal.fire({
                         icon: 'info',
                         title: 'CNPJ já existe!',
@@ -259,4 +262,98 @@ function cadEmpresa(){
                   }
             },
         });
+}
+
+
+function cadUser(){
+    event.preventDefault();
+    var emailInput = document.querySelector('#email');
+    var emailEror = document.querySelector('#email-error');
+
+    var senha01input = document.querySelector('#senha01');
+    var senha01error = document.querySelector('#senha01-error');
+    var senha01ErrorIgual = document.querySelector('#senha01-error-igual');
+
+    var senha02input = document.querySelector('#senha02');
+    var senha02Error = document.querySelector('#senha02-error');
+    var senha02ErrorIgual = document.querySelector('#senha02-error-igual');
+
+
+    emailInput.classList.add('error');
+    emailEror.style.display = 'block';
+
+    senha01input.classList.add('error');
+    senha01error.style.display = 'block';
+
+    senha02input.classList.add('error');
+    senha02Error.style.display = 'block';
+
+    if(emailInput.value.trim() !== ''){
+        emailInput.classList.remove('error');
+        emailEror.style.display = 'none';
+    }
+
+    if(senha01.value.trim() !== '' || senha02.value.trim() !== ''){
+        event.preventDefault();
+        senha01.classList.remove('error');
+        senha01error.style.display = 'none';
+        senha02.classList.remove('error');
+        senha02Error.style.display = 'none';
+        
+        var s1 = $('#senha01').val();
+        var s2 = $('#senha02').val();
+        
+        if(s1 !== s2){
+            
+            senha01.classList.add('error');
+            senha01ErrorIgual.style.display = 'block';
+
+            senha02.classList.add('error');
+            senha02ErrorIgual.style.display = 'block';
+            return;
+        }else{
+            senha01.classList.remove('error');
+            senha01ErrorIgual.style.display = 'none';
+
+            senha02.classList.remove('error');
+            senha02ErrorIgual.style.display = 'none';
+        }
+
+
+    }
+
+    var email = $('#email').val();
+    var tipoCad = $('#tipoCad').val();
+    
+    $.ajax({
+        url: 'http://localhost/jobstage/src/configs/novoCadastro.php',
+        type: 'POST',
+        data: { 
+                email: email,
+                senha: s1,
+                tipo:tipoCad,
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                $('input').val("");
+                Swal.fire(
+                    'E-mail já existe!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              } else {
+                $('input').val("");
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Conta já cadastrada!',
+                    text: response.message,
+                    footer: '<a href="../../usuario/acesso/login-usuario.html">Clique aqui para entrar!</a>'
+                  })
+              }
+        },
+    });
+
 }

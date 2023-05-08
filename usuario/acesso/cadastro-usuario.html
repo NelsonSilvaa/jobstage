@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/sweetalert2.css">
+    <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
 </head>
 <body>
@@ -25,24 +27,31 @@
                 </div>
                 <div class="card"  style="padding: 10px;">
                     <form>
+                        <input type="hidden" id="tipoCad" value="cadUser">
                         <div class="form-row">
                             <div class="col">
                                 <label for="email">Email:<span style="color: red;">*</span> </label>
-                                <input type="email" class="form-control" placeholder="Digite seu email" name="email" id="email" required>
+                                <input type="email" class="form-control" placeholder="Digite seu email" name="email" id="email"  autocomplete="off">
+                                <span id="email-error" style="display:none; color:red;">Campo obrigatório!</span>
+
                             </div>
                         </div>
                         <div class="form-row" style="padding-top: 13px;">
                             <div class="col">
                                 <label for="senha01">Senha:<span style="color: red;">*</span> </label>
-                                <input type="password" class="form-control" placeholder="Digite uma senha" name="senha01" id="senha01" required>
+                                <input type="password" class="form-control" placeholder="Digite uma senha" name="senha01" id="senha01"  autocomplete="off">
+                                <span id="senha01-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                <span id="senha01-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
                             </div>
                             <div class="col">
                                 <label for="senha02">Confirmar senha:<span style="color: red;">*</span> </label>
-                                <input type="password" class="form-control" placeholder="Confirme a senha" name="senha02" id="senha02" required>
+                                <input type="password" class="form-control" placeholder="Confirme a senha" name="senha02" id="senha02"  autocomplete="off">
+                                <span id="senha02-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                <span id="senha02-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
                             </div>
                         </div>
                         <div style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="cadUser()">Entrar</button>
                         </div>
                         
                     </form>
@@ -55,14 +64,13 @@
             </div>
         </div>
     </section>
-
+    <script src="../../src/JS/jquery-3.6.4.js"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl"
         crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
 </body>
