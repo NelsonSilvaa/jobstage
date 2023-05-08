@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+    if(empty($_SESSION)){
+        header("Location: ../index.html");
+    }
+    include("../src/configs/conexao.php");
+
+    $empresa_id = $_SESSION['ID_EMPRESA'];
+
+    die($empresa_id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
