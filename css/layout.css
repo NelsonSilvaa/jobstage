@@ -99,3 +99,17 @@ header{
 .card-header{
   text-align: center;
 }
+
+.footer-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.footer-login p{
+  padding: 2px;
+  margin-bottom: 0px !important;
+  color: rgb(108, 108, 108);
+}
