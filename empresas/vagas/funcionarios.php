@@ -23,7 +23,6 @@ session_start();
     <link rel="stylesheet" href="../css/sweetalert2.css">
     <link rel="stylesheet" href="../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
 </head>
 <body>
 <header>
@@ -36,7 +35,7 @@ session_start();
         <nav class="navbarP">
         <ul>
         <ul>
-          <li><a href="index.php">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <!-- <li><a href="cadastroUser.php">Dados</a></li>   adicionar dados da empresa para ele editar se necessário (VERIFICAR SE VALE A PENA)      -->
           <li><a href="#">Vagas</a></li> <!--AQUI SERÁ UM DRILLDOWN PROS DOIS LI ABAIXO-->
           <li><a href="./vagas/cadastro-vagas.php">> Nova vaga</a></li>

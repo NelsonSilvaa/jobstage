@@ -1,3 +1,7 @@
-input.error {
-    border: 2px solid red;
+input.error, select.error, textarea.error{
+    border: 3px solid red;
+}
+
+label{
+   font-weight: bold; 
 }

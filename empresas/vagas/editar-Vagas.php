@@ -41,12 +41,12 @@
       <nav class="navbarP">
       <ul>
           <li><a href="../index.html">Inicio</a></li>
-          <li><a href="cadastroUser.php">Dados</a></li>
+          <!-- <li><a href="cadastroUser.php">Dados</a></li> -->
           <li><a href="#">Vagas</a></li>
           <li><a href="cadastro-vagas.php">> Nova vaga</a></li>
           <li><a href="editar-vagas.php">> Editar vagas</a></li>
           <li><a href="../candidaturas.php">Candidaturas</a></li>
-          <li><a href="curriculo.php">Funcionários</a></li>
+          <!-- <li><a href="curriculo.php">Funcionários</a></li> -->
           <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
       </ul>
   </div>

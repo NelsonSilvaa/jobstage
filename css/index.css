@@ -78,3 +78,8 @@ header{
 header img{
     height: 100px;
 }
+
+.card{
+    max-width: 600px !important;
+    width: 600px !important;
+}

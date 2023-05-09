@@ -1,12 +1,13 @@
-<?php 
-// session_start();
+<?php
+session_start();
 
-//     if(empty($_SESSION)){
-//         header("Location: ../../index.php");
-//     }
-//     include("../src/configs/conexao.php");
+    if(empty($_SESSION)){
+        header("Location: ../index.html");
+    }
+    include("../../src/configs/conexao.php");
 
-//     $user_id = $_SESSION['ID_USUARIO'];
+    $empresa_id = $_SESSION['ID_EMPRESA'];
+
 //   $sqlvagas = "SELECT COUNT(*) as total FROM empresa WHERE ID_EMPRESA = $empresa_id";
 
 //   $resultado = mysqli_query($conn, $sql_experiencia);
@@ -28,6 +29,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/sweetalert2.css">
+    <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
 </head>
 <body>
@@ -40,13 +43,13 @@
   <div class="navegacao">
       <nav class="navbarP">
       <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="cadastroUser.php">Dados</a></li>
+          <li><a href="../index.php">Inicio</a></li>
+          <!-- <li><a href="cadastroUser.php">Dados</a></li> -->
           <li><a href="#">Vagas</a></li>
           <li><a href="cadastro-vagas.php">> Nova vaga</a></li>
           <li><a href="editar-Vagas.php">> Editar vagas</a></li>
-          <li><a href="../candidaturas.php">Candidaturas</a></li>
-          <li><a href="curriculo.php">Funcionários</a></li>
+          <li><a href="candidaturas.php">Candidaturas</a></li>
+          <li><a href="funcionarios.php">Funcionários</a></li>
           <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
       </ul>
   </div>
@@ -58,7 +61,9 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="nomeVaga">Nome da vaga<span style="color: red;">*</span> </label>
-                        <input type="text" class="form-control" placeholder="Nome da vaga" name="nomeVaga" id="nomeVaga" required>
+                        <input type="text" class="form-control" placeholder="Nome da vaga" name="nomeVaga" id="nomeVaga" >
+                        <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
+
                     </div>
                 </div>
                 <div class="form-row">
@@ -66,28 +71,34 @@
                         <label for="turno">Turno<span style="color: red;">*</span> </label>
                         <select type="text" class="form-control" placeholder="abc" name="turno" id="turno">
                             <option value=""></option>
-                            <option value="Manhã"></option>
-                            <option value="Tarde"></option>
-                            <option value="Noite"></option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
                         </select>
+                        <span id="turno-error" style="display:none; color:red;">Campo obrigatório!</span>
                     </div>
                     <div class="col">
                         <label for="turnoDas">Das<span style="color: red;">*</span> </label>
-                        <input type="time" class="form-control"  name="turnoDas" id="turnoDas" required>
+                        <input type="time" class="form-control"  name="turnoDas" id="turnoDas">
+                        <span id="turno-das-error" style="display:none; color:red;">Campo obrigatório!</span>
+
                     </div>
                     <div class="col">
                         <label for="turnoAte">Até<span style="color: red;">*</span> </label>
-                        <input type="time" class="form-control" name="turnoAte" id="turnoAte" required>
+                        <input type="time" class="form-control" name="turnoAte" id="turnoAte">
+                        <span id="turno-ate-error" style="display:none; color:red;">Campo obrigatório!</span>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="cidade">Cidade<span style="color: red;">*</span> </label>
-                        <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" required>
+                        <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade">
+                        <span id="cidade-error" style="display:none; color:red;">Campo obrigatório!</span>
+
                     </div>
                     <div class="col">
                         <label for="estado">Estado<span style="color: red;">*</span> </label>
-                        <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" required>
+                        <select type="text" class="form-control" placeholder="abc" name="estado" id="estado">
                             <option value=""></option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -117,6 +128,7 @@
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                         </select>
+                        <span id="estado-error" style="display:none; color:red;">Campo obrigatório!</span>
                     </div>
                 </div>
                 <div class="form-row">
@@ -126,41 +138,47 @@
                     </div>
                     <div class="col">
                         <label for="contrato">Tipo de contrato<span style="color: red;">*</span> </label>
-                        <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" value="'.$expQuery['TIPO_CONTRATO'].'">
+                        <select type="text" class="form-control" placeholder="" name="contrato" id="contrato"">
                             <option value=""></option>
                             <option value="CLT">CLT</option>
                             <option value="PJ">PJ</option>
                             <option value="estagio">Estágio</option>
                             <option value="temporario">Temporário</option>
                         </select>
+                        <span id="contrato-error" style="display:none; color:red;">Campo obrigatório!</span>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="atividades">Atividades<span style="color: red;">*</span> </label>
-                        <textarea class="form-control" name="atividades" id="atividades" rows="3" required></textarea>
+                        <textarea class="form-control" name="atividades" id="atividades" rows="3"></textarea>
+                        <span id="atv-error" style="display:none; color:red;">Campo obrigatório!</span>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="requisitos">Requisitos:<span style="color: red;"></span> </label>
-                        <textarea class="form-control" name="requisitos" id="requisitos" rows="3" required></textarea>
+                        <textarea class="form-control" name="requisitos" id="requisitos" rows="3"></textarea>
+                        <span id="requisitos-error" style="display:none; color:red;">Campo obrigatório!</span>
+
                     </div>
                 </div>
         </div>
                 <div style="margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="cadVagas()">Salvar</button>
                 </div>
             </form>
         
     </div>
 </div>
+    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/processos.js"></script>
+    <script src="../../src/JS/swetalert2.js"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
         integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl"
         crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
 </body>
 </html>
