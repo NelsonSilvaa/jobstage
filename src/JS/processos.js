@@ -252,7 +252,7 @@ function cadEmpresa(){
                         window.location.replace(response.redirect);
                     });
                   } else {
-                    $('#formEmpresa')[0].reset();
+                    $('input').val("");
                     Swal.fire({
                         icon: 'info',
                         title: 'CNPJ já existe!',
