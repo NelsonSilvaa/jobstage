@@ -58,6 +58,7 @@ session_start();
         <h2 style="text-align:center; padding: 5px;">CRIE UMA NOVA VAGA AQUI:</h2>
         <div class="card">
             <form>
+            <input type="hidden" id="tipoVaga" value="criaVaga">
                 <div class="form-row">
                     <div class="col">
                         <label for="nomeVaga">Nome da vaga<span style="color: red;">*</span> </label>
@@ -165,7 +166,7 @@ session_start();
                 </div>
         </div>
                 <div style="margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="cadVagas()">Salvar</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="crudVaga()">Salvar</button>
                 </div>
             </form>
         

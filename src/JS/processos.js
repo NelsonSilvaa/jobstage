@@ -359,158 +359,322 @@ function cadUser(){
 }
 
 
-function cadVagas(){
-    event.preventDefault();
-    var nomeInput = document.querySelector('#nomeVaga');
-    var nomeError = document.querySelector('#nome-error');
-
-    var turnoInput = document.querySelector('#turno');
-    var turnoError = document.querySelector('#turno-error');
-
-    var turnoDas = document.querySelector('#turnoDas');
-    var turnoDasError = document.querySelector('#turno-das-error');
-
-    var turnoAte = document.querySelector('#turnoAte');
-    var turnoAteError = document.querySelector('#turno-ate-error');
-
-    var cidadeInput = document.querySelector('#cidade');
-    var cidadeError = document.querySelector('#cidade-error');
-
-    var estadoInput = document.querySelector('#estado');
-    var estadoError = document.querySelector('#estado-error');
-
-    var tipoContrato = document.querySelector('#contrato');
-    var tipoContratoError = document.querySelector('#contrato-error');
-
-    var tipoRequisitos = document.querySelector('#requisitos');
-    var tipoRequisitosError = document.querySelector('#requisitos-error');
-
-    var tipoAtv = document.querySelector('#atividades');
-    var tipoAtvError = document.querySelector('#atv-error');
-
-    nomeInput.classList.add('error');
-    nomeError.style.display = 'block';
-
-    turnoInput.classList.add('error');
-    turnoError.style.display = 'block';
-
-    turnoDas.classList.add('error');
-    turnoDasError.style.display = 'block';
-
-    turnoAte.classList.add('error');
-    turnoAteError.style.display = 'block';
-
-    cidadeInput.classList.add('error');
-    cidadeError.style.display = 'block';
-
-    estadoInput.classList.add('error');
-    estadoError.style.display = 'block';
-
-    tipoContrato.classList.add('error');
-    tipoContratoError.style.display = 'block';
-
-    tipoRequisitos.classList.add('error');
-    tipoRequisitosError.style.display = 'block';
-
-    tipoAtv.classList.add('error');
-    tipoAtvError.style.display = 'block';
-
-    if(nomeInput.value.trim() !== ''){
-        nomeInput.classList.remove('error');
-        nomeError.style.display = 'none';
-    }
-
-    if(turnoInput.value.trim() !== ''){
-        turnoInput.classList.remove('error');
-        turnoError.style.display = 'none';
-    }
-
-    if(turnoAte.value.trim() !== ''){
-        turnoAte.classList.remove('error');
-        turnoAteError.style.display = 'none';
-    }
-
-    if(turnoDas.value.trim() !== ''){
-        turnoDas.classList.remove('error');
-        turnoDasError.style.display = 'none';
-    }
-
-    if(cidadeInput.value.trim() !== ''){
-        cidadeInput.classList.remove('error');
-        cidadeError.style.display = 'none';
-    }
-
-    if(estadoInput.value.trim() !== ''){
-        estadoInput.classList.remove('error');
-        estadoError.style.display = 'none';
-    }
-
-    if(tipoContrato.value.trim() !== ''){
-        tipoContrato.classList.remove('error');
-        tipoContratoError.style.display = 'none';
-    }
-
-    if(tipoRequisitos.value.trim() !== ''){
-        tipoRequisitos.classList.remove('error');
-        tipoRequisitosError.style.display = 'none';
-    }
-
-    if(tipoAtv.value.trim() !== ''){
-        tipoAtv.classList.remove('error');
-        tipoAtvError.style.display = 'none';
-    }
-
-    if(nomeInput.value.trim() === '' || turnoInput.value.trim() === '' || turnoAte.value.trim() === '' || turnoDas.value.trim() === '' || cidadeInput.value.trim() === '' || estadoInput.value.trim() === '' || tipoContrato.value.trim() === '' || tipoRequisitos.value.trim() === '' || tipoAtv.value.trim() === ''){
-        return
-    }
+function crudVaga(idVaga){
     
-   
-        console.log("gfgkesadguasgdaed");
-        var nomeInput      = $('#nomeVaga').val();
-        var turnoInput     = $('#turno').val();
-        var turnoDas       = $('#turnoDas').val();
-        var turnoAte       = $('#turnoAte').val();
-        var cidadeInput    = $('#cidade').val();
-        var estadoInput    = $('#estado').val();
-        var tipoContrato   = $('#contrato').val();
-        var tipoRequisitos = $('#requisitos').val();
-        var tipoAtv        = $('#atividades').val();
-        var salario        = $('#salario').val();
-    
+        var tiporequest  = $('#tipoVaga').val();
+
+        switch (tiporequest){
+            case 'editVaga':
+                event.preventDefault();
+                var nomeInput = document.querySelector('#nomeVaga'+idVaga);
+                var nomeError = document.querySelector('#nome-error');
+            
+                var turnoInput = document.querySelector('#turno'+idVaga);
+                var turnoError = document.querySelector('#turno-error');
+            
+                var turnoDas = document.querySelector('#turnoDas'+idVaga);
+                var turnoDasError = document.querySelector('#turno-das-error');
+            
+                var turnoAte = document.querySelector('#turnoAte'+idVaga);
+                var turnoAteError = document.querySelector('#turno-ate-error');
+            
+                var cidadeInput = document.querySelector('#cidade'+idVaga);
+                var cidadeError = document.querySelector('#cidade-error');
+            
+                var estadoInput = document.querySelector('#estado'+idVaga);
+                var estadoError = document.querySelector('#estado-error');
+            
+                var tipoContrato = document.querySelector('#contrato'+idVaga);
+                var tipoContratoError = document.querySelector('#contrato-error');
+            
+                var tipoRequisitos = document.querySelector('#requisitos'+idVaga);
+                var tipoRequisitosError = document.querySelector('#requisitos-error');
+            
+                var tipoAtv = document.querySelector('#atividades'+idVaga);
+                var tipoAtvError = document.querySelector('#atv-error');
+            
+                nomeInput.classList.add('error');
+                nomeError.style.display = 'block';
+            
+                turnoInput.classList.add('error');
+                turnoError.style.display = 'block';
+            
+                turnoDas.classList.add('error');
+                turnoDasError.style.display = 'block';
+            
+                turnoAte.classList.add('error');
+                turnoAteError.style.display = 'block';
+            
+                cidadeInput.classList.add('error');
+                cidadeError.style.display = 'block';
+            
+                estadoInput.classList.add('error');
+                estadoError.style.display = 'block';
+            
+                tipoContrato.classList.add('error');
+                tipoContratoError.style.display = 'block';
+            
+                tipoRequisitos.classList.add('error');
+                tipoRequisitosError.style.display = 'block';
+            
+                tipoAtv.classList.add('error');
+                tipoAtvError.style.display = 'block';
+            
+                if(nomeInput.value.trim() !== ''){
+                    nomeInput.classList.remove('error');
+                    nomeError.style.display = 'none';
+                }
+            
+                if(turnoInput.value.trim() !== ''){
+                    turnoInput.classList.remove('error');
+                    turnoError.style.display = 'none';
+                }
+            
+                if(turnoAte.value.trim() !== ''){
+                    turnoAte.classList.remove('error');
+                    turnoAteError.style.display = 'none';
+                }
+            
+                if(turnoDas.value.trim() !== ''){
+                    turnoDas.classList.remove('error');
+                    turnoDasError.style.display = 'none';
+                }
+            
+                if(cidadeInput.value.trim() !== ''){
+                    cidadeInput.classList.remove('error');
+                    cidadeError.style.display = 'none';
+                }
+            
+                if(estadoInput.value.trim() !== ''){
+                    estadoInput.classList.remove('error');
+                    estadoError.style.display = 'none';
+                }
+            
+                if(tipoContrato.value.trim() !== ''){
+                    tipoContrato.classList.remove('error');
+                    tipoContratoError.style.display = 'none';
+                }
+            
+                if(tipoRequisitos.value.trim() !== ''){
+                    tipoRequisitos.classList.remove('error');
+                    tipoRequisitosError.style.display = 'none';
+                }
+            
+                if(tipoAtv.value.trim() !== ''){
+                    tipoAtv.classList.remove('error');
+                    tipoAtvError.style.display = 'none';
+                }
+            
+                if(nomeInput.value.trim() === '' || turnoInput.value.trim() === '' || turnoAte.value.trim() === '' || turnoDas.value.trim() === '' || cidadeInput.value.trim() === '' || estadoInput.value.trim() === '' || tipoContrato.value.trim() === '' || tipoRequisitos.value.trim() === '' || tipoAtv.value.trim() === ''){
+                    return
+                }
+            
+                var nomeInput      = $('#nomeVaga'+idVaga).val();
+                var turnoInput     = $('#turno'+idVaga).val();
+                var turnoDas       = $('#turnoDas'+idVaga).val();
+                var turnoAte       = $('#turnoAte'+idVaga).val();
+                var cidadeInput    = $('#cidade'+idVaga).val();
+                var estadoInput    = $('#estado'+idVaga).val();
+                var tipoContrato   = $('#contrato'+idVaga).val();
+                var tipoRequisitos = $('#requisitos'+idVaga).val();
+                var tipoAtv        = $('#atividades'+idVaga).val();
+                var salario        = $('#salario'+idVaga).val();
+
+                // requisição para criar vaga
+                $.ajax({
+                    url: 'http://localhost/jobstage/src/update/updateVagas.php',
+                    type: 'POST',
+                    data: { 
+                        nome:nomeInput,
+                        turno:turnoInput,
+                        turnoDas:turnoDas,
+                        turnoAte:turnoAte,
+                        cidade:cidadeInput,
+                        estado:estadoInput,
+                        tipoContrato:tipoContrato,
+                        requisitos:tipoRequisitos,
+                        atv:tipoAtv,
+                        salario:salario,     
+                        idVaga:idVaga
+                        },
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.success) {
+                            $('input').val("");
+                            Swal.fire(
+                                'Sucesso!',
+                                response.message,
+                                'success'
+                            ).then(()=>{
+                                window.location.replace(response.redirect);
+                            });
+                          }
+                    },
+                });
+            break;
+
+
+            case 'criaVaga':
+                event.preventDefault();
+                var nomeInput = document.querySelector('#nomeVaga');
+                var nomeError = document.querySelector('#nome-error');
+            
+                var turnoInput = document.querySelector('#turno');
+                var turnoError = document.querySelector('#turno-error');
+            
+                var turnoDas = document.querySelector('#turnoDas');
+                var turnoDasError = document.querySelector('#turno-das-error');
+            
+                var turnoAte = document.querySelector('#turnoAte');
+                var turnoAteError = document.querySelector('#turno-ate-error');
+            
+                var cidadeInput = document.querySelector('#cidade');
+                var cidadeError = document.querySelector('#cidade-error');
+            
+                var estadoInput = document.querySelector('#estado');
+                var estadoError = document.querySelector('#estado-error');
+            
+                var tipoContrato = document.querySelector('#contrato');
+                var tipoContratoError = document.querySelector('#contrato-error');
+            
+                var tipoRequisitos = document.querySelector('#requisitos');
+                var tipoRequisitosError = document.querySelector('#requisitos-error');
+            
+                var tipoAtv = document.querySelector('#atividades');
+                var tipoAtvError = document.querySelector('#atv-error');
+            
+                nomeInput.classList.add('error');
+                nomeError.style.display = 'block';
+            
+                turnoInput.classList.add('error');
+                turnoError.style.display = 'block';
+            
+                turnoDas.classList.add('error');
+                turnoDasError.style.display = 'block';
+            
+                turnoAte.classList.add('error');
+                turnoAteError.style.display = 'block';
+            
+                cidadeInput.classList.add('error');
+                cidadeError.style.display = 'block';
+            
+                estadoInput.classList.add('error');
+                estadoError.style.display = 'block';
+            
+                tipoContrato.classList.add('error');
+                tipoContratoError.style.display = 'block';
+            
+                tipoRequisitos.classList.add('error');
+                tipoRequisitosError.style.display = 'block';
+            
+                tipoAtv.classList.add('error');
+                tipoAtvError.style.display = 'block';
+            
+                if(nomeInput.value.trim() !== ''){
+                    nomeInput.classList.remove('error');
+                    nomeError.style.display = 'none';
+                }
+            
+                if(turnoInput.value.trim() !== ''){
+                    turnoInput.classList.remove('error');
+                    turnoError.style.display = 'none';
+                }
+            
+                if(turnoAte.value.trim() !== ''){
+                    turnoAte.classList.remove('error');
+                    turnoAteError.style.display = 'none';
+                }
+            
+                if(turnoDas.value.trim() !== ''){
+                    turnoDas.classList.remove('error');
+                    turnoDasError.style.display = 'none';
+                }
+            
+                if(cidadeInput.value.trim() !== ''){
+                    cidadeInput.classList.remove('error');
+                    cidadeError.style.display = 'none';
+                }
+            
+                if(estadoInput.value.trim() !== ''){
+                    estadoInput.classList.remove('error');
+                    estadoError.style.display = 'none';
+                }
+            
+                if(tipoContrato.value.trim() !== ''){
+                    tipoContrato.classList.remove('error');
+                    tipoContratoError.style.display = 'none';
+                }
+            
+                if(tipoRequisitos.value.trim() !== ''){
+                    tipoRequisitos.classList.remove('error');
+                    tipoRequisitosError.style.display = 'none';
+                }
+            
+                if(tipoAtv.value.trim() !== ''){
+                    tipoAtv.classList.remove('error');
+                    tipoAtvError.style.display = 'none';
+                }
+            
+                if(nomeInput.value.trim() === '' || turnoInput.value.trim() === '' || turnoAte.value.trim() === '' || turnoDas.value.trim() === '' || cidadeInput.value.trim() === '' || estadoInput.value.trim() === '' || tipoContrato.value.trim() === '' || tipoRequisitos.value.trim() === '' || tipoAtv.value.trim() === ''){
+                    return
+                }
+           
+                var nomeInput      = $('#nomeVaga').val();
+                var turnoInput     = $('#turno').val();
+                var turnoDas       = $('#turnoDas').val();
+                var turnoAte       = $('#turnoAte').val();
+                var cidadeInput    = $('#cidade').val();
+                var estadoInput    = $('#estado').val();
+                var tipoContrato   = $('#contrato').val();
+                var tipoRequisitos = $('#requisitos').val();
+                var tipoAtv        = $('#atividades').val();
+                var salario        = $('#salario').val();
+
+
+
+                // requisição para criar vaga
+                $.ajax({
+                    url: 'http://localhost/jobstage/src/read-inputs/criarVagas.php',
+                    type: 'POST',
+                    data: { 
+                        nome:nomeInput,
+                        turno:turnoInput,
+                        turnoDas:turnoDas,
+                        turnoAte:turnoAte,
+                        cidade:cidadeInput,
+                        estado:estadoInput,
+                        tipoContrato:tipoContrato,
+                        requisitos:tipoRequisitos,
+                        atv:tipoAtv,
+                        salario:salario,     
+                        },
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.success) {
+                            $('input').val("");
+                            Swal.fire(
+                                'Sucesso!',
+                                response.message,
+                                'success'
+                            ).then(()=>{
+                                window.location.replace(response.redirect);
+                            });
+                          }
+                    },
+                });
+            break;
+
+
+            case 'deletaVaga':
+
+            break;
+        }
      
     // --------------------------------------------
 
     // fazer requisição AJAX aqui 
     
-    $.ajax({
-        url: 'http://localhost/jobstage/src/read-inputs/criarVagas.php',
-        type: 'POST',
-        data: { 
-            nome:nomeInput,
-            turno:turnoInput,
-            turnoDas:turnoDas,
-            turnoAte:turnoAte,
-            cidade:cidadeInput,
-            estado:estadoInput,
-            tipoContrato:tipoContrato,
-            requisitos:tipoRequisitos,
-            atv:tipoAtv,
-            salario:salario,     
-            },
-        dataType: "json",
-        success: function(response) {
-            if (response.success) {
-                $('input').val("");
-                Swal.fire(
-                    'Sucesso!',
-                    response.message,
-                    'success'
-                ).then(()=>{
-                    window.location.replace(response.redirect);
-                });
-              }
-        },
-    });
+    
 
 
 }

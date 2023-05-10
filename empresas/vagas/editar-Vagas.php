@@ -29,6 +29,8 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/sweetalert2.css">
+    <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
 </head>
 <body>
@@ -118,11 +120,13 @@ session_start();
                                     <div class="" id="">
                                         <div class="card-edit-vagas card-body">
                                         <form>
-                                        <input type="hidden" name="ID_FORM" value="'. $row->ID_VAGA .'">
+                                        <input type="hidden" id="ID_VAGA" value="'. $row->ID_VAGA .'">
+                                        <input type="hidden" id="tipoVaga" value="editVaga">
+                                        
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="nomeVaga">Nome da vaga<span style="color: red;">*</span> </label>
-                                                    <input type="text" class="form-control" placeholder="Nome da vaga" name="nomeVaga" id="nomeVaga" value="'.$vagaQuery["NOME"].'">
+                                                    <input type="text" class="form-control" placeholder="Nome da vaga" name="nomeVaga" id="nomeVaga'.$row->ID_VAGA.'" value="'.$vagaQuery["NOME"].'">
                                                     <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
 
                                                 </div>
@@ -130,7 +134,7 @@ session_start();
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="turno">Turno<span style="color: red;">*</span> </label>
-                                                    <select type="text" class="form-control" placeholder="abc" name="turno" id="turno" value="'.$vagaQuery["TURNO"].'">
+                                                    <select type="text" class="form-control" placeholder="abc" name="turno" id="turno'.$row->ID_VAGA.'" value="'.$vagaQuery["TURNO"].'">
                                                         <option value=""></option>
                                                         <option value="Manhã">Manhã</option>
                                                         <option value="Tarde">Tarde</option>
@@ -140,26 +144,26 @@ session_start();
                                                 </div>
                                                 <div class="col">
                                                     <label for="turnoDas">Das<span style="color: red;">*</span> </label>
-                                                    <input type="time" class="form-control"  name="turnoDas" id="turnoDas" value="'.$vagaQuery["TURNO_DAS"].'">
+                                                    <input type="time" class="form-control"  name="turnoDas" id="turnoDas'.$row->ID_VAGA.'" value="'.$vagaQuery["TURNO_DAS"].'">
                                                     <span id="turno-das-error" style="display:none; color:red;">Campo obrigatório!</span>
 
                                                 </div>
                                                 <div class="col">
                                                     <label for="turnoAte">Até<span style="color: red;">*</span> </label>
-                                                    <input type="time" class="form-control" name="turnoAte" id="turnoAte" value="'.$vagaQuery["TURNO_ATE"].'">
+                                                    <input type="time" class="form-control" name="turnoAte" id="turnoAte'.$row->ID_VAGA.'" value="'.$vagaQuery["TURNO_ATE"].'">
                                                     <span id="turno-ate-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="cidade">Cidade<span style="color: red;">*</span> </label>
-                                                    <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" value="'.$vagaQuery["CIDADE"].'">
+                                                    <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade'.$row->ID_VAGA.'" value="'.$vagaQuery["CIDADE"].'">
                                                     <span id="cidade-error" style="display:none; color:red;">Campo obrigatório!</span>
 
                                                 </div>
                                                 <div class="col">
                                                     <label for="estado">Estado<span style="color: red;">*</span> </label>
-                                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" value="'.$vagaQuery["ESTADO"].'">
+                                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado'.$row->ID_VAGA.'" value="'.$vagaQuery["ESTADO"].'">
                                                         <option value=""></option>
                                                         <option value="AC">Acre</option>
                                                         <option value="AL">Alagoas</option>
@@ -195,11 +199,11 @@ session_start();
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="salario">Salário<span style="color: red;"></span> </label>
-                                                    <input type="text" class="form-control" placeholder="Salário" name="salario" id="salario" value="'.$vagaQuery["SALARIO"].'">
+                                                    <input type="text" class="form-control" placeholder="Salário" name="salario" id="salario'.$row->ID_VAGA.'" value="'.$vagaQuery["SALARIO"].'">
                                                 </div>
                                                 <div class="col">
                                                     <label for="contrato">Tipo de contrato<span style="color: red;">*</span> </label>
-                                                    <select type="text" class="form-control" placeholder="" name="contrato" id="contrato" value="'.$vagaQuery["TIPO_CONTRATO"].'">
+                                                    <select type="text" class="form-control" placeholder="" name="contrato" id="contrato'.$row->ID_VAGA.'" value="'.$vagaQuery["TIPO_CONTRATO"].'">
                                                         <option value=""></option>
                                                         <option value="CLT">CLT</option>
                                                         <option value="PJ">PJ</option>
@@ -212,14 +216,14 @@ session_start();
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="atividades">Atividades<span style="color: red;">*</span> </label>
-                                                    <textarea class="form-control" name="atividades" id="atividades" rows="3" value="'.$vagaQuery["DESCRICAO"].'"></textarea>
+                                                    <textarea class="form-control" name="atividades" id="atividades'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["DESCRICAO"].'"></textarea>
                                                     <span id="atv-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="requisitos">Requisitos:<span style="color: red;"></span> </label>
-                                                    <textarea class="form-control" name="requisitos" id="requisitos" rows="3" value="'.$vagaQuery["REQUISITOS"].'"></textarea>
+                                                    <textarea class="form-control" name="requisitos" id="requisitos'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["REQUISITOS"].'"></textarea>
                                                     <span id="requisitos-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
                                             </div> 
@@ -231,7 +235,7 @@ session_start();
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
                                     </div>
                                     <div class="btn-delete-vaga">
-                                        <button type="submit" class="btn btn-primary" onclick="deleteVaga()">Salvar</button>
+                                        <button type="submit" class="btn btn-primary" onclick="crudVaga('. $row->ID_VAGA .')">Salvar</button>
                                     </div>
                                 </div>
                                 </form>
@@ -268,8 +272,9 @@ session_start();
 
 
 
-    
     <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/processos.js"></script>
+    <script src="../../src/JS/swetalert2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
