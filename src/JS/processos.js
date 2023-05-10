@@ -663,18 +663,48 @@ function crudVaga(idVaga){
                     },
                 });
             break;
-
-
-            case 'deletaVaga':
-
-            break;
         }
-     
-    // --------------------------------------------
+}
 
-    // fazer requisição AJAX aqui 
-    
-    
-
-
+function deleteVaga(idVaga){
+    event.preventDefault();
+    console.log(idVaga);
+    Swal.fire({
+        title: 'Quer mesmo remover?',
+        text: "Esta ação não poderá ser revertida!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'NÃO!',
+        confirmButtonText: 'SIM!'
+      }).then((result) => {
+        $.ajax({
+            url: 'http://localhost/jobstage/src/delete/deleteVaga.php',
+            type: 'POST',
+            data: { 
+                    idVaga: idVaga,
+                },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    Swal.fire(
+                        'Removido!',
+                        'Sua vaga foi removida com sucesso!',
+                        'success'
+                      ).then(()=>{
+                        window.location.replace(response.redirect);
+                    });
+                }else{
+                    Swal.fire(
+                        'Ops...!',
+                        'Algum erro impediu que a vaga fosse removida!',
+                        'error'
+                      ).then(()=>{
+                        window.location.replace(response.redirect);
+                    });
+                }
+            },
+        });
+      })
 }

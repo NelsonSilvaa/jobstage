@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($_SESSION)){
         header("Location: ../index.html");
     }
@@ -46,4 +46,5 @@
         echo "Erro ao inserir dados" . mysqli_error($conn);
     }
     mysqli_close($conn);
+}
 ?>

@@ -92,7 +92,7 @@ session_start();
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarModalVagas'.$id_table.'">EDITAR</button> 
                                         </div>
                                         <div class="btn-delete-vaga">
-                                            <button type="button" class="btn btn-danger" onclick="deleteVaga()">REMOVER</button> 
+                                            <button type="button" class="btn btn-danger" id="idDelete" value="'.$row->ID_VAGA.'"onclick="deleteVaga('.$row->ID_VAGA.')">REMOVER</button> 
 
                                         </div>
                                     </div>
