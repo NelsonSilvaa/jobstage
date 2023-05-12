@@ -13,8 +13,9 @@ session_start();
                   V.REQUISITOS AS VREQUISITOS, V.DESCRICAO AS VDESCRICAO, V.NOME AS VNOME
             FROM empresa AS E
             INNER JOIN vagas AS V
-            ON V.ID_EMPRESA = E.ID_EMPRESA";
-            
+            ON V.ID_EMPRESA = E.ID_EMPRESA
+            WHERE V.ID_VAGA NOT IN (SELECT ID_VAGA FROM usuario_vagas WHERE ID_USUARIO = $user_id)";
+
     $result = $conn->query($sql);
 
     // Verifica se houve erro na consulta
@@ -93,7 +94,7 @@ session_start();
                     </div>
                     <div class="card-conteudo-prev_down">
                         <div class="salario">
-                            '.$row['VSALARIO'].'
+                            R$ '.$row['VSALARIO'].'
                         </div>
                     </div>
                     <div class="row">
@@ -126,7 +127,7 @@ session_start();
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas" aria-expanded="false" aria-controls="detalheVagas">
+                                        <button class="btn btn-secondary" type="button" onclick="candidatoVaga('.$row['VVAGA'].')">
                                             Candidatar-se
                                         </button>
                                     </div>
@@ -205,16 +206,10 @@ session_start();
        
     
 
-
-
-
-<script 
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl"
-        crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- <script src="jquery-3.6.0.min.js"></script> -->
-    <script src="../../src/JS/app.js"></script>
+<script src="../src/JS/swetalert2.js"></script>
+<script src="../src/JS/processos.js"></script>
+<script src="../src/JS/jquery-3.6.4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

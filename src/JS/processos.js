@@ -708,3 +708,27 @@ function deleteVaga(idVaga){
         });
       })
 }
+
+
+function candidatoVaga(idVaga){
+    event.preventDefault();
+    $.ajax({
+        url: 'http://localhost/jobstage/usuario/vagas-usuario/candidatoVagas.php',
+        type: 'POST',
+        data: { 
+                idVaga: idVaga,
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+            }
+        },
+    });
+}
