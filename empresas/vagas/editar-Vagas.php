@@ -250,12 +250,12 @@ session_start();
         <?php
         }else{ ?>
         
-        <div class="alert alert-danger" role="alert"  style="width:100%;  text-align:center;">
-            <a style="text-decoration:none;" class="alert-link"></a> VOCÊ <a style="text-decoration:none;" class="alert-link">NÃO</a> TEM VAGAS AINDA, CRIE UMA!
-        </div>
-        <div>
-            <img src="../../img/img_error.jpg" alt="" width="400px" height="400px" style="opacity: 0.7;">
-        </div>
+            <div class="alert alert-danger" role="alert"  style="width:100%;  text-align:center;">
+                <a style="text-decoration:none;" class="alert-link"></a> VOCÊ <a style="text-decoration:none;" class="alert-link">NÃO</a> TEM VAGAS AINDA, CRIE UMA!
+            </div>
+            <div>
+                <img src="../../img/img_error.jpg" alt="" width="400px" height="400px" style="opacity: 0.7;">
+            </div>
         
         <?php
         } 
