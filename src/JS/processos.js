@@ -805,8 +805,7 @@ function criarDados(){
     var linkedin    = $('#linkedin').val(); 
     var sobre       = $('#objetivo').val(); 
     
-     // requisição para criar vaga
-     $.ajax({
+    $.ajax({
         url: 'http://localhost/jobstage/src/read-inputs/dados.php',
         type: 'POST',
         data: { 
@@ -832,4 +831,103 @@ function criarDados(){
         },
     });
 
+}
+
+
+function novaFormacao(){
+    event.preventDefault();
+    var curso = document.querySelector('#cursoInsert');
+    var cursoError = document.querySelector('#curso-error-insert');
+
+    var instituicao = document.querySelector('#instituicaoInsert');
+    var instituicaoError = document.querySelector('#instituicao-error-insert');
+
+    var nivel = document.querySelector('#nivelInsert');
+    var nivelError = document.querySelector('#nivel-error-insert');
+
+    var duracao = document.querySelector('#duracaoInsert');
+    var duracaoError = document.querySelector('#duracao-error-insert');
+
+    var status = document.querySelector('#statusInsert');
+    var statusError = document.querySelector('#status-error-insert');
+
+    curso.classList.add('error');
+    cursoError.style.display = 'block';
+
+    instituicao.classList.add('error');
+    instituicaoError.style.display = 'block';
+
+    nivel.classList.add('error');
+    nivelError.style.display = 'block';
+
+    duracao.classList.add('error'); 
+    duracaoError.style.display = 'block';
+
+    status.classList.add('error'); 
+    statusError.style.display = 'block';
+
+
+    if(curso.value.trim() !== ''){
+        curso.classList.remove('error');
+        cursoError.style.display = 'none';
+    }
+
+    if(instituicao.value.trim() !== ''){
+        instituicao.classList.remove('error');
+        instituicaoError.style.display = 'none';
+    }
+
+    if(nivel.value.trim() !== ''){
+        nivel.classList.remove('error');
+        nivelError.style.display = 'none';
+    }
+
+    if(duracao.value.trim() !== ''){
+        duracao.classList.remove('error');
+        duracaoError.style.display = 'none';
+    }
+
+    if(status.value.trim() !== ''){
+        status.classList.remove('error');
+        statusError.style.display = 'none';
+    }
+
+    if(curso.value.trim() === '' || instituicao.value.trim() === '' || nivel.value.trim() === '' || duracao.value.trim() === '' || status.value.trim() === ''){
+        return
+    }
+
+
+    var curso = $('#cursoInsert').val();
+   
+    var instituicao = $('#instituicaoInsert').val();
+    
+    var nivel = $('#nivelInsert').val();
+
+    var duracao = $('#duracaoInsert').val();
+
+    var status = $('#statusInsert').val();
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/read-inputs/formacao.php',
+        type: 'POST',
+        data: { 
+            curso: curso,
+            instituicao: instituicao,
+            nivel: nivel,
+            duracao: duracao,
+            status: status
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
 }

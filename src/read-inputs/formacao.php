@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("../configs/conexao.php");
 
     $user_id = $_SESSION['ID_USUARIO'];
+
     $curso = $_POST['curso'];
     $instituicao = $_POST['instituicao'];
     $nivel = $_POST['nivel'];
@@ -17,11 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      VALUES ('$curso', '$instituicao', '$nivel', '$duracao', '$status', $user_id)";
     
     if (mysqli_query($conn, $sql_formacao)) {
-        header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        $response = array('success' => true, 'message' => 'Formação adicionada!', 'redirect' => '../../usuario/dados-usuario/formacaoUser.php');
+        echo json_encode($response);
+        mysqli_close($conn);
+        exit;
     } else {
-    // Erro ao inserir dados
-    echo "Erro ao inserir dados";
+        // Erro ao inserir dados
+        echo "Erro ao inserir dados" . mysqli_error($conn);
     }
+mysqli_close($conn);
 
 
     // Fechar a conexão com o banco de dados

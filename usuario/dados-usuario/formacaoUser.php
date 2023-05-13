@@ -170,10 +170,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                             <div class="col">
                                                                                 <label for="curso">Curso<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="curso" id="curso" value="' . $formQuery["CURSO"].'">
+                                                                                <span id="curso-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="instituicao">Instituição<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao"  value="'.$formQuery["INSTITUICAO"].'">
+                                                                                <span id="instituicao-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                         </div>
                                                     
@@ -181,7 +183,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                             <div class="col">
                                                                                 <label for="nivel">Nível<span style="color: red;">*</span></label>
                                                                                 <select type="text" class="form-control" name="nivel" id="nivel">
-                                                                                    <option value="AAA">Fundamental</option>
+                                                                                    <option value=""></option>
+                                                                                    <option value="fundamental">Fundamental</option>
                                                                                     <option value="ensino médio">Ensino médio</option>
                                                                                     <option value="tecnico">Técnico</option>
                                                                                     <option value="tecnologo">Tecnólogo</option>
@@ -190,10 +193,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                     <option value="doutorado">Doutorado</option>
                                                                                     <option value="livre">Livre</option>
                                                                                 </select>
+                                                                                <span id="nivel-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="duracao">Duração<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="duracao" id="duracao"  value="' .$formQuery["DURACAO"].'">
+                                                                                <span id="duracao-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="status">Status<span style="color: red;">*</span></label>
@@ -203,6 +208,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                     <option value="em andamento">Em andamento</option>
                                                                                     <option value="interrompido">Interrompido</option>
                                                                                 </select>
+                                                                                <span id="status-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                         </div>
                                                                 </div>
@@ -243,23 +249,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                             
-                                <form method="post" action="../../src/read-inputs/formacao.php">
+                                <form>
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="curso">Curso<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" placeholder="" name="curso" id="curso">
+                                            <input type="text" class="form-control" placeholder="" name="curso" id="cursoInsert">
+                                            <span id="curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao">
+                                            <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicaoInsert">
+                                            <span id="instituicao-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
                             
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="nivel">Nível<span style="color: red;">*</span></label>
-                                            <select type="text" class="form-control" placeholder="" name="nivel" id="nivel">
-                                                <option value="AAA">Fundamental</option>
+                                            <label for="nivelInsert">Nível<span style="color: red;">*</span></label>
+                                            <select type="text" class="form-control" placeholder="" name="nivel" id="nivelInsert">
+                                                <option value=""></option>
+                                                <option value="fundamental">Fundamental</option>
                                                 <option value="ensino médio">Ensino médio</option>
                                                 <option value="tecnico">Técnico</option>
                                                 <option value="tecnologo">Tecnólogo</option>
@@ -268,23 +277,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 <option value="doutorado">Doutorado</option>
                                                 <option value="livre">Livre</option>
                                             </select>
+                                            <span id="nivel-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" placeholder="" name="duracao" id="duracao">
+                                            <input type="number" class="form-control" placeholder="Duração em anos" name="duracao" id="duracaoInsert">
+                                            <span id="duracao-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="status">Status<span style="color: red;">*</span></label>
-                                            <select type="text" class="form-control" placeholder="" name="status" id="status">
+                                            <select type="text" class="form-control" placeholder="" name="status" id="statusInsert">
                                                 <option value=""></option>
                                                 <option value="completo">Completo</option>
                                                 <option value="em andamento">Em andamento</option>
                                                 <option value="interrompido">Interrompido</option>
                                             </select>
+                                            <span id="status-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
                                     <div style="margin-top: 20px;">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="novaFormacao()">Salvar</button>
                                     </div>
                                 </form>
                             </div>
