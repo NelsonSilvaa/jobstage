@@ -182,7 +182,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         <option value="SP">São Paulo</option>
                                         <option value="SE">Sergipe</option>
                                         <option value="TO">Tocantins</option>
-                                    </select>
+                                    </select> 
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
