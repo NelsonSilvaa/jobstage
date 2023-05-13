@@ -931,3 +931,40 @@ function novaFormacao(){
         },
     });
 }
+
+
+function deletarFormacao(row_id) {
+    event.preventDefault();
+    var idlinha = row_id
+    console.log(row_id);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            console.log("hsehfrlf")
+            $.ajax({
+                url: 'http://localhost/jobstage/src/delete/deleteFormacao.php',
+                type: 'POST',
+                data: { 
+                    id_linha: idlinha,
+                    },
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire(
+                        'Deletado!',
+                        'Sua formação foi deletada com sucesso!',
+                        'success'
+                    ).then(()=>{
+                        window.location.replace(response.redirect);
+                    });
+                }
+            })
+        }
+      })
+  };

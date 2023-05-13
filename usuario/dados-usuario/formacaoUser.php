@@ -123,28 +123,10 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
                                                         '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
-                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
+                                                        <button type="button" class="btn btn-danger" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')">REMOVER</button>
                                             '."</td>";
                                         print "</tr>";
-                                        
-                                        print '<div class="modal fade delete-modal-hide" id="deletarModal'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <div class="alert alert-danger" role="alert"  style="width:100%; text-align:center;">
-                                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
-                                                        </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="modal-footer-deletar">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')" data-dismiss="modal">SIM</button>  
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div> ';
-
+                                       
                                         $queryFormacao = "SELECT * FROM formacao WHERE ID_USUARIO = $user_id AND ID_FORMACAO = $row->ID_FORMACAO";
                                         $resultadoF = mysqli_query($conn, $queryFormacao);
                                         $formQuery = mysqli_fetch_assoc($resultadoF);
