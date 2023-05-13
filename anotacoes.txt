@@ -197,3 +197,13 @@ OBS: achar um jeito de pegar id do usuario no banco de dados da sessão
 
 
 
+nome completo -- 
+data nasc --
+estado civil --
+
+
+telefone ---
+email -- 
+linkedin
+
+objeivo
