@@ -134,6 +134,47 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <label for="objetivo">Sobre<span style="color: red;">*</span></label>
                                     <textarea type="text" class="form-control" placeholder=""  name="objetivo" id="objetivo" required></textarea>
                                 </div>
+                                <div class="col">
+                                    <label for="data-emissao">Data emissão<span style="color: red;">*</span></label>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_EMISSAO']) ? $dadoQuery['DATA_EMISSAO']: '' ?>" name="data-emissao" id="data-emissao" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                </div>
+                                <div class="col">
+                                    <label for="orgao-emissor">Orgão Emissor<span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="<?php echo isset($dadoQuery['ORGAO_EMISSOR']) ? $dadoQuery['ORGAO_EMISSOR']: '' ?>" name="orgao-emissor" id="orgao-emissor" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                </div>
+                                <div class="col">
+                                    <label for="estado">Estado<span style="color: red;">*</span></label>
+                                    <select type="text" class="form-control" placeholder="abc" name="estado" id="estado" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                        <option value=""></option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                    </select>
+                                </div>
                             </div>
                         <div style="margin-top: 20px;">
                             <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar"  <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'; ?>>Salvar</button>
