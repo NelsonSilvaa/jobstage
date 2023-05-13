@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 12-Maio-2023 às 00:07
+-- Tempo de geração: 13-Maio-2023 às 23:17
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 8.0.13
 
@@ -140,17 +140,12 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `ID_USUARIO` int NOT NULL AUTO_INCREMENT,
   `NOME` varchar(45) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
-  `CPF` int NOT NULL,
   `DATA_NASC` date NOT NULL,
-  `IDADE` int NOT NULL,
-  `NOME_MAE` varchar(45) NOT NULL,
-  `NOME_PAI` varchar(45) DEFAULT NULL,
-  `RG` int NOT NULL,
-  `DATA_EMISSAO` date NOT NULL,
-  `ORGAO_EMISSOR` varchar(45) NOT NULL,
-  `ESTADO` varchar(45) NOT NULL,
   `SENHA` varchar(50) NOT NULL,
-  `login` varchar(45) NOT NULL,
+  `ESTADO_CIVIL` varchar(45) NOT NULL,
+  `TELEFONE` int NOT NULL,
+  `LINKEDIN` varchar(45) DEFAULT NULL,
+  `SOBRE` varchar(600) DEFAULT NULL,
   PRIMARY KEY (`ID_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -181,8 +176,8 @@ CREATE TABLE IF NOT EXISTS `vagas` (
   `TURNO_DAS` time DEFAULT NULL,
   `TURNO_ATE` time DEFAULT NULL,
   `SALARIO` double DEFAULT NULL,
-  `DESCRICAO` varchar(400) DEFAULT NULL,
-  `REQUISITOS` varchar(400) DEFAULT NULL,
+  `DESCRICAO` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `REQUISITOS` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `CIDADE` varchar(45) DEFAULT NULL,
   `ESTADO` varchar(45) DEFAULT NULL,
   `TIPO_CONTRATO` varchar(45) DEFAULT NULL,
