@@ -4,7 +4,6 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta-se ao banco de dados
     include("../configs/conexao.php");
-
     // pega o id do usuario logado na sessão no banco de dados
     $user_id = $_SESSION['ID_USUARIO'];
     
@@ -14,39 +13,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lê os valores dos campos
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $data_nasc = $_POST['data-nasc'];
-    $idade = $_POST['idade'];
-    $nome_mae = $_POST['nome-mae'];
-    $nome_pai = $_POST['nome-pai'];
-    $rg = $_POST['rg'];
-    $data_emissao = $_POST['data-emissao'];
-    $orgao_emissor = $_POST['orgao-emissor'];
-    $estado = $_POST['estado'];
+    $data_nasc = $_POST['dataNsc'];
+    $estadoCivil = $_POST['estdoCivil'];
+    $telefone = $_POST['telefone'];
+    $linkedin = $_POST['linkedin'];
+    $sobre = $_POST['sobre'];
    
     // atualiza a dabela para inserir dados no banco de dados
     $sql= " UPDATE usuario SET 
             NOME = '$nome', 
             EMAIL = '$email', 
-            CPF = '$cpf', 
             DATA_NASC = '$data_nasc', 
-            IDADE = '$idade', 
-            NOME_MAE = '$nome_mae', 
-            NOME_PAI = '$nome_pai', 
-            RG = '$rg', 
-            DATA_EMISSAO = '$data_emissao', 
-            ORGAO_EMISSOR = '$orgao_emissor', 
-            ESTADO = '$estado' 
+            ESTADO_CIVIL = '$estadoCivil',
+            TELEFONE = $telefone,
+            LINKEDIN = '$linkedin',
+            SOBRE = '$sobre'
             WHERE ID_USUARIO = '$user_id'";
 
-    // verifica se os dados foram inseridos corretamente, sem sim redireciona pra mesma página de cadastro, senão apresenta msg de erro
     if (mysqli_query($conn, $sql)) {
-        header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        $response = array('success' => true, 'message' => 'Dados salvos!', 'redirect' => '../../usuario/dados-usuario/dadosUser.php');
+        echo json_encode($response);
+        mysqli_close($conn);
+        exit;
     } else {
-    // Erro ao inserir dados
-    echo "Erro ao inserir dados: " . mysqli_error($conn);
-}
-// Fechar a conexão com o banco de dados
+        // Erro ao inserir dados
+        echo "Erro ao inserir dados" . mysqli_error($conn);
+    }
 mysqli_close($conn);
 }
 ?>

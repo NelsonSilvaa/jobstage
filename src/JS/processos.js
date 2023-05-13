@@ -732,3 +732,104 @@ function candidatoVaga(idVaga){
         },
     });
 }
+
+
+function criarDados(){
+    event.preventDefault();
+    var nome = document.querySelector('#nome');
+    var nomeEerror = document.querySelector('#nome-error');
+
+    var email = document.querySelector('#email');
+    var emailEerror = document.querySelector('#email-error');
+
+    var dataNsc = document.querySelector('#dataNsc');
+    var dataNscEerror = document.querySelector('#dataNsc-error');
+
+    var estadoCivil = document.querySelector('#estadoCivil');
+    var estadoCivilEerror = document.querySelector('#estadoCivil-error');
+
+    var telefone = document.querySelector('#telefone');
+    var telefoneEerror = document.querySelector('#telefone-error');
+
+    
+    nome.classList.add('error');
+    nomeEerror.style.display = 'block';
+
+    email.classList.add('error');
+    emailEerror.style.display = 'block';
+
+    dataNsc.classList.add('error');
+    dataNscEerror.style.display = 'block';
+
+    estadoCivil.classList.add('error'); 
+    estadoCivilEerror.style.display = 'block';
+
+    telefone.classList.add('error'); 
+    telefoneEerror.style.display = 'block';
+
+    if(nome.value.trim() !== ''){
+        nome.classList.remove('error');
+        nomeEerror.style.display = 'none';
+    }
+
+    if(email.value.trim() !== ''){
+        email.classList.remove('error');
+        emailEerror.style.display = 'none';
+    }
+
+    if(dataNsc.value.trim() !== ''){
+        dataNsc.classList.remove('error');
+        dataNscEerror.style.display = 'none';
+    }
+
+    if(estadoCivil.value.trim() !== ''){
+        estadoCivil.classList.remove('error');
+        estadoCivilEerror.style.display = 'none';
+    }
+
+    if(telefone.value.trim() !== ''){
+        telefone.classList.remove('error');
+        telefoneEerror.style.display = 'none';
+    }
+
+    if(nome.value.trim() === '' || email.value.trim() === '' || dataNsc.value.trim() === '' || estadoCivil.value.trim() === '' || telefone.value.trim() === ''){
+        return
+    }
+
+
+    var nome        = $('#nome').val(); 
+    var email       = $('#email').val(); 
+    var dataNsc     = $('#dataNsc').val(); 
+    var estadoCivil = $('#estadoCivil').val(); 
+    var telefone    = $('#telefone').val(); 
+    var linkedin    = $('#linkedin').val(); 
+    var sobre       = $('#objetivo').val(); 
+    
+     // requisição para criar vaga
+     $.ajax({
+        url: 'http://localhost/jobstage/src/read-inputs/dados.php',
+        type: 'POST',
+        data: { 
+            nome: nome,
+            email: email,
+            dataNsc: dataNsc,
+            estdoCivil: estadoCivil,
+            telefone: telefone,
+            linkedin: linkedin,
+            sobre: sobre
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+
+}
