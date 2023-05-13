@@ -10,10 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql_delete = "DELETE FROM experiencia WHERE ID_EXPERIENCIA = '$id_linha'";
 
     if (mysqli_query($conn, $sql_delete)) {
-        header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        $response = array('success' => true, 'redirect' => '../../usuario/dados-usuario/expUser.php');
+        echo json_encode($response);
+        mysqli_close($conn);
+        exit;
     } else {
-    // Erro ao inserir dados
-    echo "Erro ao inserir dados"  . mysqli_error($conn);
+        // Erro ao inserir dados
+        echo "Erro ao inserir dados" . mysqli_error($conn);
     }
 
 

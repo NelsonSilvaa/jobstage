@@ -946,7 +946,7 @@ function deletarFormacao(row_id) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sim!',
         cancelButtonText: 'Cancelar!'
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             console.log("hsehfrlf")
             $.ajax({
@@ -967,5 +967,43 @@ function deletarFormacao(row_id) {
                 }
             })
         }
-      })
-  };
+    })
+};
+
+
+function deletarExperiencia(row_id){
+    event.preventDefault();
+    var idlinha = row_id
+    console.log(row_id);
+    Swal.fire({
+        title: 'quer remover esta experiência?',
+        text: "Esta ação não poderá ser revertida!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim!',
+        cancelButtonText: 'Cancelar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log("hsehfrlf")
+            $.ajax({
+                url: 'http://localhost/jobstage/src/delete/deleteExperiencia.php',
+                type: 'POST',
+                data: { 
+                    id_linha: idlinha,
+                    },
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire(
+                        'Deletado!',
+                        'Sua experiência foi deletada com sucesso!',
+                        'success'
+                    ).then(()=>{
+                        window.location.replace(response.redirect);
+                    });
+                }
+            })
+        }
+    })
+};

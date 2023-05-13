@@ -48,7 +48,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dados pessoais</title>
+    <title>Experiência</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
@@ -121,28 +121,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->INICIO."</td>";
                                         print    "<td>".$row->FIM."</td>";
                                         print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalExp'.$id_table.'">REMOVER</button>
+                                                    <button type="button" class="btn btn-danger" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
-
-                                        // DIV PARA DELETAR LINHAS
-                                        print '<div class="modal fade delete-modal-hide" id="deletarModalExp'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="deletarModal" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <div class="alert alert-danger" role="alert"  style="width:100%; text-align:center;">
-                                                            <a style="text-decoration:none;" class="alert-link">ATENÇÃO</a> quer mesmo  <a style="text-decoration:none;" class="alert-link">DELETAR</a> essas informações?
-                                                        </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="modal-footer-deletar">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')" data-dismiss="modal">SIM</button>  
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div> ';
 
                                         $queryEXP = "SELECT * FROM experiencia WHERE ID_USUARIO = $user_id AND ID_EXPERIENCIA =  $row->ID_EXPERIENCIA"; 
                                         $resultadoExp = mysqli_query($conn, $queryEXP);
