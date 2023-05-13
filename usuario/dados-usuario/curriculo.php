@@ -8,6 +8,12 @@ session_start();
 
     $user_id = $_SESSION['ID_USUARIO'];
 
+    $sql = "SELECT * FROM usuario
+            WHERE ID_USUARIO = $user_id";
+
+    $resultado = mysqli_query($conn, $sql);
+    $query = mysqli_fetch_assoc($resultado);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -21,7 +27,7 @@ session_start();
     <link rel="stylesheet" href="../../css/layout.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
-    <a href="../../index.html"
+    <a href="../../index.html">
 </head>
 <body>
 <header>
@@ -42,8 +48,27 @@ session_start();
         </ul>
     </div>
 
+   
+
+
+
     <div class="container-dados">
-        <h1>CURRICULO</h1>
+        <div style="width: 794px; height: 1123px; border: 1px solid black;">
+            <header style="background-color: white;">
+                <div class="nome">
+                    <?php echo $query['NOME'] ?>
+                </div>
+                <div class="dados-pessoais">
+                    <?php echo $query['NOME'] ?>
+                </div>
+            </header>
+            <main>
+
+            </main>
+            <footer>
+
+            </footer>
+        </div>
     </div>
     
     

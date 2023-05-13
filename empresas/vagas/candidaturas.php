@@ -52,7 +52,7 @@ session_start();
 
     <?php
 
-    $resultado = mysqli_query($conn, "SELECT V.NOME AS VNOME, U.NOME AS UNOME FROM empresa AS E
+    $resultado = mysqli_query($conn, "SELECT V.NOME AS VNOME, U.NOME AS UNOME, U.ID_USUARIO AS UID FROM empresa AS E
     INNER JOIN vagas AS V ON E.ID_EMPRESA = V.ID_EMPRESA
     INNER JOIN usuario_vagas UV ON UV.ID_VAGA = V.ID_VAGA
     INNER JOIN usuario as U ON UV.ID_USUARIO = U.ID_USUARIO
@@ -74,7 +74,7 @@ session_start();
     }
 
     // Adicione o nome do usuário ao array de nomes de usuário para esta vaga
-    $vagas_unicas[$chave]['nomes_usuarios'][] = $row['UNOME'];
+    $vagas_unicas[$chave]['nomes_usuarios'][] = array('nome' => $row['UNOME'], 'id' => $row['UID']);
     }
 
     // Itere sobre o array de vagas únicas para exibir os resultados
@@ -102,10 +102,13 @@ session_start();
                         </div>
                         <div class="modal-body">
                         <table>';
-                            foreach ($vaga['nomes_usuarios'] as $nome_usuario) {
+                            foreach ($vaga['nomes_usuarios'] as $usuario) {
                                 print'  
                                             <tr>
-                                                <td> '. $nome_usuario .'</td>
+                                                <td>'.$usuario['id'].'</td>
+                                                <td> '.$usuario['nome'] .'</td>
+                                                <td><a href="curriculoUsuarios.php?id_usuario='.$usuario['id'].'">Currículo</a></td>
+                                                <td><button>Mensagem</button></td>
                                             </tr>
                                         ';
                             
