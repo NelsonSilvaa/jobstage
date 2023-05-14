@@ -76,7 +76,7 @@ session_start();
               
                     print '<div class="" data-id='.$id_table.' data-row-id='.$row->ID_VAGA.'>
 
-                                <div class="card">
+                                <div class="card-vaga">
                                     <div class="card-titulo">
                                         <h2>'.$row->NOME.'</2>
                                     </div>

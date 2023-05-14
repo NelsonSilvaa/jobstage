@@ -50,7 +50,7 @@ session_start();
 <div class="container container-vagas">
 
 
-    <?php
+<?php
 
     $resultado = mysqli_query($conn, "SELECT V.NOME AS VNOME, U.NOME AS UNOME, U.ID_USUARIO AS UID FROM empresa AS E
     INNER JOIN vagas AS V ON E.ID_EMPRESA = V.ID_EMPRESA
@@ -82,7 +82,7 @@ session_start();
     foreach ($vagas_unicas as $vaga) {
         print '<div class="" data-id= data-row-id=>
 
-                    <div class="card">
+                    <div class="card-vaga">
                         <div class="card-titulo">
                             <h2>'.$vaga['nome_vaga'].'</2>
                         </div>
@@ -121,9 +121,7 @@ session_start();
 
         $idModal += 1;
     }
-
-
-    ?>
+?>
 </div>
 
 

@@ -1199,3 +1199,90 @@ function editarExp(row_id){
     });
 
 }
+
+
+function novoCurso(){
+    event.preventDefault();
+
+    var nomeCurso = $("#nome-cursoInsert").val();
+    var instituicaoCurso = $("#instituicao-cursoInsert").val();
+    var statusCurso = $("#status-cursoInsert").val();
+    var duracaoCurso = $("#duracao-cursoInsert").val();
+    var nivelTecnico = $("#n-tecnicoInsert").val();
+
+    $("#nome-cursoInsert").addClass('error');
+    $("#nome-curso-error-insert").show();
+
+    $("#instituicao-cursoInsert").addClass('error');
+    $("#instituicao-curso-error-insert").show();
+
+    $("#status-cursoInsert").addClass('error');
+    $("#status-curso-error-insert").show();
+
+    $("#duracao-cursoInsert").addClass('error');
+    $("#duracao-curso-error-insert").show();
+
+    $("#n-tecnicoInsert").addClass('error');
+    $("#n-tecnico-error-insert").show();
+
+
+
+    
+
+
+
+
+    
+    if (nomeCurso !== '') {
+        $("#nome-cursoInsert").removeClass('error');
+        $("#nome-curso-error-insert").hide();
+    }
+
+    if (instituicaoCurso !== '') {
+        $("#instituicao-cursoInsert").removeClass('error');
+        $("#instituicao-curso-error-insert").hide();
+    }
+
+    if (statusCurso !== '') {
+        $("#status-cursoInsert").removeClass('error');
+        $("#status-curso-error-insert").hide();
+    }
+
+    if (duracaoCurso !== '') {
+        $("#duracao-cursoInsert").removeClass('error');
+        $("#duracao-curso-error-insert").hide();
+    }
+
+    if (nivelTecnico !== '') {
+        $("#n-tecnicoInsert").removeClass('error');
+        $("#n-tecnico-error-insert").hide();
+    }
+
+    if(nomeCurso === '' || instituicaoCurso === '' || statusCurso === '' || duracaoCurso === '' || nivelTecnico === ''){
+        return
+    }
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/read-inputs/cursos.php',
+        type: 'POST',
+        data: { 
+            nomeCurso: nomeCurso,
+            instituicaoCurso: instituicaoCurso,
+            statusCurso: statusCurso,
+            duracaoCurso: duracaoCurso,
+            nivelTecnico: nivelTecnico
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+}

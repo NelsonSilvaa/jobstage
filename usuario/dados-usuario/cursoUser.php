@@ -48,7 +48,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dados pessoais</title>
+    <title>Cursos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
@@ -224,40 +224,45 @@ $user_id = $_SESSION['ID_USUARIO'];
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body"> 
 
-                                <form method="post" action="../../src/read-inputs/cursos.php">
+                                <form>
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="nome-curso">Nome</label>
-                                            <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-curso" required>
+                                            <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-cursoInsert">
+                                            <span id="nome-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="instituicao-curso">Instituição</label>
-                                            <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-curso"required>
+                                            <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-cursoInsert">
+                                            <span id="instituicao-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
                             
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="status-curso">Status</label>
-                                            <select type="text" class="form-control" placeholder="" name="status-curso" id="status-curso"required>
+                                            <select type="text" class="form-control" placeholder="" name="status-curso" id="status-cursoInsert">
                                                 <option value=""></option>
                                                 <option value="completo">Completo</option>
                                                 <option value="em andamento">Em andamento</option>
                                                 <option value="interrompido">Interrompido</option>
                                             </select>
+                                            <span id="status-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="duracao-curso">Duração</label>
-                                            <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-curso"required>
+                                            <input type="number" class="form-control" placeholder="" name="duracao-curso" id="duracao-cursoInsert">
+                                            <span id="duracao-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="n-tecnico">Nivel Técnico</label>
-                                            <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnico"required>
+                                            <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnicoInsert">
+                                            <span id="n-tecnico-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         
                                     </div>
                                     <div style="margin-top: 20px;">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="novoCurso()">Salvar</button>
                                     </div>
                                 </form>
                             </div>

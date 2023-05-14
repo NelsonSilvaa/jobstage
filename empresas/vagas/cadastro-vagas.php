@@ -56,7 +56,7 @@ session_start();
 
     <div class="container-dados">
         <h2 style="text-align:center; padding: 5px;">CRIE UMA NOVA VAGA AQUI:</h2>
-        <div class="card">
+        <div class="card-vaga">
             <form>
             <input type="hidden" id="tipoVaga" value="criaVaga">
                 <div class="form-row">

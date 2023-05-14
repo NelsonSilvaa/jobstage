@@ -8,21 +8,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user_id = $_SESSION['ID_USUARIO'];
 
-    $nome_curso = $_POST['nome-curso'];
-    $instituicao_curso = $_POST['instituicao-curso'];
-    $status_curso = $_POST['status-curso'];
-    $duracao_curso = $_POST['duracao-curso'];
-    $n_tecnico = $_POST['n-tecnico'];
+    $nome_curso = $_POST['nomeCurso'];
+    $instituicao_curso = $_POST['instituicaoCurso'];
+    $status_curso = $_POST['statusCurso'];
+    $duracao_curso = $_POST['duracaoCurso'];
+    $n_tecnico = $_POST['nivelTecnico'];
 
 
     $sql_curso = "INSERT INTO curso_extra (NOME, INSTITUICAO, STATUS, DURACAO, NIVEL_TECNICO, ID_USUARIO)
                      VALUES ('$nome_curso', '$instituicao_curso', '$status_curso', '$duracao_curso', '$n_tecnico', $user_id)";
     
     if (mysqli_query($conn, $sql_curso)) {
-        header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        $response = array('success' => true, 'message' => 'Curso adicionado!', 'redirect' => '../../usuario/dados-usuario/cursoUser.php');
+        echo json_encode($response);
+        mysqli_close($conn);
+        exit;
     } else {
-    // Erro ao inserir dados
-    echo "Erro ao inserir dados";
+        // Erro ao inserir dados
+        echo "Erro ao inserir dados" . mysqli_error($conn);
     }
 
 

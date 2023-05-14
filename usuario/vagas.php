@@ -65,7 +65,7 @@ session_start();
         $id_table = 1;
         while ($row = $result->fetch_assoc()) {
      print ' <div class="" data-id='.$id_table.' data-row-id='.$row['VVAGA'].'>
-                <div class="card">
+                <div class="card-vaga">
                     <div class="card-titulo">
                         <h2>'.$row['VNOME'].'</2>
                     </div>
