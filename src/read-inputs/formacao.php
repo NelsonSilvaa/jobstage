@@ -27,15 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Erro ao inserir dados
         echo "Erro ao inserir dados" . mysqli_error($conn);
     }
-mysqli_close($conn);
-
-
-    // Fechar a conexão com o banco de dados
-    
+    mysqli_close($conn);    
 }
-
-
-
 
 ?>
 

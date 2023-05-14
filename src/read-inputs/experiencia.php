@@ -8,19 +8,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['ID_USUARIO'];
     $empresa = $_POST['empresa'];
     $cargo = $_POST['cargo'];
-    $inicio = $_POST['data-inicio'];
-    $fim = $_POST['data-fim'];
-    $tipo_contrato = $_POST['tipo_contrato'];
+    $inicio = $_POST['dataInicio'];
+    $fim = $_POST['dataFim'];
+    $tipo_contrato = $_POST['tipoContrato'];
     $atividades = $_POST['atividades'];
 
     $sql_exp = "INSERT INTO experiencia (EMPRESA, CARGO, INICIO, FIM, TIPO_CONTRATO, ATIVIDADES, ID_USUARIO)
                      VALUES ('$empresa', '$cargo', '$inicio', '$fim', '$tipo_contrato','$atividades', '$user_id')";
     
     if (mysqli_query($conn, $sql_exp)) {
-        header ("location: ../../usuario/dados-usuario/cadastroUser.php");
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        $response = array('success' => true, 'message' => 'Experiência adicionada!', 'redirect' => '../../usuario/dados-usuario/expUser.php');
+        echo json_encode($response);
+        mysqli_close($conn);
+        exit;
     } else {
-    // Erro ao inserir dados
-    echo "Erro ao inserir dados ";
+        // Erro ao inserir dados
+        echo "Erro ao inserir dados" . mysqli_error($conn);
     }
 
 

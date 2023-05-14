@@ -1007,3 +1007,97 @@ function deletarExperiencia(row_id){
         }
     })
 };
+
+function novaExp(){
+    event.preventDefault();
+    var empresa = $("#empresaInsert").val();
+
+    var cargo = $("#cargoInsert").val();
+
+    var dataInicio = $("#inicioInsert").val();
+
+    var dataFim = $("#fimInsert").val();
+
+    var tipoContrato = $("#tipo_contratoInsert").val();
+
+    var atividades = $("#atividadesInsert").val();
+
+    $("#empresaInsert").addClass('error');
+    $("#empresa-error-insert").show();
+
+    $("#cargoInsert").addClass('error');
+    $("#cargo-error-insert").show();
+
+    $("#inicioInsert").addClass('error');
+    $("#di-error-insert").show();
+
+    $("#fimInsert").addClass('error');
+    $("#df-error-insert").show();
+
+    $("#tipo_contratoInsert").addClass('error');
+    $("#tipo_contrato-error-insert").show();
+
+    $("#atividadesInsert").addClass('error');
+    $("#atividades-error-insert").show();
+
+    
+    if ($("#empresaInsert").val() !== "") {
+        $("#empresaInsert").removeClass('error');
+        $("#empresa-error-insert").hide();
+    }
+    
+    if ($("#cargoInsert").val() !== "") {
+        $("#cargoInsert").removeClass('error');
+        $("#cargo-error-insert").hide();
+    }
+    
+    if ($("#inicioInsert").val() !== "") {
+        $("#inicioInsert").removeClass('error');
+        $("#di-error-insert").hide();
+    }
+    
+    if ($("#fimInsert").val() !== "") {
+        $("#fimInsert").removeClass('error');
+        $("#df-error-insert").hide();
+    }
+   
+    if ($("#tipo_contratoInsert").val() !== "") {
+        $("#tipo_contratoInsert").removeClass('error');
+        $("#tipo_contrato-error-insert").hide();
+    }
+    
+    if ($("#atividadesInsert").val() !== "") {
+        $("#atividadesInsert").removeClass('error');
+        $("#atividades-error-insert").hide();
+    }
+
+    if ($("#empresaInsert").val() === "" || $("#cargoInsert").val() === "" || $("#inicioInsert").val() === "" || $("#fimInsert").val() === "" || $("#tipo_contratoInsert").val() === "" || $("#atividadesInsert").val() === "") {
+        return;
+    }
+
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/read-inputs/experiencia.php',
+        type: 'POST',
+        data: { 
+            empresa: empresa,
+            cargo: cargo,
+            dataInicio: dataInicio,
+            dataFim: dataFim,
+            tipoContrato: tipoContrato,
+            atividades:atividades
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+}

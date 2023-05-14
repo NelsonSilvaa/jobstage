@@ -216,45 +216,53 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="card card-body">        
 
 
-                                <form method="post" action="../../src/read-inputs/experiencia.php">
+                                <form>
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="empresa">Empresa</label>
-                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresa" required>
+                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresaInsert" >
+                                            <span id="empresa-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="cargo">Cargo</label>
-                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargo" required>
+                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargoInsert" >
+                                            <span id="cargo-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
                             
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="data-inicio">Inicio</label>
-                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio" required>
+                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicioInsert">
+                                            <span id="di-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
+
                                         </div>
                                         <div class="col">
                                             <label for="data-fim">Fim</label>
-                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fim" required>
+                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fimInsert">
+                                            <span id="df-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
+
                                         </div>
                                         <div class="col">
                                             <label for="tipo_contrato">Tipo contrato</label>
-                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" required>
+                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contratoInsert">
                                                 <option value=""></option>
                                                 <option value="CLT">CLT</option>
                                                 <option value="PJ">PJ</option>
                                                 <option value="estagio">Estágio</option>
                                                 <option value="temporario">Temporário</option>
                                             </select>
+                                            <span id="tipo_contrato-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
+
                                         </div>
                                     </div>
-                            
                                     <div class="form-group">
                                         <label for="atividades">Atividades</label>
-                                        <textarea class="form-control" name="atividades" id="atividades" rows="3" required></textarea>
+                                        <textarea class="form-control" name="atividades" id="atividadesInsert" rows="3"></textarea>
+                                        <span id="atividades-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                     </div>
                                     <div style="margin-top: 20px;">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar">Salvar</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" onclick="novaExp()">Salvar</button>
                                     </div>
                                 </form>
                             </div>
