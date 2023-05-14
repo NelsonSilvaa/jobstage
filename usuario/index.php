@@ -33,7 +33,7 @@ session_start();
         <nav class="navbarP">
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="./dados-usuario/cadastroUser.php">Dados</a></li>
+            <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
             <li><a href="vagas.php">Vagas</a></li>
             <li><a href="candidaturas.php">Candidaturas</a></li>
             <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>

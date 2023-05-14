@@ -39,8 +39,8 @@ session_start();
     <div class="navegacao">
         <nav class="navbarP">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="cadastroUser.php">Dados</a></li>
+            <li><a href="../index.php">Inicio</a></li>
+            <li><a href="dadosUser.php">Dados</a></li>
             <li><a href="../vagas.php">Vagas</a></li>
             <li><a href="../candidaturas.php">Candidaturas</a></li>
             <li><a href="curriculo.php">Currículo</a></li>

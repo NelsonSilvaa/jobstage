@@ -51,11 +51,11 @@ session_start();
     <div class="navegacao">
         <nav class="navbarP">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="./dados-usuario/cadastroUser.php">Dados</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
             <li><a href="vagas.php">Vagas</a></li>
             <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.html">Currículo</a></li>
+            <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>
             <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
         </ul>
     </div>
