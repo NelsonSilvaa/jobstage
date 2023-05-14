@@ -150,45 +150,51 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                     <div class="form-row">
                                                                         <div class="col">
                                                                             <label for="empresa">Empresa</label>
-                                                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresa" value="'.$expQuery['EMPRESA'].'">
+                                                                            <input type="text" class="form-control" placeholder="" name="empresa" id="empresaEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['EMPRESA'].'">
+                                                                            <span id="empresa-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
                                                                             <label for="cargo">Cargo</label>
-                                                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargo" value="'.$expQuery['CARGO'].'">
+                                                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargoEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['CARGO'].'">
+                                                                            <span id="cargo-error-insEditert'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                     </div>
                                                             
                                                                     <div class="form-row">
                                                                         <div class="col">
                                                                             <label for="data-inicio">Inicio</label>
-                                                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicio" value="'.$expQuery['INICIO'].'">
+                                                                            <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicioEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['INICIO'].'">
+                                                                            <span id="di-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
                                                                             <label for="data-fim">Fim</label>
-                                                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fim"value="'. $expQuery['FIM'].'" >
+                                                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fimEdit'. $row->ID_EXPERIENCIA .'" value="'. $expQuery['FIM'].'" >
+                                                                            <span id="df-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
                                                                             <label for="tipo_contrato">Tipo contrato</label>
-                                                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contrato" value="'.$expQuery['TIPO_CONTRATO'].'">
+                                                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contratoEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['TIPO_CONTRATO'].'">
                                                                                 <option value=""></option>
                                                                                 <option value="CLT">CLT</option>
                                                                                 <option value="PJ">PJ</option>
                                                                                 <option value="estagio">Estágio</option>
                                                                                 <option value="temporario">Temporário</option>
                                                                             </select>
+                                                                            <span id="tipo_contrato-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                     </div>
                                                             
                                                                     <div class="form-group">
                                                                         <label for="atividades">Atividades</label>
-                                                                        <textarea class="form-control" name="atividades" id="atividades" rows="3" value="'. $expQuery['ATIVIDADES'].'"></textarea>
+                                                                        <textarea class="form-control" name="atividades" id="atividadesEdit'. $row->ID_EXPERIENCIA .'" rows="3">'. $expQuery['ATIVIDADES'].'</textarea>
+                                                                        <span id="atividades-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                             <div class="modal-footer">
                                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                                                    <button type="submit" class="btn btn-primary" onclick="editarExp('. $row->ID_EXPERIENCIA .')">Salvar</button>
                                                             </div>
                                                             </form>
                                                         </div>

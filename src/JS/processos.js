@@ -1101,3 +1101,101 @@ function novaExp(){
         },
     });
 }
+
+function editarExp(row_id){
+    event.preventDefault();
+
+    var id_exp = row_id;
+
+    var empresa = $("#empresaEdit"+id_exp).val();
+
+    var cargo = $("#cargoEdit"+id_exp).val();
+
+    var dataInicio = $("#inicioEdit"+id_exp).val();
+
+    var dataFim = $("#fimEdit"+id_exp).val();
+
+    var tipoContrato = $("#tipo_contratoEdit"+id_exp).val();
+
+    var atividades = $("#atividadesEdit"+id_exp).val();
+
+    $("#empresaEdit"+id_exp).addClass('error');
+    $("#empresa-error-Edit").show();
+
+    $("#cargoEdit"+id_exp).addClass('error');
+    $("#cargo-error-Edit"+id_exp).show();
+
+    $("#inicioEdit"+id_exp).addClass('error');
+    $("#di-error-Edit"+id_exp).show();
+
+    $("#fimEdit"+id_exp).addClass('error');
+    $("#df-error-Edit"+id_exp).show();
+
+    $("#tipo_contratoEdit"+id_exp).addClass('error');
+    $("#tipo_contrato-error-Edit"+id_exp).show();
+
+    $("#atividadesEdit"+id_exp).addClass('error');
+    $("#atividades-error-Edit"+id_exp).show();
+
+    
+    if ($("#empresaEdit"+id_exp).val() !== "") {
+        $("#empresaEdit"+id_exp).removeClass('error');
+        $("#empresa-error-Edit").hide();
+    }
+    
+    if ($("#cargoEdit"+id_exp).val() !== "") {
+        $("#cargoEdit"+id_exp).removeClass('error');
+        $("#cargo-error-Edit"+id_exp).hide();
+    }
+    
+    if ($("#inicioEdit"+id_exp).val() !== "") {
+        $("#inicioEdit"+id_exp).removeClass('error');
+        $("#di-error-Edit"+id_exp).hide();
+    }
+    
+    if ($("#fimEdit"+id_exp).val() !== "") {
+        $("#fimEdit"+id_exp).removeClass('error');
+        $("#df-error-Edit"+id_exp).hide();
+    }
+   
+    if ($("#tipo_contratoEdit"+id_exp).val() !== "") {
+        $("#tipo_contratoEdit"+id_exp).removeClass('error');
+        $("#tipo_contrato-error-Edit"+id_exp).hide();
+    }
+    
+    if ($("#atividadesEdit"+id_exp).val() !== "") {
+        $("#atividadesEdit"+id_exp).removeClass('error');
+        $("#atividades-error-Edit"+id_exp).hide();
+    }
+
+    if ($("#empresaEdit"+id_exp).val() === "" || $("#cargoEdit"+id_exp).val() === "" || $("#inicioEdit"+id_exp).val() === "" || $("#fimEdit"+id_exp).val() === "" || $("#tipo_contratoEdit"+id_exp).val() === "" || $("#atividadesEdit"+id_exp).val() === "") {
+        return;
+    }
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/update/updateExp.php',
+        type: 'POST',
+        data: { 
+            empresa: empresa,
+            cargo: cargo,
+            dataInicio: dataInicio,
+            dataFim: dataFim,
+            tipoContrato: tipoContrato,
+            atividades:atividades,
+            ID_EXP: id_exp
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+
+}

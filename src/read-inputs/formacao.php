@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST['status'];
    
 
- $sql_formacao = "INSERT INTO formacao (CURSO, INSTITUICAO, NIVEL, DURACAO, STATUS, ID_USUARIO)
+    $sql_formacao = "INSERT INTO formacao (CURSO, INSTITUICAO, NIVEL, DURACAO, STATUS, ID_USUARIO)
                      VALUES ('$curso', '$instituicao', '$nivel', '$duracao', '$status', $user_id)";
     
     if (mysqli_query($conn, $sql_formacao)) {
