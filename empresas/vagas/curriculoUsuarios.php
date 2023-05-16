@@ -13,6 +13,6 @@
 
     echo $row['ID_USUARIO'];
 
-
+    print '<h1>Currículo do usuário que estará disponível para empresa visualizar</h1>'
 
 ?>

@@ -1359,3 +1359,40 @@ function editarCurso(row_id){
         },
     });
 }
+
+function deletarCurso(row_id){
+    event.preventDefault();
+    var idlinha = row_id
+    console.log(row_id);
+    Swal.fire({
+        title: 'Quer mesmo remover este curso?',
+        text: "Esta ação não poderá ser revertida!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim!',
+        cancelButtonText: 'Cancelar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log("hsehfrlf")
+            $.ajax({
+                url: 'http://localhost/jobstage/src/delete/deleteCurso.php',
+                type: 'POST',
+                data: { 
+                    id_linha: idlinha,
+                    },
+                dataType: "json",
+                success: function(response) {
+                    Swal.fire(
+                        'Removido!',
+                        'Curso removido com sucesso!',
+                        'success'
+                    ).then(()=>{
+                        window.location.replace(response.redirect);
+                    });
+                }
+            })
+        }
+    })
+}

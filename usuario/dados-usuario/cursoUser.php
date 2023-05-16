@@ -120,7 +120,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print   "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
                                                     '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModalCurso'.$id_table.'">EDITAR</button> 
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalCurso'.$id_table.'">REMOVER</button>
+                                                    <button type="button" class="btn btn-danger" onclick="deletarCurso(' . $row->ID_CURSO . ')">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
                                         

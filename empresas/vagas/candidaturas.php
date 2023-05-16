@@ -107,9 +107,7 @@ session_start();
                                             <tr>
                                                 <td>'.$usuario['id'].'</td>
                                                 <td> '.$usuario['nome'] .'</td>
-                                                <td><a href="curriculoUsuarios.php?id_usuario='.$usuario['id'].'">Currículo</a></td>
-                                                <td><button>Mensagem</button></td>
-                                            </tr>
+                                                <td><a href="curriculoUsuarios.php?id_usuario='.$usuario['id'].'">Currículo</a></td>                                            </tr>
                                         ';
                             
                             }
