@@ -167,31 +167,36 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="nome-curso">Nome</label>
-                                                                                <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-curso" value='.$cursoExpQuery['NOME'].'>
+                                                                                <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['NOME'].'>
+                                                                                <span id="nome-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="instituicao-curso">Instituição</label>
-                                                                                <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-curso" value='.$cursoExpQuery['INSTITUICAO'].'>
+                                                                                <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['INSTITUICAO'].'>
+                                                                                <span id="instituicao-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                         </div>
                                                                 
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="status-curso">Status</label>
-                                                                                <select type="text" class="form-control" placeholder="" name="status-curso" id="status-curso"required>
+                                                                                <select type="text" class="form-control" placeholder="" name="status-curso" id="status-cursoEdit'. $row->ID_CURSO .'"required>
                                                                                     <option value=""></option>
                                                                                     <option value="completo">Completo</option>
                                                                                     <option value="em andamento">Em andamento</option>
                                                                                     <option value="interrompido">Interrompido</option>
                                                                                 </select>
+                                                                                <span id="status-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="duracao-curso">Duração</label>
-                                                                                <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-curso" value='.$cursoExpQuery['DURACAO'].'>
+                                                                                <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['DURACAO'].'>
+                                                                                <span id="duracao-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="n-tecnico">Nivel Técnico</label>
-                                                                                <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnico" value='.$cursoExpQuery['NIVEL_TECNICO'].'>
+                                                                                <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnicoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['NIVEL_TECNICO'].'>
+                                                                                <span id="n-tecnico-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             
                                                                         </div>                                                                       
@@ -201,7 +206,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                         </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                                                <button type="submit" class="btn btn-primary" onclick="editarCurso('. $row->ID_CURSO .')">Salvar</button>
                                                             </div>
                                                             </form>
                                                         </div>

@@ -338,7 +338,7 @@ function cadUser(){
             if (response.success) {
                 $('input').val("");
                 Swal.fire(
-                    'E-mail já existe!',
+                    'Sucesso!',
                     response.message,
                     'success'
                 ).then(()=>{
@@ -1224,14 +1224,6 @@ function novoCurso(){
 
     $("#n-tecnicoInsert").addClass('error');
     $("#n-tecnico-error-insert").show();
-
-
-
-    
-
-
-
-
     
     if (nomeCurso !== '') {
         $("#nome-cursoInsert").removeClass('error');
@@ -1271,6 +1263,87 @@ function novoCurso(){
             statusCurso: statusCurso,
             duracaoCurso: duracaoCurso,
             nivelTecnico: nivelTecnico
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+}
+
+function editarCurso(row_id){
+    event.preventDefault();
+
+    var id_curso = row_id;
+    var nomeCurso = $("#nome-cursoEdit"+id_curso).val();
+    var instituicaoCurso = $("#instituicao-cursoEdit"+id_curso).val();
+    var statusCurso = $("#status-cursoEdit"+id_curso).val();
+    var duracaoCurso = $("#duracao-cursoEdit"+id_curso).val();
+    var nivelTecnico = $("#n-tecnicoEdit"+id_curso).val();
+
+    $("#nome-cursoEdit"+id_curso).addClass('error');
+    $("#nome-curso-error-edit"+id_curso).show();
+
+    $("#instituicao-cursoEdit"+id_curso).addClass('error');
+    $("#instituicao-curso-error-edit"+id_curso).show();
+
+    $("#status-cursoEdit"+id_curso).addClass('error');
+    $("#status-curso-error-edit"+id_curso).show();
+
+    $("#duracao-cursoEdit"+id_curso).addClass('error');
+    $("#duracao-curso-error-edit"+id_curso).show();
+
+    $("#n-tecnicoEdit"+id_curso).addClass('error');
+    $("#n-tecnico-error-edit"+id_curso).show();
+
+
+    if (nomeCurso !== '') {
+        $("#nome-cursoEdit"+id_curso).removeClass('error');
+        $("#nome-curso-error-edit"+id_curso).hide();
+    }
+
+    if (instituicaoCurso !== '') {
+        $("#instituicao-cursoEdit"+id_curso).removeClass('error');
+        $("#instituicao-curso-error-edit"+id_curso).hide();
+    }
+
+    if (statusCurso !== '') {
+        $("#status-cursoEdit"+id_curso).removeClass('error');
+        $("#status-curso-error-edit"+id_curso).hide();
+    }
+
+    if (duracaoCurso !== '') {
+        $("#duracao-cursoEdit"+id_curso).removeClass('error');
+        $("#duracao-curso-error-edit"+id_curso).hide();
+    }
+
+    if (nivelTecnico !== '') {
+        $("#n-tecnicoEdit"+id_curso).removeClass('error');
+        $("#n-tecnico-error-edit"+id_curso).hide();
+    }
+
+    if(nomeCurso === '' || instituicaoCurso === '' || statusCurso === '' || duracaoCurso === '' || nivelTecnico === ''){
+        return
+    }
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/update/updateCurso.php',
+        type: 'POST',
+        data: { 
+            nomeCurso: nomeCurso,
+            instituicaoCurso: instituicaoCurso,
+            statusCurso: statusCurso,
+            duracaoCurso: duracaoCurso,
+            nivelTecnico: nivelTecnico,
+            idCurso: id_curso
             },
         dataType: "json",
         success: function(response) {
