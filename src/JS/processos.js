@@ -933,6 +933,106 @@ function novaFormacao(){
 }
 
 
+function editarFormacao(row_id){
+    event.preventDefault();
+    var id_linha = row_id;
+    var curso = document.querySelector('#cursoInsert'+id_linha);
+    var cursoError = document.querySelector('#curso-error-edit'+id_linha);
+
+    var instituicao = document.querySelector('#instituicaoInsert'+id_linha);
+    var instituicaoError = document.querySelector('#instituicao-error-edit'+id_linha);
+
+    var nivel = document.querySelector('#nivelInsert'+id_linha);
+    var nivelError = document.querySelector('#nivel-error-edit'+id_linha);
+
+    var duracao = document.querySelector('#duracaoInsert'+id_linha);
+    var duracaoError = document.querySelector('#duracao-error-edit'+id_linha);
+
+    var status = document.querySelector('#statusInsert'+id_linha);
+    var statusError = document.querySelector('#status-error-edit'+id_linha);
+
+    curso.classList.add('error');
+    cursoError.style.display = 'block';
+
+    instituicao.classList.add('error');
+    instituicaoError.style.display = 'block';
+
+    nivel.classList.add('error');
+    nivelError.style.display = 'block';
+
+    duracao.classList.add('error'); 
+    duracaoError.style.display = 'block';
+
+    status.classList.add('error'); 
+    statusError.style.display = 'block';
+
+
+    if(curso.value.trim() !== ''){
+        curso.classList.remove('error');
+        cursoError.style.display = 'none';
+    }
+
+    if(instituicao.value.trim() !== ''){
+        instituicao.classList.remove('error');
+        instituicaoError.style.display = 'none';
+    }
+
+    if(nivel.value.trim() !== ''){
+        nivel.classList.remove('error');
+        nivelError.style.display = 'none';
+    }
+
+    if(duracao.value.trim() !== ''){
+        duracao.classList.remove('error');
+        duracaoError.style.display = 'none';
+    }
+
+    if(status.value.trim() !== ''){
+        status.classList.remove('error');
+        statusError.style.display = 'none';
+    }
+
+    if(curso.value.trim() === '' || instituicao.value.trim() === '' || nivel.value.trim() === '' || duracao.value.trim() === '' || status.value.trim() === ''){
+        return
+    }
+
+    var curso = $('#cursoInsert'+id_linha).val();
+   
+    var instituicao = $('#instituicaoInsert'+id_linha).val();
+    
+    var nivel = $('#nivelInsert'+id_linha).val();
+
+    var duracao = $('#duracaoInsert'+id_linha).val();
+
+    var status = $('#statusInsert'+id_linha).val();
+
+    $.ajax({
+        url: 'http://localhost/jobstage/src/update/updateFormacao.php',
+        type: 'POST',
+        data: { 
+            curso: curso,
+            instituicao: instituicao,
+            nivel: nivel,
+            duracao: duracao,
+            status: status,
+            id_curso: id_linha
+            },
+        dataType: "json",
+        success: function(response) {
+            if (response.success) {
+                Swal.fire(
+                    'Sucesso!',
+                    response.message,
+                    'success'
+                ).then(()=>{
+                    window.location.replace(response.redirect);
+                });
+              }
+        },
+    });
+}
+
+
 function deletarFormacao(row_id) {
     event.preventDefault();
     var idlinha = row_id

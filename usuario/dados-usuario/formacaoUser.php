@@ -48,7 +48,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dados pessoais</title>
+    <title>Formação</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
@@ -145,26 +145,26 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                             <div class="" id="">
                                                                 <div class="card card-body">
                                                     
-                                                                    <form method="post" action="../../src/update/updateFormularios.php">
+                                                                    <form>
                                                                         <input type="hidden" name="TIPO" value="EDITAR-FORMACAO">
                                                                         <input type="hidden" name="ID_FORM" value="'. $row->ID_FORMACAO .'">
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="curso">Curso<span style="color: red;">*</span></label>
-                                                                                <input type="text" class="form-control" placeholder="" name="curso" id="curso" value="' . $formQuery["CURSO"].'">
-                                                                                <span id="curso-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
+                                                                                <input type="text" class="form-control" placeholder="" name="curso" id="cursoInsert'. $row->ID_FORMACAO .'" value="' . $formQuery["CURSO"].'">
+                                                                                <span id="curso-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                                                                <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicao"  value="'.$formQuery["INSTITUICAO"].'">
-                                                                                <span id="instituicao-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
+                                                                                <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicaoInsert'. $row->ID_FORMACAO .'"  value="'.$formQuery["INSTITUICAO"].'">
+                                                                                <span id="instituicao-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                         </div>
                                                     
                                                                         <div class="form-row">
                                                                             <div class="col">
                                                                                 <label for="nivel">Nível<span style="color: red;">*</span></label>
-                                                                                <select type="text" class="form-control" name="nivel" id="nivel">
+                                                                                <select type="text" class="form-control" name="nivel" id="nivelInsert'. $row->ID_FORMACAO .'">
                                                                                     <option value=""></option>
                                                                                     <option value="fundamental">Fundamental</option>
                                                                                     <option value="ensino médio">Ensino médio</option>
@@ -175,22 +175,22 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                     <option value="doutorado">Doutorado</option>
                                                                                     <option value="livre">Livre</option>
                                                                                 </select>
-                                                                                <span id="nivel-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
+                                                                                <span id="nivel-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="duracao">Duração<span style="color: red;">*</span></label>
-                                                                                <input type="text" class="form-control" placeholder="" name="duracao" id="duracao"  value="' .$formQuery["DURACAO"].'">
-                                                                                <span id="duracao-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
+                                                                                <input type="text" class="form-control" placeholder="" name="duracao" id="duracaoInsert'. $row->ID_FORMACAO .'"  value="' .$formQuery["DURACAO"].'">
+                                                                                <span id="duracao-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
                                                                                 <label for="status">Status<span style="color: red;">*</span></label>
-                                                                                <select type="text" class="form-control" placeholder="" name="status" id="status">
+                                                                                <select type="text" class="form-control" placeholder="" name="statusInsert" id="statusInsert'. $row->ID_FORMACAO .'">
                                                                                     <option value=""></option>
                                                                                     <option value="completo">Completo</option>
                                                                                     <option value="em andamento">Em andamento</option>
                                                                                     <option value="interrompido">Interrompido</option>
                                                                                 </select>
-                                                                                <span id="status-error-edit" style="display:none; color:red;">Campo obrigatório!</span>
+                                                                                <span id="status-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                         </div>
                                                                 </div>
@@ -199,7 +199,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                         </div>
                                                             <div class="modal-footer">
                                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                                                    <button type="submit" class="btn btn-primary" onclick="editarFormacao('. $row->ID_FORMACAO .')">Salvar</button>
                                                             </div>
                                                         </form>
                                                         </div>
