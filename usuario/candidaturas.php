@@ -61,6 +61,13 @@ session_start();
     </div>
     <div class="container container-vagas">
     <?php
+    if ($result->num_rows == 0) {
+
+        print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                    <a style="text-decoration:none;">Você ainda <b>NÃO</b> se candidatou em <b>NENHUMA</b> vaga!</a>
+                </div>';
+
+    }else{    
         // Percorre os resultados da consulta
         $id_table = 1;
         while ($row = $result->fetch_assoc()) {
@@ -132,6 +139,7 @@ session_start();
             </div>';
         }
     $conn->close();
+    }
 ?>
 </div>
 <!-- exemplo de info -->

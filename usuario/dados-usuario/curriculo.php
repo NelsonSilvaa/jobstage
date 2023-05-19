@@ -8,12 +8,6 @@ session_start();
 
     $user_id = $_SESSION['ID_USUARIO'];
 
-    $sql = "SELECT * FROM usuario
-            WHERE ID_USUARIO = $user_id";
-
-    $resultado = mysqli_query($conn, $sql);
-    $query = mysqli_fetch_assoc($resultado);
-
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -25,6 +19,8 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/sweetalert2.css">
+    <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
     <a href="../../index.html">
@@ -54,20 +50,135 @@ session_start();
 
     <div class="container-dados">
         <div style="width: 794px; height: 1123px; border: 1px solid black;">
+        <?php
+            $sqlUser = "SELECT * FROM usuario
+            WHERE ID_USUARIO = $user_id";
+
+            $resultadoU = mysqli_query($conn, $sqlUser);
+            $queryU = mysqli_fetch_assoc($resultadoU);
+
+            $dataNascimento = $queryU['DATA_NASC'];
+
+
+            // Cria um objeto DateTime para a data de nascimento
+            $dataNascimentoObj = date_create($dataNascimento);
+
+            // Cria um objeto DateTime para a data atual
+            $dataAtualObj = date_create();
+
+            // Calcula a diferença entre as duas datas
+            $diferenca = date_diff($dataNascimentoObj, $dataAtualObj);
+
+            // Obtém a idade a partir da diferença de anos
+            $idade = $diferenca->y;
+
+        
+        ?>
             <header style="background-color: white;">
                 <div class="nome">
-                    <?php echo $query['NOME'] ?>
+                    <?php echo $queryU['NOME'] ?>
                 </div>
                 <div class="dados-pessoais">
-                    <?php echo $query['NOME'] ?>
+                    <div class="dados-idade">
+                        <?php echo $idade ?> anos
+                    </div>
+                    <div class="dados-civil">
+                        Curitiba
+                    </div>
+                    <div class="daos-localidade">
+                        - PR
+                    </div>
                 </div>
             </header>
             <main>
+                <div class="Contato">
+                    <hr>
+                    <h3><b>Contato</b></h3>
+                    <div class="contato-email">
+                        <b>E-mail:</b>  <?php echo $queryU['EMAIL'] ?>
+                    </div>
+                    <div class="contato-linkedin">
+                        <b>LinkedIn:</b>  <?php echo $queryU['LINKEDIN'] ?>
+                    </div>
+                    <div class="contato-telefone">
+                        <b>Telefone:</b>  <?php echo $queryU['TELEFONE'] ?>
+                    </div>
+                </div>
+               <div class="sobre">
+                    <hr>
+                    <h3><b>Sobre</b></h3>
+                    <div class="conteudo-sobre">
+                        <?php echo $queryU['SOBRE'] ?>
+                    </div>
+                   
+               </div>
+               <div class="experiencia">
+                    <hr>
+                    <h3><b>Experiência Profissional:</b></h3>
+                    <?php
+                        $sqlExp = "SELECT * FROM experiencia
+                        WHERE ID_USUARIO = $user_id";
+            
+                        $res = $conn->query($sqlExp);
 
+                        $qtd = $res->num_rows;
+                        while ($row = $res->fetch_object()){
+                            echo '  <div class="empresa-cargo">
+                                        <b>' . $row->EMPRESA . ' - ' . $row->CARGO . '</b>
+                                    </div>
+                                    <div class="periodo-exp">
+                                        <b>Periodo:</b> ' . $row->INICIO . ' - ' . (isset($row->FIM) ? $row->FIM : "Atual") . '
+                                    </div>
+                                    <div class="atv-exp">
+                                        <b>Atividades exercidas:</b>
+                                        <br>
+                                        ' . $row->ATIVIDADES . '
+                                    </div>';
+                        }
+                    ?>
+                </div>
+                <div class="formacao">
+                    <hr>
+                    <h3><b>Formação Acadêmica:</b></h3>
+                    <?php
+                        $sqlFormacao = "SELECT * FROM formacao
+                        WHERE ID_USUARIO = $user_id";
+            
+                        $res = $conn->query($sqlFormacao);
+
+                        $qtd = $res->num_rows;
+                        while ($row = $res->fetch_object()){
+                            echo '  <div>
+                                        <div class="nivel">
+                                            Ensino '.$row->NIVEL.' - '.$row->STATUS.'
+                                        </div>
+                                        <div class="instituicao_curso">
+                                            '.$row->INSTITUICAO.' - '.$row->CURSO.' - <b>'.$row->DURACAO.' Anos</b>
+                                        </div>
+                                    </div>';
+                        }
+                    ?>
+                </div>
+                <div class="curso-extra">
+                    <hr>
+                    <h3><b>Cursos Extras:</b></h3>
+                    <?php
+                        $sqlFormacao = "SELECT * FROM curso_extra
+                        WHERE ID_USUARIO = $user_id";
+            
+                        $res = $conn->query($sqlFormacao);
+
+                        $qtd = $res->num_rows;
+                        while ($row = $res->fetch_object()){
+                            echo '  <div class="curso_extra">
+                                        '.$row->NOME.' - ('.$row->STATUS.') - <b>'. strtoupper($row->INSTITUICAO) .'</b></b>
+                                    </div>';
+                        }
+                    ?>
+                </div>
+
+                
             </main>
-            <footer>
-
-            </footer>
         </div>
     </div>
     

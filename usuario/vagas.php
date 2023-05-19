@@ -55,12 +55,20 @@ session_start();
             <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
             <li><a href="vagas.php">Vagas</a></li>
             <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.html">Currículo</a></li>
+            <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>
             <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
         </ul>
     </div>
     <div class="container container-vagas">
     <?php
+
+    if ($result->num_rows == 0) {
+
+        print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                    <a style="text-decoration:none;">Ainda <b>NÃO</b> existem vagas disponíveis!</a>
+                </div>';
+
+    }else{
         // Percorre os resultados da consulta
         $id_table = 1;
         while ($row = $result->fetch_assoc()) {
@@ -139,6 +147,7 @@ session_start();
             </div>';
         }
     $conn->close();
+    }
 ?>
 </div>
 <!-- exemplo de info -->
