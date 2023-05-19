@@ -1,0 +1,32 @@
+.header_curriculo{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dados-pessoais{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.conteudo-principal{
+    padding: 10px;
+    word-wrap: break-word;
+    font-size: 20px;
+}
+
+.Contato h3, .sobre h3, .experiencia h3, .formacao h3, .curso-extra h3{
+    background-color: #919191;
+    padding: 2px;
+}
+
+.experiencia b{
+    font-style: italic;
+}
+
+.atv-exp, .instituicao_curso{
+    margin-bottom: 30px;
+}

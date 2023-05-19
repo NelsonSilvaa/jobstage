@@ -235,12 +235,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="curso">Curso<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" placeholder="" name="curso" id="cursoInsert">
+                                            <input type="text" class="form-control" placeholder="Ex: Fundamental" name="curso" id="cursoInsert">
                                             <span id="curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="instituicao">Instituição<span style="color: red;">*</span></label>
-                                            <input type="text" class="form-control" placeholder="" name="instituicao" id="instituicaoInsert">
+                                            <input type="text" class="form-control" placeholder="Ex: Colégio Estadual São Vicente" name="instituicao" id="instituicaoInsert">
                                             <span id="instituicao-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>

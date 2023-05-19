@@ -21,6 +21,7 @@ session_start();
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/sweetalert2.css">
     <link rel="stylesheet" href="../../css/validacoes.css">
+    <link rel="stylesheet" href="../../css/curriculo.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
     <a href="../../index.html">
@@ -49,7 +50,7 @@ session_start();
 
 
     <div class="container-dados">
-        <div style="width: 794px; height: 1123px; border: 1px solid black;">
+        <div class="conteudo-principal" style="width: 794px; min-height: 1123px; border: 1px solid black;">
         <?php
             $sqlUser = "SELECT * FROM usuario
             WHERE ID_USUARIO = $user_id";
@@ -74,22 +75,22 @@ session_start();
 
         
         ?>
-            <header style="background-color: white;">
+            <div class="header_curriculo">
                 <div class="nome">
-                    <?php echo $queryU['NOME'] ?>
+                    <h3> <?php echo $queryU['NOME'] ?> </h3>
                 </div>
                 <div class="dados-pessoais">
                     <div class="dados-idade">
-                        <?php echo $idade ?> anos
+                        <?php echo $idade ?> anos 
                     </div>
                     <div class="dados-civil">
-                        Curitiba
+                        <?php echo $queryU['ESTADO_CIVIL'] ?> 
                     </div>
                     <div class="daos-localidade">
-                        - PR
+                        Curitiba - PR 
                     </div>
                 </div>
-            </header>
+            </div>
             <main>
                 <div class="Contato">
                     <hr>
@@ -114,7 +115,7 @@ session_start();
                </div>
                <div class="experiencia">
                     <hr>
-                    <h3><b>Experiência Profissional:</b></h3>
+                    <h3><b style="font-style: normal !important;">Experiência Profissional:</b></h3>
                     <?php
                         $sqlExp = "SELECT * FROM experiencia
                         WHERE ID_USUARIO = $user_id";
@@ -123,7 +124,7 @@ session_start();
 
                         $qtd = $res->num_rows;
                         while ($row = $res->fetch_object()){
-                            echo '  <div class="empresa-cargo">
+                            echo '  <div class="empresa-cargo" style="font-size: 22px; font-weight: 600;">
                                         <b>' . $row->EMPRESA . ' - ' . $row->CARGO . '</b>
                                     </div>
                                     <div class="periodo-exp">
@@ -150,10 +151,10 @@ session_start();
                         while ($row = $res->fetch_object()){
                             echo '  <div>
                                         <div class="nivel">
-                                            Ensino '.$row->NIVEL.' - '.$row->STATUS.'
+                                            Ensino '.$row->NIVEL.' - <b>'.$row->STATUS.'</b>
                                         </div>
                                         <div class="instituicao_curso">
-                                            '.$row->INSTITUICAO.' - '.$row->CURSO.' - <b>'.$row->DURACAO.' Anos</b>
+                                            '.$row->INSTITUICAO.' - '.$row->CURSO.' - '.$row->DURACAO.' Anos
                                         </div>
                                     </div>';
                         }

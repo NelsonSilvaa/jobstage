@@ -233,12 +233,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <div class="form-row">
                                         <div class="col">
                                             <label for="nome-curso">Nome</label>
-                                            <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-cursoInsert">
+                                            <input type="text" class="form-control" placeholder="Ex:Técnico em Informática" name="nome-curso" id="nome-cursoInsert">
                                             <span id="nome-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
                                             <label for="instituicao-curso">Instituição</label>
-                                            <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-cursoInsert">
+                                            <input type="text" class="form-control" placeholder="Ex: Udemy" name="instituicao-curso" id="instituicao-cursoInsert">
                                             <span id="instituicao-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </div>
                                         <div class="col">
                                             <label for="n-tecnico">Nivel Técnico</label>
-                                            <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnicoInsert">
+                                            <input type="text" class="form-control" placeholder="Ex: intermediário " name="n-tecnico" id="n-tecnicoInsert">
                                             <span id="n-tecnico-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         

@@ -231,7 +231,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </div>
                                         <div class="col">
                                             <label for="cargo">Cargo</label>
-                                            <input type="text" class="form-control" placeholder="" name="cargo" id="cargoInsert" >
+                                            <input type="text" class="form-control" placeholder="Ex: Administrativo" name="cargo" id="cargoInsert" >
                                             <span id="cargo-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                     </div>
@@ -251,7 +251,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </div>
                                         <div class="col">
                                             <label for="tipo_contrato">Tipo contrato</label>
-                                            <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contratoInsert">
+                                            <select type="text" class="form-control" name="tipo_contrato" id="tipo_contratoInsert">
                                                 <option value=""></option>
                                                 <option value="CLT">CLT</option>
                                                 <option value="PJ">PJ</option>
@@ -264,7 +264,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     </div>
                                     <div class="form-group">
                                         <label for="atividades">Atividades</label>
-                                        <textarea class="form-control" name="atividades" id="atividadesInsert" rows="3"></textarea>
+                                        <textarea class="form-control" name="atividades" placeholder="Descreva suas atividades e deveres nesta experiência" id="atividadesInsert" rows="3"></textarea>
                                         <span id="atividades-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                     </div>
                                     <div style="margin-top: 20px;">
