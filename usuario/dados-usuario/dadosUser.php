@@ -79,10 +79,10 @@ $user_id = $_SESSION['ID_USUARIO'];
 
     <div class="container-dados">
         <nav class="nav nav-pills flex-column flex-sm-row card">
-            <a class="flex-sm-fill text-sm-center nav-link active" href="dadosUser.php">Dados</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="formacaoUser.php">Formação</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="expUser.php">Experiência</a>
-            <a class="flex-sm-fill text-sm-center nav-link " href="cursoUser.php">Cursos</a>
+            <a id="dados-link" class="flex-sm-fill text-sm-center nav-link" href="dadosUser.php">Dados</a>
+            <a id="formacao-link" class="flex-sm-fill text-sm-center nav-link" href="formacaoUser.php">Formação</a>
+            <a id="exp-link" class="flex-sm-fill text-sm-center nav-link" href="expUser.php">Experiência</a>
+            <a id="curso-link" class="flex-sm-fill text-sm-center nav-link" href="cursoUser.php">Cursos</a>
         </nav>
         <div class="card">
             <div class="card-body">
@@ -157,14 +157,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     
 </div>
 
-
-
-       
-    
-
-
-
-
+    <script src="../../src/JS/app.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
     <script src="../../src/JS/jquery-3.6.4.js"></script>

@@ -1,75 +1,13 @@
-// REQUISIÇÕES AJAX
+// pega a URL atual da página
+var url = window.location.href;
 
-function deletarFormacao(row_id) {
-  console.log(row_id);
-  // Faz uma requisição AJAX para o servidor PHP
-  $.ajax({
-    url: 'http://localhost/jobstage/src/delete/deleteFormacao.php',
-    type: 'POST',
-    data: { 
-            id_linha: row_id
-          },
-    success: function(data) {
-        location.reload();
-    },
-    error: function() {
-      alert('Erro ao se comunicar com o servidor!');
-    }
-  });
-};
-
-
-function deletarExperiencia(row_id) {
-  console.log(row_id);
-  // Faz uma requisição AJAX para o servidor PHP
-  $.ajax({
-    url: 'http://localhost/jobstage/src/delete/deleteExperiencia.php',
-    type: 'POST',
-    data: { 
-            id_linha: row_id
-          },
-    success: function(data) {
-        location.reload();
-    },
-    error: function() {
-      alert('Erro ao se comunicar com o servidor!');
-    }
-  });
-};
-
-
-function deletarCurso(row_id) {
-  console.log(row_id);
-  // Faz uma requisição AJAX para o servidor PHP
-  $.ajax({
-    url: 'http://localhost/jobstage/src/delete/deleteCurso.php',
-    type: 'POST',
-    data: { 
-            id_linha: row_id
-          },
-    success: function(data) {
-        location.reload();
-    },
-    error: function() {
-      alert('Erro ao se comunicar com o servidor!');
-    }
-  });
-};
-
-
-
-function loginEmpresa(){
-  $.ajax({
-    url: '',
-    type: 'POST',
-    data: { 
-            
-          },
-    success: function(data) {
-        
-    },
-    error: function() {
-      
-    }
-  });
-};
+// verificase a URL corresponde a algum link, em seguida adiciona "active" na classe
+if (url.includes("dadosUser.php")) {
+    document.getElementById("dados-link").classList.add("active");
+}else if (url.includes("formacaoUser.php")) {
+    document.getElementById("formacao-link").classList.add("active");
+}else if (url.includes("expUser.php")) {
+    document.getElementById("exp-link").classList.add("active");
+}else if (url.includes("cursoUser.php")) {
+     document.getElementById("curso-link").classList.add("active");
+}

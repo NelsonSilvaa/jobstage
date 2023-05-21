@@ -1496,3 +1496,5 @@ function deletarCurso(row_id){
         }
     })
 }
+
+
