@@ -136,9 +136,9 @@ session_start();
                                                     <label for="turno">Turno<span style="color: red;">*</span> </label>
                                                     <select type="text" class="form-control" placeholder="abc" name="turno" id="turno'.$row->ID_VAGA.'" value="'.$vagaQuery["TURNO"].'">
                                                         <option value=""></option>
-                                                        <option value="Manhã">Manhã</option>
-                                                        <option value="Tarde">Tarde</option>
-                                                        <option value="Noite">Noite</option>
+                                                        <option value="Manhã" '. (isset($vagaQuery['TURNO']) ? ($vagaQuery['TURNO'] == "Manhã" ? "Selected":''): '').'>Manhã</option>
+                                                        <option value="Tarde" '. (isset($vagaQuery['TURNO']) ? ($vagaQuery['TURNO'] == "Tarde" ? "Selected":''): '').'>Tarde</option>
+                                                        <option value="Noite" '. (isset($vagaQuery['TURNO']) ? ($vagaQuery['TURNO'] == "Noite" ? "Selected":''): '').'>Noite</option>
                                                     </select>
                                                     <span id="turno-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
@@ -165,33 +165,33 @@ session_start();
                                                     <label for="estado">Estado<span style="color: red;">*</span> </label>
                                                     <select type="text" class="form-control" placeholder="abc" name="estado" id="estado'.$row->ID_VAGA.'" value="'.$vagaQuery["ESTADO"].'">
                                                         <option value=""></option>
-                                                        <option value="AC">Acre</option>
-                                                        <option value="AL">Alagoas</option>
-                                                        <option value="AP">Amapá</option>
-                                                        <option value="AM">Amazonas</option>
-                                                        <option value="BA">Bahia</option>
-                                                        <option value="CE">Ceará</option>
-                                                        <option value="DF">Distrito Federal</option>
-                                                        <option value="ES">Espírito Santo</option>
-                                                        <option value="GO">Goiás</option>
-                                                        <option value="MA">Maranhão</option>
-                                                        <option value="MT">Mato Grosso</option>
-                                                        <option value="MS">Mato Grosso do Sul</option>
-                                                        <option value="MG">Minas Gerais</option>
-                                                        <option value="PA">Pará</option>
-                                                        <option value="PB">Paraíba</option>
-                                                        <option value="PR">Paraná</option>
-                                                        <option value="PE">Pernambuco</option>
-                                                        <option value="PI">Piauí</option>
-                                                        <option value="RJ">Rio de Janeiro</option>
-                                                        <option value="RN">Rio Grande do Norte</option>
-                                                        <option value="RS">Rio Grande do Sul</option>
-                                                        <option value="RO">Rondônia</option>
-                                                        <option value="RR">Roraima</option>
-                                                        <option value="SC">Santa Catarina</option>
-                                                        <option value="SP">São Paulo</option>
-                                                        <option value="SE">Sergipe</option>
-                                                        <option value="TO">Tocantins</option>
+                                                        <option value="AC" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "AC" ? "Selected":''): '').'>Acre</option>
+                                                        <option value="AL" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "AL" ? "Selected":''): '').'>Alagoas</option>
+                                                        <option value="AP" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "AP" ? "Selected":''): '').'>Amapá</option>
+                                                        <option value="AM" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "AM" ? "Selected":''): '').'>Amazonas</option>
+                                                        <option value="BA" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "BA" ? "Selected":''): '').'>Bahia</option>
+                                                        <option value="CE" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "CE" ? "Selected":''): '').'>Ceará</option>
+                                                        <option value="DF" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "DF" ? "Selected":''): '').'>Distrito Federal</option>
+                                                        <option value="ES" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "ES" ? "Selected":''): '').'>Espírito Santo</option>
+                                                        <option value="GO" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "GO" ? "Selected":''): '').'>Goiás</option>
+                                                        <option value="MA" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "MA" ? "Selected":''): '').'>Maranhão</option>
+                                                        <option value="MT" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "MT" ? "Selected":''): '').'>Mato Grosso</option>
+                                                        <option value="MS" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "MS" ? "Selected":''): '').'>Mato Grosso do Sul</option>
+                                                        <option value="MG" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "MG" ? "Selected":''): '').'>Minas Gerais</option>
+                                                        <option value="PA" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "PA" ? "Selected":''): '').'>Pará</option>
+                                                        <option value="PB" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "PB" ? "Selected":''): '').'>Paraíba</option>
+                                                        <option value="PR" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "PR" ? "Selected":''): '').'>Paraná</option>
+                                                        <option value="PE" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "PE" ? "Selected":''): '').'>Pernambuco</option>
+                                                        <option value="PI" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "PI" ? "Selected":''): '').'>Piauí</option>
+                                                        <option value="RJ" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "RJ" ? "Selected":''): '').'>Rio de Janeiro</option>
+                                                        <option value="RN" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "RN" ? "Selected":''): '').'>Rio Grande do Norte</option>
+                                                        <option value="RS" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "RS" ? "Selected":''): '').'>Rio Grande do Sul</option>
+                                                        <option value="RO" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "RO" ? "Selected":''): '').'>Rondônia</option>
+                                                        <option value="RR" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "RR" ? "Selected":''): '').'>Roraima</option>
+                                                        <option value="SC" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "SC" ? "Selected":''): '').'>Santa Catarina</option>
+                                                        <option value="SP" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "SP" ? "Selected":''): '').'>São Paulo</option>
+                                                        <option value="SE" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "SE" ? "Selected":''): '').'>Sergipe</option>
+                                                        <option value="TO" '. (isset($vagaQuery['ESTADO']) ? ($vagaQuery['ESTADO'] == "TO" ? "Selected":''): '').'>Tocantins</option>
                                                     </select>
                                                     <span id="estado-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
@@ -205,10 +205,10 @@ session_start();
                                                     <label for="contrato">Tipo de contrato<span style="color: red;">*</span> </label>
                                                     <select type="text" class="form-control" placeholder="" name="contrato" id="contrato'.$row->ID_VAGA.'" value="'.$vagaQuery["TIPO_CONTRATO"].'">
                                                         <option value=""></option>
-                                                        <option value="CLT">CLT</option>
-                                                        <option value="PJ">PJ</option>
-                                                        <option value="estagio">Estágio</option>
-                                                        <option value="temporario">Temporário</option>
+                                                        <option value="CLT" '. (isset($vagaQuery['TIPO_CONTRATO']) ? ($vagaQuery['TIPO_CONTRATO'] == "CLT" ? "Selected":''): '').'>CLT</option>
+                                                        <option value="PJ" '. (isset($vagaQuery['TIPO_CONTRATO']) ? ($vagaQuery['TIPO_CONTRATO'] == "PJ" ? "Selected":''): '').'>PJ</option>
+                                                        <option value="estagio" '. (isset($vagaQuery['TIPO_CONTRATO']) ? ($vagaQuery['TIPO_CONTRATO'] == "estagio" ? "Selected":''): '').'>Estágio</option>
+                                                        <option value="temporario" '. (isset($vagaQuery['TIPO_CONTRATO']) ? ($vagaQuery['TIPO_CONTRATO'] == "temporario" ? "Selected":''): '').'>Temporário</option>
                                                     </select>
                                                     <span id="contrato-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
@@ -216,14 +216,14 @@ session_start();
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="atividades">Atividades<span style="color: red;">*</span> </label>
-                                                    <textarea class="form-control" name="atividades" id="atividades'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["DESCRICAO"].'"></textarea>
+                                                    <textarea class="form-control" name="atividades" id="atividades'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["DESCRICAO"].'">'. (isset($vagaQuery['DESCRICAO']) ? $vagaQuery['DESCRICAO'] :'').'</textarea>
                                                     <span id="atv-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col">
                                                     <label for="requisitos">Requisitos:<span style="color: red;"></span> </label>
-                                                    <textarea class="form-control" name="requisitos" id="requisitos'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["REQUISITOS"].'"></textarea>
+                                                    <textarea class="form-control" name="requisitos" id="requisitos'.$row->ID_VAGA.'" rows="3" value="'.$vagaQuery["REQUISITOS"].'">'. (isset($vagaQuery['REQUISITOS']) ? $vagaQuery['REQUISITOS']: '').'</textarea>
                                                     <span id="requisitos-error" style="display:none; color:red;">Campo obrigatório!</span>
                                                 </div>
                                             </div> 
