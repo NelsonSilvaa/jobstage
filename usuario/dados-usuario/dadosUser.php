@@ -113,7 +113,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 </div>
                                 <div class="col">
                                     <label for="estadoCivil">Estado Civil<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" name="estadoCivil" id="estadoCivil" required>
+                                    <select type="text" class="form-control" name="estadoCivil" id="estadoCivil" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'?> required>
                                         <option value=""></option>
                                         <option value="Solteiro(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Solteiro(a)" ? "Selected":''): '') ?>>Solteiro(a)</option>
                                         <option value="Casado(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Casado(a)" ? "Selected":''): '') ?>>Casado(a)</option>
@@ -133,7 +133,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="linkedin">LinkedIn<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Coloque o link do seu LinkedIn aqui" value="<?php echo isset($dadoQuery['LINKEDIN']) ? $dadoQuery['LINKEDIN']: '' ?>"  name="linkedin" id="linkedin">
+                                    <input type="text" class="form-control" placeholder="Coloque o link do seu LinkedIn aqui" value="<?php echo isset($dadoQuery['LINKEDIN']) ? $dadoQuery['LINKEDIN']: '' ?>"  name="linkedin" id="linkedin" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'?> >
                                 </div>
                             </div>
                             <div class="form-row">
@@ -142,7 +142,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         <a style="text-decoration:none;" class="alert-link">Aproveite para falar sobre você, experiências profissionais e objetivos de vida!</a>
                                     </div> -->
                                     <label for="objetivo">Sobre<span style="color: red;">*</span></label>
-                                    <textarea type="text" class="form-control" placeholder="Fale sobre você, suas expências, habilidades e objetivos" name="objetivo" id="objetivo"> <?php echo isset($dadoQuery['SOBRE']) ? $dadoQuery['SOBRE']: '' ?> </textarea>
+                                    <textarea type="text" class="form-control" placeholder="Fale sobre você, suas expências, habilidades e objetivos" name="objetivo" id="objetivo" <?php if(isset($_SESSION['formulario_enviado_dados'])) echo 'disabled'?>> <?php echo isset($dadoQuery['SOBRE']) ? $dadoQuery['SOBRE']: '' ?></textarea>
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
