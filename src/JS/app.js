@@ -11,3 +11,27 @@ if (url.includes("dadosUser.php")) {
 }else if (url.includes("cursoUser.php")) {
      document.getElementById("curso-link").classList.add("active");
 }
+
+
+
+
+$('.editarExp').click(function() {
+    var valor = $(this).val();
+    console.log(valor);
+    
+
+    $(document).ready(function() {
+        $('#cargo-atualEdit'+valor).click(function() {
+            if ($('#cargo-atualEdit'+valor).prop('checked')){
+                $('#fimEdit'+valor).prop('type', 'text');
+                $('#fimEdit'+valor).prop('placeholder', 'Atual');
+                $('#fimEdit'+valor).val('');
+                $('#fimEdit'+valor).prop('disabled', true);
+            } else {
+                $('#fimEdit'+valor).prop('disabled', false);
+                $('#fimEdit'+valor).prop('type', 'date');
+                $('#fimEdit'+valor).prop('disabled', false);
+            }
+        });
+    });
+});

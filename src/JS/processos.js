@@ -1131,8 +1131,16 @@ function novaExp(){
     $("#inicioInsert").addClass('error');
     $("#di-error-insert").show();
 
-    $("#fimInsert").addClass('error');
-    $("#df-error-insert").show();
+
+    if($("#fimInsert").prop('disabled')){
+        $("#fimInsert").removeClass('error');
+        $("#df-error-insert").hide();
+        dataFim = null;
+    }else{
+        $("#fimInsert").addClass('error');
+        $("#df-error-insert").show();
+    }
+    
 
     $("#tipo_contratoInsert").addClass('error');
     $("#tipo_contrato-error-insert").show();
@@ -1155,10 +1163,12 @@ function novaExp(){
         $("#inicioInsert").removeClass('error');
         $("#di-error-insert").hide();
     }
-    
-    if ($("#fimInsert").val() !== "") {
-        $("#fimInsert").removeClass('error');
-        $("#df-error-insert").hide();
+
+    if(!$("#fimInsert").prop('readonly')){
+        if ($("#fimInsert").val() !== "") {
+            $("#fimInsert").removeClass('error');
+            $("#df-error-insert").hide();
+        }
     }
    
     if ($("#tipo_contratoInsert").val() !== "") {
@@ -1171,7 +1181,7 @@ function novaExp(){
         $("#atividades-error-insert").hide();
     }
 
-    if ($("#empresaInsert").val() === "" || $("#cargoInsert").val() === "" || $("#inicioInsert").val() === "" || $("#fimInsert").val() === "" || $("#tipo_contratoInsert").val() === "" || $("#atividadesInsert").val() === "") {
+    if ($("#empresaInsert").val() === "" || $("#cargoInsert").val() === "" || $("#inicioInsert").val() === "" || ($("#fimInsert").val() === "" && !$("#fimInsert").prop('disabled')) || $("#tipo_contratoInsert").val() === "" || $("#atividadesInsert").val() === "") {
         return;
     }
 
@@ -1228,8 +1238,14 @@ function editarExp(row_id){
     $("#inicioEdit"+id_exp).addClass('error');
     $("#di-error-Edit"+id_exp).show();
 
-    $("#fimEdit"+id_exp).addClass('error');
-    $("#df-error-Edit"+id_exp).show();
+    if($("#fimEdit"+id_exp).prop('disabled')){
+        $("#fimEdit"+id_exp).removeClass('error');
+        $("#df-error-Edit"+id_exp).hide();
+        dataFim = null;
+    }else{
+        $("#fimEdit"+id_exp).addClass('error');
+        $("#df-error-Edit"+id_exp).show();
+    }
 
     $("#tipo_contratoEdit"+id_exp).addClass('error');
     $("#tipo_contrato-error-Edit"+id_exp).show();
@@ -1268,7 +1284,7 @@ function editarExp(row_id){
         $("#atividades-error-Edit"+id_exp).hide();
     }
 
-    if ($("#empresaEdit"+id_exp).val() === "" || $("#cargoEdit"+id_exp).val() === "" || $("#inicioEdit"+id_exp).val() === "" || $("#fimEdit"+id_exp).val() === "" || $("#tipo_contratoEdit"+id_exp).val() === "" || $("#atividadesEdit"+id_exp).val() === "") {
+    if ($("#empresaEdit"+id_exp).val() === "" || $("#cargoEdit"+id_exp).val() === "" || $("#inicioEdit"+id_exp).val() === "" || ($("#fimInsert"+id_exp).val() === "" && !$("#fimInsert"+id_exp).prop('disabled')) || $("#tipo_contratoEdit"+id_exp).val() === "" || $("#atividadesEdit"+id_exp).val() === "") {
         return;
     }
 

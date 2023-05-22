@@ -123,7 +123,7 @@ session_start();
                                         <b>' . $row->EMPRESA . ' - ' . $row->CARGO . '</b>
                                     </div>
                                     <div class="periodo-exp">
-                                        <b>Periodo:</b> ' . $row->INICIO . ' - ' . (isset($row->FIM) ? $row->FIM : "Atual") . '
+                                        <b>Periodo:</b> ' . $row->INICIO . ' - ' . ($row->FIM? $row->FIM : "Atual") . '
                                     </div>
                                     <div class="atv-exp">
                                         <b>Atividades exercidas:</b>

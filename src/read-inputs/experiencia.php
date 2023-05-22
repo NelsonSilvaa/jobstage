@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql_exp = "INSERT INTO experiencia (EMPRESA, CARGO, INICIO, FIM, TIPO_CONTRATO, ATIVIDADES, ID_USUARIO)
                      VALUES ('$empresa', '$cargo', '$inicio', '$fim', '$tipo_contrato','$atividades', '$user_id')";
-    
+
     if (mysqli_query($conn, $sql_exp)) {
         header("Cache-Control: no-cache, no-store, must-revalidate");
         $response = array('success' => true, 'message' => 'Experiência adicionada!', 'redirect' => '../../usuario/dados-usuario/expUser.php');

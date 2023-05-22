@@ -119,8 +119,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->CARGO."</td>";
                                         print    "<td>".$row->TIPO_CONTRATO."</td>";
                                         print    "<td>".$row->INICIO."</td>";
-                                        print    "<td>".$row->FIM."</td>";
-                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
+                                        print    "<td>".($row->FIM?$row->FIM:'Atual')."</td>";
+                                        print    "<td>". '<button type="button" class="btn btn-primary editarExp" data-toggle="modal" id="editarExp" value="'.$row->ID_EXPERIENCIA.'" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
                                                     <button type="button" class="btn btn-danger" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
@@ -168,7 +168,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                         </div>
                                                                         <div class="col">
                                                                             <label for="data-fim">Fim</label>
-                                                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fimEdit'. $row->ID_EXPERIENCIA .'" value="'. $expQuery['FIM'].'" >
+                                                                            <input type="date" class="form-control" placeholder="" name="data-fim" id="fimEdit'. $row->ID_EXPERIENCIA .'" value="'. ($expQuery['FIM']? $expQuery['FIM']: 'Atual').'" >
+                                                                            <input class="id_edit" value="'.$row->ID_EXPERIENCIA.'" id="cargo-atualEdit'.$row->ID_EXPERIENCIA.'" type="checkbox">Cargo atual?
                                                                             <span id="df-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
@@ -246,6 +247,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         <div class="col">
                                             <label for="data-fim">Fim</label>
                                             <input type="date" class="form-control" placeholder="" name="data-fim" id="fimInsert">
+                                            <span><input id="cargo-atual" type="checkbox">Cargo atual?</span>
                                             <span id="df-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
 
                                         </div>
@@ -281,11 +283,33 @@ $user_id = $_SESSION['ID_USUARIO'];
     
 </div>
 
+    <script>
+    $(document).ready(function() {
+        $('#cargo-atual').click(function() {
+           if ( $('#cargo-atual').prop('checked')){
+
+                 $('#fimInsert').prop('type', 'text');
+                $('#fimInsert').prop('placeholder', 'Atual');
+                $('#fimInsert').val('');
+                $('#fimInsert').prop('disabled', true);
+           }else{
+                $('#fimInsert').prop('disabled', false);
+                $('#fimInsert').prop('type', 'date');
+                $('#fimInsert').prop('disabled', false);
+           }
+        });
+
+        
+    });
+
+    
+    
+    </script>
+
 
     <script src="../../src/JS/app.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
