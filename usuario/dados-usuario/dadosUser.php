@@ -115,9 +115,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <label for="estadoCivil">Estado Civil<span style="color: red;">*</span></label>
                                     <select type="text" class="form-control" name="estadoCivil" id="estadoCivil" required>
                                         <option value=""></option>
-                                        <option value="Solteiro(a)">Solteiro(a)</option>
-                                        <option value="Casado(a)">Casado(a)</option>
-                                        <option value="Divorciado(a)">Divorciado(a)</option>
+                                        <option value="Solteiro(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Solteiro(a)" ? "Selected":''): '') ?>>Solteiro(a)</option>
+                                        <option value="Casado(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Casado(a)" ? "Selected":''): '') ?>>Casado(a)</option>
+                                        <option value="Divorciado(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Divorciado(a)" ? "Selected":''): '') ?>>Divorciado(a)</option>
                                     </select>
                                     <span id="estadoCivil-error" style="display:none; color:red;">Campo obrigatório!</span>
 

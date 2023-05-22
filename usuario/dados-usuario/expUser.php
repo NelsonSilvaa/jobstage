@@ -176,10 +176,10 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                             <label for="tipo_contrato">Tipo contrato</label>
                                                                             <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contratoEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['TIPO_CONTRATO'].'">
                                                                                 <option value=""></option>
-                                                                                <option value="CLT">CLT</option>
-                                                                                <option value="PJ">PJ</option>
-                                                                                <option value="estagio">Estágio</option>
-                                                                                <option value="temporario">Temporário</option>
+                                                                                <option value="CLT" '. (isset($expQuery['TIPO_CONTRATO']) ? ($expQuery['TIPO_CONTRATO'] == "CLT" ? "Selected":''): '').'>CLT</option>
+                                                                                <option value="PJ" '. (isset($expQuery['TIPO_CONTRATO']) ? ($expQuery['TIPO_CONTRATO'] == "PJ" ? "Selected":''): '').'>PJ</option>
+                                                                                <option value="estagio" '. (isset($expQuery['TIPO_CONTRATO']) ? ($expQuery['TIPO_CONTRATO'] == "estagio" ? "Selected":''): '').'>Estágio</option>
+                                                                                <option value="temporario" '. (isset($expQuery['TIPO_CONTRATO']) ? ($expQuery['TIPO_CONTRATO'] == "temporario" ? "Selected":''): '').'>Temporário</option>
                                                                             </select>
                                                                             <span id="tipo_contrato-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>

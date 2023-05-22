@@ -181,10 +181,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                             <div class="col">
                                                                                 <label for="status-curso">Status</label>
                                                                                 <select type="text" class="form-control" placeholder="" name="status-curso" id="status-cursoEdit'. $row->ID_CURSO .'"required>
-                                                                                    <option value=""></option>
-                                                                                    <option value="completo">Completo</option>
-                                                                                    <option value="em andamento">Em andamento</option>
-                                                                                    <option value="interrompido">Interrompido</option>
+                                                                                    <option value="completo" '. (isset($cursoExpQuery['STATUS']) ? ($cursoExpQuery['STATUS'] == "completo" ? "Selected":''): '').'>Completo</option>
+                                                                                    <option value="em andamento" '. (isset($cursoExpQuery['STATUS']) ? ($cursoExpQuery['STATUS'] == "em andamento" ? "Selected":''): '').'>Em andamento</option>
+                                                                                    <option value="interrompido" '. (isset($cursoExpQuery['STATUS']) ? ($cursoExpQuery['STATUS'] == "interrompido" ? "Selected":''): '').'>Interrompido</option>
                                                                                 </select>
                                                                                 <span id="status-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>

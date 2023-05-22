@@ -166,14 +166,14 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                 <label for="nivel">Nível<span style="color: red;">*</span></label>
                                                                                 <select type="text" class="form-control" name="nivel" id="nivelInsert'. $row->ID_FORMACAO .'">
                                                                                     <option value=""></option>
-                                                                                    <option value="fundamental">Fundamental</option>
-                                                                                    <option value="ensino médio">Ensino médio</option>
-                                                                                    <option value="tecnico">Técnico</option>
-                                                                                    <option value="tecnologo">Tecnólogo</option>
-                                                                                    <option value="bacharelado">Bacharelado</option>
-                                                                                    <option value="mestrado">Mestrado</option>
-                                                                                    <option value="doutorado">Doutorado</option>
-                                                                                    <option value="livre">Livre</option>
+                                                                                    <option value="fundamental" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "fundamental" ? "Selected":''): '').'> Fundamental </option>
+                                                                                    <option value="ensino médio" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "ensino médio" ? "Selected":''): '').'> Ensino médio </option>
+                                                                                    <option value="tecnico" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "tecnico" ? "Selected":''): '').'> Técnico </option>
+                                                                                    <option value="tecnologo" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "tecnologo" ? "Selected":''): '').'> Tecnólogo </option>
+                                                                                    <option value="bacharelado" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "bacharelado" ? "Selected":''): '').'> Bacharelado </option>
+                                                                                    <option value="mestrado" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "mestrado" ? "Selected":''): '').'> Mestrado </option>
+                                                                                    <option value="doutorado" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "doutorado" ? "Selected":''): '').'> Doutorado </option>
+                                                                                    <option value="livre" '. (isset($formQuery['NIVEL']) ? ($formQuery['NIVEL'] == "livre" ? "Selected":''): '').'> Livre </option>
                                                                                 </select>
                                                                                 <span id="nivel-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
@@ -186,9 +186,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                 <label for="status">Status<span style="color: red;">*</span></label>
                                                                                 <select type="text" class="form-control" placeholder="" name="statusInsert" id="statusInsert'. $row->ID_FORMACAO .'">
                                                                                     <option value=""></option>
-                                                                                    <option value="completo">Completo</option>
-                                                                                    <option value="em andamento">Em andamento</option>
-                                                                                    <option value="interrompido">Interrompido</option>
+                                                                                    <option value="completo" '. (isset($formQuery['STATUS']) ? ($formQuery['STATUS'] == "completo" ? "Selected":''): '').'>Completo</option>
+                                                                                    <option value="em andamento" '. (isset($formQuery['STATUS']) ? ($formQuery['STATUS'] == "em andamento" ? "Selected":''): '').'>Em andamento</option>
+                                                                                    <option value="interrompido" '. (isset($formQuery['STATUS']) ? ($formQuery['STATUS'] == "interrompido" ? "Selected":''): '').'>Interrompido</option>
                                                                                 </select>
                                                                                 <span id="status-error-edit'. $row->ID_FORMACAO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
