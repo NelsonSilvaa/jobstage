@@ -1513,4 +1513,9 @@ function deletarCurso(row_id){
     })
 }
 
-
+function editDados(){
+        event.preventDefault();
+        $("#editDadosUser").hide();
+        $("#salvarDadosUser").removeAttr("hidden");
+        $(':input:not(#email)').removeAttr("disabled");
+}
