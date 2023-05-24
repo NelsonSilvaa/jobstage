@@ -79,10 +79,10 @@ $user_id = $_SESSION['ID_USUARIO'];
 
     <div class="container-dados">
         <nav class="nav nav-pills flex-column flex-sm-row card">
-            <a id="dados-link" class="flex-sm-fill text-sm-center nav-link" href="dadosUser.php">Dados</a>
-            <a id="formacao-link" class="flex-sm-fill text-sm-center nav-link" href="formacaoUser.php">Formação</a>
-            <a id="exp-link" class="flex-sm-fill text-sm-center nav-link" href="expUser.php">Experiência</a>
-            <a id="curso-link" class="flex-sm-fill text-sm-center nav-link" href="cursoUser.php">Cursos</a>
+            <a id="dados-link" class="flex-sm-fill text-sm-center nav-link"    <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='dadosUser.php'":'disabled' ?>>Dados</a>
+            <a id="formacao-link" class="flex-sm-fill text-sm-center nav-link" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='formacaoUser.php'":'disabled style="opacity: 0.5; cursor: default;"' ?>>Formação</a>
+            <a id="exp-link" class="flex-sm-fill text-sm-center nav-link"      <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='expUser.php'":'disabled style="opacity: 0.5; cursor: default;"' ?>>Experiência</a>
+            <a id="curso-link" class="flex-sm-fill text-sm-center nav-link"    <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='cursoUser.php'":'disabled style="opacity: 0.5; cursor: default;"' ?>>Cursos</a>
         </nav>
         <div class="card">
             <div class="card-body">
@@ -93,7 +93,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="Nome">Nome Completo <span style="color: red;">*</span> </label>
-                                    <input type="text" class="form-control" value="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                    <input type="text" class="form-control" value="<?php echo isset($dadoQuery['NOME']) ? $dadoQuery['NOME']: '' ?>" name="nome" id="nome" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''; ?> required>
                                     <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
                                 </div>
                                 <div class="col">
@@ -107,13 +107,13 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="dataNsc">Data Nasc.<span style="color: red;">*</span></label>
-                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="dataNsc" id="dataNsc" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                    <input type="date" class="form-control" value="<?php echo isset($dadoQuery['DATA_NASC']) ? $dadoQuery['DATA_NASC']: '' ?>" name="dataNsc" id="dataNsc" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''; ?> required>
                                     <span id="dataNsc-error" style="display:none; color:red;">Campo obrigatório!</span>
 
                                 </div>
                                 <div class="col">
                                     <label for="estadoCivil">Estado Civil<span style="color: red;">*</span></label>
-                                    <select type="text" class="form-control" name="estadoCivil" id="estadoCivil" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'?> required>
+                                    <select type="text" class="form-control" name="estadoCivil" id="estadoCivil" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''?> required>
                                         <option value=""></option>
                                         <option value="Solteiro(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Solteiro(a)" ? "Selected":''): '') ?>>Solteiro(a)</option>
                                         <option value="Casado(a)" <?php echo (isset($dadoQuery['ESTADO_CIVIL']) ? ($dadoQuery['ESTADO_CIVIL'] == "Casado(a)" ? "Selected":''): '') ?>>Casado(a)</option>
@@ -124,7 +124,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 </div>
                                 <div class="col">
                                     <label for="telefone">Telefone<span style="color: red;">*</span></label>
-                                    <input type="number" class="form-control" value="<?php echo isset($dadoQuery['TELEFONE']) ? $dadoQuery['TELEFONE']: '' ?>" name="telefone" id="telefone" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'; ?> required>
+                                    <input type="number" class="form-control" value="<?php echo isset($dadoQuery['TELEFONE']) ? $dadoQuery['TELEFONE']: '' ?>" name="telefone" id="telefone" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''; ?> required>
                                     <span id="telefone-error" style="display:none; color:red;">Campo obrigatório!</span>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             <div class="form-row">
                                 <div class="col">
                                     <label for="linkedin">LinkedIn<span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Coloque o link do seu LinkedIn aqui" value="<?php echo isset($dadoQuery['LINKEDIN']) ? $dadoQuery['LINKEDIN']: '' ?>"  name="linkedin" id="linkedin" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'?> >
+                                    <input type="text" class="form-control" placeholder="Coloque o link do seu LinkedIn aqui" value="<?php echo isset($dadoQuery['LINKEDIN']) ? $dadoQuery['LINKEDIN']: '' ?>"  name="linkedin" id="linkedin" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''?> >
                                 </div>
                             </div>
                             <div class="form-row">
@@ -142,12 +142,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         <a style="text-decoration:none;" class="alert-link">Aproveite para falar sobre você, experiências profissionais e objetivos de vida!</a>
                                     </div> -->
                                     <label for="objetivo">Sobre<span style="color: red;">*</span></label>
-                                    <textarea type="text" class="form-control" placeholder="Fale sobre você, suas expências, habilidades e objetivos" name="objetivo" id="objetivo" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'disabled'?>> <?php echo isset($dadoQuery['SOBRE']) ? $dadoQuery['SOBRE']: '' ?></textarea>
+                                    <textarea type="text" class="form-control" placeholder="Fale sobre você, suas expências, habilidades e objetivos" name="objetivo" id="objetivo" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''?>><?php echo isset($dadoQuery['SOBRE']) ? $dadoQuery['SOBRE']: '' ?></textarea>
                                 </div>
                             </div>
                         <div style="margin-top: 20px;">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" value="editar" id="editDadosUser" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'show'?> onclick="editDados()">Editar</button>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" id="salvarDadosUser" onclick="criarDados()" <?php if(isset($dadoQuery['formulario_enviado_dados'])) echo 'hidden'?>>Salvar</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" value="editar" id="editDadosUser" <?php echo $dadoQuery['formulario_enviado_dados'] == 1?  'show':  'hidden'?> onclick="editDados()">Editar</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" value="salvar" id="salvarDadosUser" onclick="criarDados()" <?php echo $dadoQuery['formulario_enviado_dados'] == 0?  'show':  'hidden'?>>Salvar</button>
                         </div>
                         </form>
                     </div>
