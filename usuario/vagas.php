@@ -152,7 +152,8 @@ session_start();
                                     </div>
                                 </div>
                             </div>  
-                        </div>';
+                        </div>
+                        <br><br><br>';
                     }
                 $conn->close();
                 }

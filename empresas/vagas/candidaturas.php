@@ -90,7 +90,8 @@ session_start();
                             Ver candidaturas
                         </button> 
                     </div>
-                </div>';
+                </div>
+                <br><br><br>';
 
     // Exiba os nomes dos usuários que se candidataram a esta vaga
 
@@ -101,15 +102,21 @@ session_start();
                             <h5>CANDIDATURAS</h5>
                         </div>
                         <div class="modal-body">
-                        <table>';
+                        <table class="table table-striped" style="margin: 0 auto">
+                        <tr>
+                        <td><b>#</b></td>
+                        <td><b>Nome</b></td>
+                        <td><b>Curriculo</b></td>
+                        </tr>';
+                        $id_count = 1;
                             foreach ($vaga['nomes_usuarios'] as $usuario) {
-                                print'  
-                                            <tr>
-                                                <td>'.$usuario['id'].'</td>
-                                                <td> '.$usuario['nome'] .'</td>
-                                                <td><a href="curriculoUsuarios.php?id_usuario='.$usuario['id'].'">Currículo</a></td>                                            </tr>
-                                        ';
-                            
+                                print' 
+                                    <tr>
+                                        <td>'.$id_count.'</td>
+                                        <td> '.$usuario['nome'] .'</td>
+                                        <td><a href="curriculoUsuarios.php?id_usuario='.$usuario['id'].'" target="_blank">Currículo</a></td>   
+                                    </tr> ';
+                                $id_count += 1;
                             }
                 print  '</table>
                 </div>
