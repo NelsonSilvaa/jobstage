@@ -8,36 +8,10 @@ session_start();
 
 $user_id = $_SESSION['ID_USUARIO'];
 
-    $sql_formacao = "SELECT  COUNT(*) as total FROM formacao WHERE ID_USUARIO = $user_id";
-    $sql_experiencia = "SELECT COUNT(*) as total FROM experiencia WHERE ID_USUARIO = $user_id";
-    $sql_cursos = "SELECT COUNT(*) as total FROM curso_extra WHERE ID_USUARIO = $user_id";
-
-    $resultado_F = mysqli_query($conn, $sql_formacao);
-    $resultado_E = mysqli_query($conn, $sql_experiencia);
-    $resultado_C = mysqli_query($conn, $sql_cursos);
-
-
-    $total_F = mysqli_fetch_assoc($resultado_F);
-    // $total_registros_F = $resultado_F['total'];
-
-    $total_E = mysqli_fetch_assoc($resultado_E);
-    // $total_registros_E = $total_registros_E['total'];
-
-    $total_C = mysqli_fetch_assoc($resultado_C);
-    // $total_registros_C = $total_registros_C['total'];
-
-
     // pesquisas SQL
     $queryDados = "SELECT * FROM usuario WHERE ID_USUARIO = $user_id"; 
     $resultadoD = mysqli_query($conn, $queryDados);
     $dadoQuery = mysqli_fetch_assoc($resultadoD);
-
-
-    $queryEscolaridade = "SELECT * FROM escolaridade WHERE ID_USUARIO = $user_id"; 
-    $resultadoE = mysqli_query($conn, $queryEscolaridade);
-    $escQuery = mysqli_fetch_assoc($resultadoE);
-
-    
 
 ?>
 

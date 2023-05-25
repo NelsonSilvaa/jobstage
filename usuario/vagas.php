@@ -8,20 +8,9 @@ session_start();
 
     $user_id = $_SESSION['ID_USUARIO'];
 
-    $sql= "SELECT E.NOME AS ENOME, V.ID_VAGA AS VVAGA, V.TURNO AS VTURNO, V.TURNO_DAS AS VTURNO_DAS, V.TURNO_ATE AS VTURNO_ATE, 
-                  V.SALARIO AS VSALARIO, V.CIDADE AS VCIDADE, V.ESTADO AS VESTADO, V.TIPO_CONTRATO AS VTIPO_CONTRATO, 
-                  V.REQUISITOS AS VREQUISITOS, V.DESCRICAO AS VDESCRICAO, V.NOME AS VNOME
-            FROM empresa AS E
-            INNER JOIN vagas AS V
-            ON V.ID_EMPRESA = E.ID_EMPRESA
-            WHERE V.ID_VAGA NOT IN (SELECT ID_VAGA FROM usuario_vagas WHERE ID_USUARIO = $user_id)";
+   
 
-    $result = $conn->query($sql);
 
-    // Verifica se houve erro na consulta
-    if (!$result) {
-        die("Erro na consulta: " . $conn->error);
-    }
 
 ?>
 
@@ -60,155 +49,124 @@ session_start();
         </ul>
     </div>
     <div class="container container-vagas">
-    <?php
+        <?php
+            $queryDados = "SELECT formulario_enviado_dados FROM usuario WHERE ID_USUARIO = $user_id"; 
+            $resultadoD = mysqli_query($conn, $queryDados);
+            $dadoQuery = mysqli_fetch_assoc($resultadoD);
 
-    if ($result->num_rows == 0) {
+            if($dadoQuery['formulario_enviado_dados'] == 1){
 
-        print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
-                    <a style="text-decoration:none;">Ainda <b>NÃO</b> existem vagas disponíveis!</a>
-                </div>';
+                $sql= "SELECT E.NOME AS ENOME, V.ID_VAGA AS VVAGA, V.TURNO AS VTURNO, V.TURNO_DAS AS VTURNO_DAS, V.TURNO_ATE AS VTURNO_ATE, 
+                            V.SALARIO AS VSALARIO, V.CIDADE AS VCIDADE, V.ESTADO AS VESTADO, V.TIPO_CONTRATO AS VTIPO_CONTRATO, 
+                            V.REQUISITOS AS VREQUISITOS, V.DESCRICAO AS VDESCRICAO, V.NOME AS VNOME
+                        FROM empresa AS E
+                        INNER JOIN vagas AS V
+                        ON V.ID_EMPRESA = E.ID_EMPRESA
+                        WHERE V.ID_VAGA NOT IN (SELECT ID_VAGA FROM usuario_vagas WHERE ID_USUARIO = $user_id)";
 
-    }else{
-        // Percorre os resultados da consulta
-        $id_table = 1;
-        while ($row = $result->fetch_assoc()) {
-     print ' <div class="" data-id='.$id_table.' data-row-id='.$row['VVAGA'].'>
-                <div class="card-vaga">
-                    <div class="card-titulo">
-                        <h2>'.$row['VNOME'].'</2>
-                    </div>
-                    
-                    <div class="titulo-conteudo-prev">
-                        <h3>'.$row['ENOME'].'</h3>
-                    </div>
-                    <div class="card-conteudo-prev">
-                        <div class="cidade">
-                            '.$row['VCIDADE'].' -
-                        </div>
-                        <div class="turno">
-                            <div class="turnoPeriodo">
-                                '.$row['VTURNO'].' 
-                            </div>
-                            <div class="tDas">
-                                :'.$row['VTURNO_DAS'].'
-                            </div>
-                            <div class="tAte">
-                            -'.$row['VTURNO_ATE'].'
-                            </div>
-                        </div>
-                        <div class="tipo-Contrato">
-                            - '.$row['VTIPO_CONTRATO'].'
-                        </div>
-                    </div>
-                    <div class="card-conteudo-prev_down">
-                        <div class="salario">
-                            R$ '.$row['VSALARIO'].'
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
-                                Detalhes
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="collapse" id="detalheVagas'.$row['VVAGA'].'">
-                                <div class="content-vagas">
-                                    <div class="descricao">
-                                        <div class="card-titulo titulo-descricao">
-                                            <h4>DESCRIÇÃO</h4>
+                $result = $conn->query($sql);
+
+                // Verifica se houve erro na consulta
+                if (!$result) {
+                    die("Erro na consulta: " . $conn->error);
+                }
+                if ($result->num_rows == 0) {
+
+                    print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                                <a style="text-decoration:none;">Ainda <b>NÃO</b> existem vagas disponíveis!</a>
+                            </div>';
+
+                }else{
+                    // Percorre os resultados da consulta
+                    $id_table = 1;
+                    while ($row = $result->fetch_assoc()) {
+                    print ' <div class="" data-id='.$id_table.' data-row-id='.$row['VVAGA'].'>
+                            <div class="card-vaga">
+                                <div class="card-titulo">
+                                    <h2>'.$row['VNOME'].'</2>
+                                </div>
+                                
+                                <div class="titulo-conteudo-prev">
+                                    <h3>'.$row['ENOME'].'</h3>
+                                </div>
+                                <div class="card-conteudo-prev">
+                                    <div class="cidade">
+                                        '.$row['VCIDADE'].' -
+                                    </div>
+                                    <div class="turno">
+                                        <div class="turnoPeriodo">
+                                            '.$row['VTURNO'].' 
                                         </div>
-                                        <div class="descricao-conteudo">
-                                        '.$row['VDESCRICAO'].'
+                                        <div class="tDas">
+                                            :'.$row['VTURNO_DAS'].'
+                                        </div>
+                                        <div class="tAte">
+                                        -'.$row['VTURNO_ATE'].'
                                         </div>
                                     </div>
-                                    <div class="requisitos">
-                                        <div class="card-titulo titulo-requisitos">
-                                            <h4>REQUISITOS</h4>
-                                        </div>
-                                        <div class="requisitos-conteudo">
-                                        '.$row['VREQUISITOS'].'
-                                        </div>
+                                    <div class="tipo-Contrato">
+                                        - '.$row['VTIPO_CONTRATO'].'
+                                    </div>
+                                </div>
+                                <div class="card-conteudo-prev_down">
+                                    <div class="salario">
+                                        R$ '.$row['VSALARIO'].'
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-secondary" type="button" onclick="candidatoVaga('.$row['VVAGA'].')">
-                                            Candidatar-se
+                                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
+                                            Detalhes
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>';
-        }
-    $conn->close();
-    }
-?>
-</div>
-<!-- exemplo de info -->
-    <!-- <div class="container-dados">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                        <h5 class="card-title">NOME DA VAGA</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <ul>
-                                    <li>Nome Empresa:{informação do banco}</li>
-                                    <li>Turno:{informação do banco}</li>
-                                    <li>Bairro:{informação do banco}</li>
-                                    <li>Salario:{informação do banco}</li>
-                                    <li>beneficio:VT/VR/VA/Home-Office/Hibrido/Day Off</li>
-                                </ul>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#aaa" aria-expanded="false" aria-controls="aaa">
-                                    Detalhes
-                                </button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="collapse" id="aaa">
-                                        <div class="content-vagas">
-                                            <div class="descricao">
-                                                <div class="titulo-descricao">
-                                                    <h4>DESCRIÇÃO</h4>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="collapse" id="detalheVagas'.$row['VVAGA'].'">
+                                            <div class="content-vagas">
+                                                <div class="descricao">
+                                                    <div class="card-titulo titulo-descricao">
+                                                        <h4>DESCRIÇÃO</h4>
+                                                    </div>
+                                                    <div class="descricao-conteudo">
+                                                    '.$row['VDESCRICAO'].'
+                                                    </div>
                                                 </div>
-                                                <div class="descricao-conteudo">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non repudiandae numquam magni minus, alias maxime quidem incidunt corrupti suscipit asperiores neque nemo officiis laborum! Fugiat recusandae minus inventore quam.
+                                                <div class="requisitos">
+                                                    <div class="card-titulo titulo-requisitos">
+                                                        <h4>REQUISITOS</h4>
+                                                    </div>
+                                                    <div class="requisitos-conteudo">
+                                                    '.$row['VREQUISITOS'].'
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="requisitos">
-                                                <div class="titulo-requisitos">
-                                                    <h4>REQUISITOS</h4>
-                                                </div>
-                                                <div class="requisitos-conteudo">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non repudiandae numquam magni minus, alias maxime quidem incidunt corrupti suscipit asperiores neque nemo officiis laborum! Fugiat recusandae minus inventore quam.
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-secondary" type="button" onclick="candidatoVaga('.$row['VVAGA'].')">
+                                                        Candidatar-se
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+                            </div>  
+                        </div>';
+                    }
+                $conn->close();
+                }
+            }else{
+                print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                        <a style="text-decoration:none;">Você ainda <b>NÃO</b> terminou seu <b>CADASTRO!!!</b> complete seu cadastro para visualizar novas vagas</a>
+                    </div>';
+            }
+        ?>
+    </div>
 </div>
+
+
+
 
          
 
