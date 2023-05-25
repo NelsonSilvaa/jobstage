@@ -35,16 +35,11 @@ session_start();
     <div class="navegacao">
         <nav class="navbarP">
         <ul>
-        <ul>
           <li><a href="index.php">Inicio</a></li>
-          <!-- <li><a href="cadastroUser.php">Dados</a></li>   adicionar dados da empresa para ele editar se necessário (VERIFICAR SE VALE A PENA)      -->
-          <li><a href="#">Vagas</a></li> <!--AQUI SERÁ UM DRILLDOWN PROS DOIS LI ABAIXO-->
-          <li><a href="./vagas/cadastro-vagas.php">> Nova vaga</a></li>
-          <li><a href="./vagas/editar-Vagas.php">> Editar vagas</a></li>
+          <li><a href="./vagas/cadastro-vagas.php"> Nova vaga</a></li>
+          <li><a href="./vagas/editar-Vagas.php"> Editar vagas</a></li>
           <li><a href="./vagas/candidaturas.php">Candidaturas</a></li>
-          <!-- <li><a href="./vagas/funcionarios.php">Funcionários</a></li>    aba para mostrar funcionarios que foram contratados na vaga -->
           <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
-      </ul>
         </ul>
     </div>
 

@@ -42,16 +42,14 @@ session_start();
     
      <div class="navegacao">
         <nav class="navbarP">
-        <ul>
-            <li><a href="../index.php">Inicio</a></li>
-            <!-- <li><a href="cadastroUser.php">Dados</a></li> -->
-            <li><a href="#">Vagas</a></li>
-            <li><a href="cadastro-vagas.php">> Nova vaga</a></li>
-            <li><a href="editar-vagas.php">> Editar vagas</a></li>
-            <li><a href="candidaturas.php">Candidaturas</a></li>
-            <!-- <li><a href="curriculo.php">Funcionários</a></li> -->
-            <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
-        </ul>
+            <ul>
+                <li><a href="../index.php">Inicio</a></li>
+                <li><a href="cadastro-vagas.php"> Nova vaga</a></li>
+                <li><a href="editar-vagas.php"> Editar vagas</a></li>
+                <li><a href="candidaturas.php">Candidaturas</a></li>
+                <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
+            </ul>
+        </nav>
     </div>
 </div>
   <!-- <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
