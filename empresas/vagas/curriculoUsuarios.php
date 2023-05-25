@@ -115,70 +115,84 @@ session_start();
                     </div>
                    
                </div>
-               <div class="experiencia">
-                    <hr>
-                    <h3><b style="font-style: normal !important;">Experiência Profissional:</b></h3>
-                    <?php
-                        $sqlExp = "SELECT * FROM experiencia
-                        WHERE ID_USUARIO = $id_usuario";
-            
-                        $res = $conn->query($sqlExp);
+               <?php
+                    $sqlExp = "SELECT * FROM experiencia
+                    WHERE ID_USUARIO = $id_usuario";
+        
+                    $res = $conn->query($sqlExp);
 
-                        $qtd = $res->num_rows;
-                        while ($row = $res->fetch_object()){
-                            echo '  <div class="empresa-cargo" style="font-size: 22px; font-weight: 600;">
-                                        <b>' . $row->EMPRESA . ' - ' . $row->CARGO . '</b>
-                                    </div>
-                                    <div class="periodo-exp">
-                                        <b>Periodo:</b> ' . $row->INICIO . ' - ' . (isset($row->FIM) ? $row->FIM : "Atual") . '
-                                    </div>
-                                    <div class="atv-exp">
-                                        <b>Atividades exercidas:</b>
-                                        <br>
-                                        ' . $row->ATIVIDADES . '
-                                    </div>';
-                        }
-                    ?>
-                </div>
-                <div class="formacao">
-                    <hr>
-                    <h3><b>Formação Acadêmica:</b></h3>
-                    <?php
-                        $sqlFormacao = "SELECT * FROM formacao
-                        WHERE ID_USUARIO = $id_usuario";
-            
-                        $res = $conn->query($sqlFormacao);
+                    $qtd = $res->num_rows;
 
-                        $qtd = $res->num_rows;
-                        while ($row = $res->fetch_object()){
-                            echo '  <div>
-                                        <div class="nivel">
-                                            Ensino '.$row->NIVEL.' - <b>'.$row->STATUS.'</b>
-                                        </div>
-                                        <div class="instituicao_curso">
-                                            '.$row->INSTITUICAO.' - '.$row->CURSO.' - '.$row->DURACAO.' Anos
-                                        </div>
-                                    </div>';
-                        }
-                    ?>
-                </div>
-                <div class="curso-extra">
-                    <hr>
-                    <h3><b>Cursos Extras:</b></h3>
-                    <?php
-                        $sqlFormacao = "SELECT * FROM curso_extra
-                        WHERE ID_USUARIO = $id_usuario";
-            
-                        $res = $conn->query($sqlFormacao);
+                    if($qtd > 0){
+               ?>
+                    <div class="experiencia">
+                            <hr>
+                            <h3><b style="font-style: normal !important;">Experiência Profissional:</b></h3>
+                            <?php
+                                while ($row = $res->fetch_object()){
+                                    echo '  <div class="empresa-cargo" style="font-size: 22px; font-weight: 600;">
+                                                <b>' . $row->EMPRESA . ' - ' . $row->CARGO . '</b>
+                                            </div>
+                                            <div class="periodo-exp">
+                                                <b>Periodo:</b> ' . $row->INICIO . ' - ' . (isset($row->FIM) ? $row->FIM : "Atual") . '
+                                            </div>
+                                            <div class="atv-exp">
+                                                <b>Atividades exercidas:</b>
+                                                <br>
+                                                ' . $row->ATIVIDADES . '
+                                            </div>';
+                                }
+                            ?>
+                        </div>
+                <?php } ?>
+                <?php
+                    $sqlFormacao = "SELECT * FROM formacao
+                    WHERE ID_USUARIO = $id_usuario";
+        
+                    $res = $conn->query($sqlFormacao);
 
-                        $qtd = $res->num_rows;
-                        while ($row = $res->fetch_object()){
-                            echo '  <div class="curso_extra">
-                                        '.$row->NOME.' - ('.$row->STATUS.') - <b>'. strtoupper($row->INSTITUICAO) .'</b></b>
-                                    </div>';
-                        }
-                    ?>
-                </div>
+                    $qtd = $res->num_rows;
+                    if ($qtd > 0){
+                ?>
+                        <div class="formacao">
+                            <hr>
+                            <h3><b>Formação Acadêmica:</b></h3>
+                            <?php
+                                while ($row = $res->fetch_object()){
+                                    echo '  <div>
+                                                <div class="nivel">
+                                                    Ensino '.$row->NIVEL.' - <b>'.$row->STATUS.'</b>
+                                                </div>
+                                                <div class="instituicao_curso">
+                                                    '.$row->INSTITUICAO.' - '.$row->CURSO.' - '.$row->DURACAO.' Anos
+                                                </div>
+                                            </div>';
+                                }
+                            ?>
+                        </div>
+                <?php } ?>
+                <?php  
+                     $sqlFormacao = "SELECT * FROM curso_extra
+                     WHERE ID_USUARIO = $id_usuario";
+         
+                     $res = $conn->query($sqlFormacao);
+
+                     $qtd = $res->num_rows;
+
+                     if ($qtd > 0){
+                ?>
+                        <div class="curso-extra">
+                            <hr>
+                            <h3><b>Cursos Extras:</b></h3>
+                            <?php
+                                while ($row = $res->fetch_object()){
+                                    echo '  <div class="curso_extra">
+                                                '.$row->NOME.' - ('.$row->STATUS.') - <b>'. strtoupper($row->INSTITUICAO) .'</b></b>
+                                            </div>';
+                                }
+                            ?>
+                        </div>
+                <?php } ?>
 
                 
             </main>
