@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 13-Maio-2023 às 23:17
+-- Tempo de geração: 26-Maio-2023 às 00:29
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 8.0.13
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `experiencia` (
   `EMPRESA` varchar(45) DEFAULT NULL,
   `CARGO` varchar(45) DEFAULT NULL,
   `INICIO` date DEFAULT NULL,
-  `FIM` date DEFAULT NULL,
+  `FIM` text,
   `TIPO_CONTRATO` varchar(45) DEFAULT NULL,
   `ATIVIDADES` varchar(300) DEFAULT NULL,
   `ID_USUARIO` int DEFAULT NULL,
@@ -143,9 +143,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `DATA_NASC` date NOT NULL,
   `SENHA` varchar(50) NOT NULL,
   `ESTADO_CIVIL` varchar(45) NOT NULL,
-  `TELEFONE` int NOT NULL,
+  `TELEFONE` varchar(20) NOT NULL,
   `LINKEDIN` varchar(45) DEFAULT NULL,
   `SOBRE` varchar(600) DEFAULT NULL,
+  `formulario_enviado_dados` int NOT NULL,
   PRIMARY KEY (`ID_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
