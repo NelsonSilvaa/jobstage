@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `curso_extra` (
   `ID_USUARIO` int DEFAULT NULL,
   PRIMARY KEY (`ID_CURSO`),
   KEY `ID_USUARIO_idx` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `CNPJ` int DEFAULT NULL,
   `SENHA` varchar(30) NOT NULL,
   PRIMARY KEY (`ID_EMPRESA`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ DROP TABLE IF EXISTS `empresa_vaga`;
 CREATE TABLE IF NOT EXISTS `empresa_vaga` (
   `ID_VAGA` int DEFAULT NULL,
   `ID_EMPRESA` int DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `escolaridade` (
   `ID_USUARIO` int NOT NULL,
   PRIMARY KEY (`ID_ESCOLARIDADE`),
   KEY `ID_USUSARIO_idx` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `experiencia` (
   `ID_USUARIO` int DEFAULT NULL,
   PRIMARY KEY (`ID_EXPERIENCIA`),
   KEY `ID_USUSARIO_idx` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `formacao` (
   `ID_USUARIO` int NOT NULL,
   PRIMARY KEY (`ID_FORMACAO`),
   KEY `ID_USUARIO_idx` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `SOBRE` varchar(600) DEFAULT NULL,
   `formulario_enviado_dados` int NOT NULL,
   PRIMARY KEY (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `usuario_vagas` (
   `ID_VAGA` int DEFAULT NULL,
   KEY `ID_USUARIO_idx` (`ID_USUARIO`),
   KEY `ID_VAGA_idx` (`ID_VAGA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -177,8 +177,8 @@ CREATE TABLE IF NOT EXISTS `vagas` (
   `TURNO_DAS` time DEFAULT NULL,
   `TURNO_ATE` time DEFAULT NULL,
   `SALARIO` double DEFAULT NULL,
-  `DESCRICAO` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `REQUISITOS` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `DESCRICAO` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `REQUISITOS` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `CIDADE` varchar(45) DEFAULT NULL,
   `ESTADO` varchar(45) DEFAULT NULL,
   `TIPO_CONTRATO` varchar(45) DEFAULT NULL,
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `vagas` (
   PRIMARY KEY (`ID_VAGA`),
   KEY `ID_EMPRESA_idx` (`ID_EMPRESA`),
   KEY `ID_USUARIO_idx` (`ID_USUARIO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Restrições para despejos de tabelas
