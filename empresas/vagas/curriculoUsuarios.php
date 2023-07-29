@@ -97,21 +97,28 @@ session_start();
                     <div class="contato-email">
                         <b>E-mail:</b>  <?php echo $queryU['EMAIL'] ?>
                     </div>
-                    <div class="contato-linkedin">
-                        <b>LinkedIn:</b>  <?php echo $queryU['LINKEDIN'] ?>
-                    </div>
+
+                    <?php if (!empty($queryU['LINKEDIN'])){ ?>
+                        <div class="contato-linkedin">
+                            <b>LinkedIn:</b>  <?php echo $queryU['LINKEDIN'] ?>
+                        </div>
+                    <?php } ?>
+
                     <div class="contato-telefone">
                         <b>Telefone:</b>  <?php echo $queryU['TELEFONE'] ?>
                     </div>
                 </div>
-               <div class="sobre">
-                    <hr>
-                    <h3><b>Sobre</b></h3>
-                    <div class="conteudo-sobre">
-                        <?php echo $queryU['SOBRE'] ?>
+
+                <?php if(!empty($queryU['SOBRE'])){?>
+                    <div class="sobre">
+                        <hr>
+                        <h3><b>Sobre</b></h3>
+                        <div class="conteudo-sobre">
+                            <?php echo $queryU['SOBRE'] ?>
+                        </div>
                     </div>
-                   
-               </div>
+                <?php } ?>
+
                <?php
                     $sqlExp = "SELECT * FROM experiencia
                     WHERE ID_USUARIO = $id_usuario";
