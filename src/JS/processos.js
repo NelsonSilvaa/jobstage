@@ -269,6 +269,7 @@ function cadUser(){
     event.preventDefault();
     var emailInput = document.querySelector('#email');
     var emailEror = document.querySelector('#email-error');
+    var emailInvalido = document.querySelector('#email-invalido');
 
     var senha01input = document.querySelector('#senha01');
     var senha01error = document.querySelector('#senha01-error');
@@ -289,8 +290,25 @@ function cadUser(){
     senha02Error.style.display = 'block';
 
     if(emailInput.value.trim() !== ''){
-        emailInput.classList.remove('error');
-        emailEror.style.display = 'none';
+
+            // Definindo a expressão regular para validação de email
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        
+                // Pegar o valor do campo de email
+                var email = $('#email').val();
+    
+                if(!emailReg.test(email)) {
+                    emailInput.classList.add('error');
+                    emailInvalido.style.display = 'block';
+                    emailEror.style.display = 'none';
+                   
+                } 
+                else {
+                    emailInput.classList.remove('error');
+                    emailInvalido.style.display = 'none';
+                    emailEror.style.display = 'none';
+                
+                }
     }
 
     if(senha01.value.trim() !== '' || senha02.value.trim() !== ''){
@@ -304,7 +322,6 @@ function cadUser(){
         var s2 = $('#senha02').val();
         
         if(s1 !== s2){
-            
             senha01.classList.add('error');
             senha01ErrorIgual.style.display = 'block';
 
@@ -317,9 +334,17 @@ function cadUser(){
 
             senha02.classList.remove('error');
             senha02ErrorIgual.style.display = 'none';
+
+            if(emailInput.value.trim() == ''){
+                emailInput.classList.add('error');
+                emailEror.style.display = 'block';
+                return;
+            }
         }
 
 
+    }else{
+        return;
     }
 
     var email = $('#email').val();
