@@ -166,12 +166,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                         <input type="hidden" name="ID_CURSO" value="'. $row->ID_CURSO .'">
                                                                         <div class="form-row">
                                                                             <div class="col">
-                                                                                <label for="nome-curso">Nome</label>
+                                                                                <label for="nome-curso">Nome<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="nome-curso" id="nome-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['NOME'].'>
                                                                                 <span id="nome-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
-                                                                                <label for="instituicao-curso">Instituição</label>
+                                                                                <label for="instituicao-curso">Instituição<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="instituicao-curso" id="instituicao-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['INSTITUICAO'].'>
                                                                                 <span id="instituicao-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
@@ -179,7 +179,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                 
                                                                         <div class="form-row">
                                                                             <div class="col">
-                                                                                <label for="status-curso">Status</label>
+                                                                                <label for="status-curso">Status<span style="color: red;">*</span></label>
                                                                                 <select type="text" class="form-control" placeholder="" name="status-curso" id="status-cursoEdit'. $row->ID_CURSO .'"required>
                                                                                     <option value="completo" '. (isset($cursoExpQuery['STATUS']) ? ($cursoExpQuery['STATUS'] == "completo" ? "Selected":''): '').'>Completo</option>
                                                                                     <option value="em andamento" '. (isset($cursoExpQuery['STATUS']) ? ($cursoExpQuery['STATUS'] == "em andamento" ? "Selected":''): '').'>Em andamento</option>
@@ -188,12 +188,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                                 <span id="status-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
-                                                                                <label for="duracao-curso">Duração</label>
+                                                                                <label for="duracao-curso">Duração<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="duracao-curso" id="duracao-cursoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['DURACAO'].'>
                                                                                 <span id="duracao-curso-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
                                                                             <div class="col">
-                                                                                <label for="n-tecnico">Nivel Técnico</label>
+                                                                                <label for="n-tecnico">Nivel Técnico<span style="color: red;">*</span></label>
                                                                                 <input type="text" class="form-control" placeholder="" name="n-tecnico" id="n-tecnicoEdit'. $row->ID_CURSO .'" value='.$cursoExpQuery['NIVEL_TECNICO'].'>
                                                                                 <span id="n-tecnico-error-edit'. $row->ID_CURSO .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                             </div>
@@ -231,12 +231,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 <form>
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="nome-curso">Nome</label>
+                                            <label for="nome-curso">Nome<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="Ex:Técnico em Informática" name="nome-curso" id="nome-cursoInsert">
                                             <span id="nome-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
-                                            <label for="instituicao-curso">Instituição</label>
+                                            <label for="instituicao-curso">Instituição<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="Ex: Udemy" name="instituicao-curso" id="instituicao-cursoInsert">
                                             <span id="instituicao-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
@@ -244,7 +244,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="status-curso">Status</label>
+                                            <label for="status-curso">Status<span style="color: red;">*</span></label>
                                             <select type="text" class="form-control" placeholder="" name="status-curso" id="status-cursoInsert">
                                                 <option value=""></option>
                                                 <option value="completo">Completo</option>
@@ -254,12 +254,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                             <span id="status-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
-                                            <label for="duracao-curso">Duração</label>
+                                            <label for="duracao-curso">Duração<span style="color: red;">*</span></label>
                                             <input type="number" class="form-control" placeholder="" name="duracao-curso" id="duracao-cursoInsert">
                                             <span id="duracao-curso-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
-                                            <label for="n-tecnico">Nivel Técnico</label>
+                                            <label for="n-tecnico">Nivel Técnico<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="Ex: intermediário " name="n-tecnico" id="n-tecnicoInsert">
                                             <span id="n-tecnico-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
