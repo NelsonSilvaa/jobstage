@@ -37,7 +37,7 @@ session_start();
         <ul>
           <li><a href="index.php">Inicio</a></li>
           <li><a href="./vagas/cadastro-vagas.php"> Nova vaga</a></li>
-          <li><a href="./vagas/editar-Vagas.php"> Editar vagas</a></li>
+          <li><a href="./vagas/editar-vagas.php"> Editar vagas</a></li>
           <li><a href="./vagas/candidaturas.php">Candidaturas</a></li>
           <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
         </ul>
