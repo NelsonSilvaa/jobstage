@@ -106,7 +106,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             
                             <div class="form-row">
                                 <div class="col">
-                                    <label for="linkedin">LinkedIn<span style="color: red;">*</span></label>
+                                    <label for="linkedin">LinkedIn</label>
                                     <input type="text" class="form-control" placeholder="Coloque o link do seu LinkedIn aqui" value="<?php echo isset($dadoQuery['LINKEDIN']) ? $dadoQuery['LINKEDIN']: '' ?>"  name="linkedin" id="linkedin" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''?> >
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                     <!-- <div class="alert alert-info" role="alert"  style="width:100%;">
                                         <a style="text-decoration:none;" class="alert-link">Aproveite para falar sobre você, experiências profissionais e objetivos de vida!</a>
                                     </div> -->
-                                    <label for="objetivo">Sobre<span style="color: red;">*</span></label>
+                                    <label for="objetivo">Sobre</label>
                                     <textarea type="text" class="form-control" placeholder="Fale sobre você, suas expências, habilidades e objetivos" name="objetivo" id="objetivo" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? 'disabled': ''?>><?php echo isset($dadoQuery['SOBRE']) ? $dadoQuery['SOBRE']: '' ?></textarea>
                                 </div>
                             </div>

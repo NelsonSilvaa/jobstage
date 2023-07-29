@@ -76,7 +76,7 @@ session_start();
                 </div>
                 <div class="dados-pessoais">
                     <div class="dados-idade">
-                        <?php echo $idade ?> anos 
+                        <?php echo $idade ?> anos
                     </div>
                     <div class="dados-civil">
                         <?php echo $queryU['ESTADO_CIVIL'] ?> 
@@ -93,21 +93,28 @@ session_start();
                     <div class="contato-email">
                         <b>E-mail:</b>  <?php echo $queryU['EMAIL'] ?>
                     </div>
-                    <div class="contato-linkedin">
-                        <b>LinkedIn:</b>  <?php echo $queryU['LINKEDIN'] ?>
-                    </div>
+
+                    <?php if (!empty($queryU['LINKEDIN'])){ ?>
+                        <div class="contato-linkedin">
+                            <b>LinkedIn:</b>  <?php echo $queryU['LINKEDIN'] ?>
+                        </div>
+                    <?php } ?>
+
                     <div class="contato-telefone">
                         <b>Telefone:</b>  <?php echo $queryU['TELEFONE'] ?>
                     </div>
                 </div>
-               <div class="sobre">
-                    <hr>
-                    <h3><b>Sobre</b></h3>
-                    <div class="conteudo-sobre">
-                        <?php echo $queryU['SOBRE'] ?>
+
+                <?php if(!empty($queryU['SOBRE'])){?>
+                    <div class="sobre">
+                        <hr>
+                        <h3><b>Sobre</b></h3>
+                        <div class="conteudo-sobre">
+                            <?php echo $queryU['SOBRE'] ?>
+                        </div>
                     </div>
-                   
-               </div>
+                <?php } ?>
+
                 <?php
                 $sqlExp = "SELECT * FROM experiencia
                 WHERE ID_USUARIO = $user_id";
@@ -156,7 +163,7 @@ session_start();
                         while ($row = $res->fetch_object()){
                             echo '  <div>
                                         <div class="nivel">
-                                            Ensino '.$row->NIVEL.' - <b>'.$row->STATUS.'</b>
+                                            '.$row->NIVEL.' - <b>'.$row->STATUS.'</b>
                                         </div>
                                         <div class="instituicao_curso">
                                             '.$row->INSTITUICAO.' - '.$row->CURSO.' - '.$row->DURACAO.' Anos
