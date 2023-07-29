@@ -149,12 +149,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                 <input type="hidden" name="ID_EXP" value="'. $row->ID_EXPERIENCIA .'">
                                                                     <div class="form-row">
                                                                         <div class="col">
-                                                                            <label for="empresa">Empresa</label>
+                                                                            <label for="empresa">Empresa<span style="color: red;">*</span></label>
                                                                             <input type="text" class="form-control" placeholder="" name="empresa" id="empresaEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['EMPRESA'].'">
                                                                             <span id="empresa-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
-                                                                            <label for="cargo">Cargo</label>
+                                                                            <label for="cargo">Cargo<span style="color: red;">*</span></label>
                                                                             <input type="text" class="form-control" placeholder="" name="cargo" id="cargoEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['CARGO'].'">
                                                                             <span id="cargo-error-insEditert'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
@@ -162,18 +162,18 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                             
                                                                     <div class="form-row">
                                                                         <div class="col">
-                                                                            <label for="data-inicio">Inicio</label>
+                                                                            <label for="data-inicio">Inicio<span style="color: red;">*</span></label>
                                                                             <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicioEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['INICIO'].'">
                                                                             <span id="di-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
-                                                                            <label for="data-fim">Fim</label>
+                                                                            <label for="data-fim">Fim<span style="color: red;">*</span></label>
                                                                             <input type="date" class="form-control" placeholder="" name="data-fim" id="fimEdit'. $row->ID_EXPERIENCIA .'" value="'. ($expQuery['FIM']? $expQuery['FIM']: 'Atual').'" >
                                                                             <input class="id_edit" value="'.$row->ID_EXPERIENCIA.'" id="cargo-atualEdit'.$row->ID_EXPERIENCIA.'" type="checkbox">Cargo atual?
                                                                             <span id="df-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                         </div>
                                                                         <div class="col">
-                                                                            <label for="tipo_contrato">Tipo contrato</label>
+                                                                            <label for="tipo_contrato">Tipo contrato<span style="color: red;">*</span></label>
                                                                             <select type="text" class="form-control" placeholder="" name="tipo_contrato" id="tipo_contratoEdit'. $row->ID_EXPERIENCIA .'" value="'.$expQuery['TIPO_CONTRATO'].'">
                                                                                 <option value=""></option>
                                                                                 <option value="CLT" '. (isset($expQuery['TIPO_CONTRATO']) ? ($expQuery['TIPO_CONTRATO'] == "CLT" ? "Selected":''): '').'>CLT</option>
@@ -186,7 +186,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                     </div>
                                                             
                                                                     <div class="form-group">
-                                                                        <label for="atividades">Atividades</label>
+                                                                        <label for="atividades">Atividades<span style="color: red;">*</span></label>
                                                                         <textarea class="form-control" name="atividades" id="atividadesEdit'. $row->ID_EXPERIENCIA .'" rows="3">'. $expQuery['ATIVIDADES'].'</textarea>
                                                                         <span id="atividades-error-Edit'. $row->ID_EXPERIENCIA .'" style="display:none; color:red;">Campo obrigatório!</span>
                                                                     </div>
@@ -226,12 +226,12 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 <form>
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="empresa">Empresa</label>
+                                            <label for="empresa">Empresa<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="" name="empresa" id="empresaInsert" >
                                             <span id="empresa-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
                                         <div class="col">
-                                            <label for="cargo">Cargo</label>
+                                            <label for="cargo">Cargo<span style="color: red;">*</span></label>
                                             <input type="text" class="form-control" placeholder="Ex: Administrativo" name="cargo" id="cargoInsert" >
                                             <span id="cargo-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                         </div>
@@ -239,20 +239,20 @@ $user_id = $_SESSION['ID_USUARIO'];
                             
                                     <div class="form-row">
                                         <div class="col">
-                                            <label for="data-inicio">Inicio</label>
+                                            <label for="data-inicio">Inicio<span style="color: red;">*</span></label>
                                             <input type="date" class="form-control" placeholder="" name="data-inicio" id="inicioInsert">
                                             <span id="di-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
 
                                         </div>
                                         <div class="col">
-                                            <label for="data-fim">Fim</label>
+                                            <label for="data-fim">Fim<span style="color: red;">*</span></label>
                                             <input type="date" class="form-control" placeholder="" name="data-fim" id="fimInsert">
                                             <span><input id="cargo-atual" type="checkbox">Cargo atual?</span>
                                             <span id="df-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
 
                                         </div>
                                         <div class="col">
-                                            <label for="tipo_contrato">Tipo contrato</label>
+                                            <label for="tipo_contrato">Tipo contrato<span style="color: red;">*</span></label>
                                             <select type="text" class="form-control" name="tipo_contrato" id="tipo_contratoInsert">
                                                 <option value=""></option>
                                                 <option value="CLT">CLT</option>
@@ -265,7 +265,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="atividades">Atividades</label>
+                                        <label for="atividades">Atividades<span style="color: red;">*</span></label>
                                         <textarea class="form-control" name="atividades" placeholder="Descreva suas atividades e deveres nesta experiência" id="atividadesInsert" rows="3"></textarea>
                                         <span id="atividades-error-insert" style="display:none; color:red;">Campo obrigatório!</span>
                                     </div>
