@@ -152,6 +152,7 @@ function cadEmpresa(){
 
     var emailEmpresa =  document.querySelector('#email');
     var emailError =  document.querySelector('#email-error');
+    var emailInvalido = document.querySelector('#email-invalido');
 
     var senha01 =  document.querySelector('#senha01');
     var senha01Error =  document.querySelector('#senha01-error');
@@ -173,6 +174,8 @@ function cadEmpresa(){
 
     emailEmpresa.classList.add('error');
     emailError.style.display = 'block';
+    
+
 
     senha01.classList.add('error');
     senha01Error.style.display = 'block';
@@ -194,9 +197,24 @@ function cadEmpresa(){
     }
 
     if(emailEmpresa.value.trim() !== ''){
-        event.preventDefault();
-        emailEmpresa.classList.remove('error');
-        emailError.style.display = 'none';
+       // Definindo a expressão regular para validação de email
+       var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        
+       // Pegar o valor do campo de email
+       var email = $('#email').val();
+
+       if(!emailReg.test(email)) {
+            emailEmpresa.classList.add('error');
+            emailInvalido.style.display = 'block';
+            emailError.style.display = 'none';
+          
+       } 
+       else {
+            emailEmpresa.classList.remove('error');
+            emailInvalido.style.display = 'none';
+            emailError.style.display = 'none';
+       
+       }
     }
 
     if(senha01.value.trim() !== '' || senha02.value.trim() !== ''){
