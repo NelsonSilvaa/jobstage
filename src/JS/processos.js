@@ -208,14 +208,14 @@ function cadEmpresa(){
 
         if(s1 !== s2){
             event.preventDefault();
-            senha02.classList.add('error');
+            senha01.classList.add('error');
             senha01ErrorIgual.style.display = 'block';
 
             senha02.classList.add('error');
             senha02ErrorIgual.style.display = 'block';
             return;
         }else{
-            senha02.classList.remove('error');
+            senha01.classList.remove('error');
             senha01ErrorIgual.style.display = 'none';
 
             senha02.classList.remove('error');
@@ -223,6 +223,14 @@ function cadEmpresa(){
         }
 
 
+    }else{
+        senha02.classList.add('error');
+        senha02.classList.add('error');
+        return;
+    }
+
+    if(nomeEmpresa.value.trim() == '' || cnpjEmpresa.value.trim() == '' || emailEmpresa.value.trim() == '' || senha01.value.trim() == '' || senha02.value.trim() == ''){
+        return;
     }
     
         var nome = $('#nomeEmpresa').val();
