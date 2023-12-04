@@ -33,7 +33,7 @@ session_start();
 
 
 <div class="main-container d-flex">
-    <?php require_once "../src/template/usuario/sidebar.html" ?>
+<?php require_once "../src/template/usuario/sidebar.html" ?>
     
     <div class="content">
         <?php require_once "../src/template/usuario/navbar.html" ?>
@@ -50,6 +50,7 @@ session_start();
 
     <script src="../src/JS/jquery-3.7.1.js"></script>
     <script src="../src/JS/sidebar.js"></script>
+    
 
 </body>
 </html>
