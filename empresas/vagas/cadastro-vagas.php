@@ -170,7 +170,7 @@ session_start();
         
     </div>
 </div>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
     <script 

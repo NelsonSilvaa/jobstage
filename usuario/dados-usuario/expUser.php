@@ -55,7 +55,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="../../css/sweetalert2.css">
     <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="../../src/JS/sidebar.js"></script>

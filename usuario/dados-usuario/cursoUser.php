@@ -55,7 +55,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="../../css/sweetalert2.css">
     <link rel="stylesheet" href="../../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="../../src/JS/sidebar.js"></script>
@@ -278,7 +278,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <script src="../../src/JS/app.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

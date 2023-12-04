@@ -23,7 +23,7 @@ session_start();
     <link rel="stylesheet" href="../../css/validacoes.css">
     <link rel="stylesheet" href="../../css/curriculo.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="../../src/JS/sidebar.js"></script>
@@ -202,7 +202,7 @@ session_start();
 
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
