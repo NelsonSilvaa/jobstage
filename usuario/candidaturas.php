@@ -40,173 +40,105 @@ session_start();
     <link rel="stylesheet" href="../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../src/JS/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="../src/JS/sidebar.js"></script>
 </head>
 <body>
 <header>
     <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
 </header>
 
-<div class="sec-dados">
+<div class="main-container d-flex">
+    <?php require_once "../src/template/usuario/sidebar.html" ?>
     
-    <div class="navegacao">
-        <nav class="navbarP">
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
-            <li><a href="vagas.php">Vagas</a></li>
-            <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
-        </ul>
-    </div>
-    <div class="container container-vagas">
-    <?php
-    if ($result->num_rows == 0) {
+    <div class="content">
+        <?php require_once "../src/template/usuario/navbar.html" ?>
 
-        print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
-                    <a style="text-decoration:none;">Você ainda <b>NÃO</b> se candidatou em <b>NENHUMA</b> vaga!</a>
-                </div>';
-
-    }else{    
-        // Percorre os resultados da consulta
-        $id_table = 1;
-        while ($row = $result->fetch_assoc()) {
-     print ' <div class="" data-id='.$id_table.' data-row-id='.$row['VVAGA'].'>
-                <div class="card-vaga">
-                    <div class="card-titulo">
-                        <h2>'.$row['VNOME'].'</2>
-                    </div>
-                    
-                    <div class="titulo-conteudo-prev">
-                        <h3>'.$row['ENOME'].'</h3>
-                    </div>
-                    <div class="card-conteudo-prev">
-                        <div class="cidade">
-                            '.$row['VCIDADE'].' -
-                        </div>
-                        <div class="turno">
-                            <div class="turnoPeriodo">
-                                '.$row['VTURNO'].' 
-                            </div>
-                            <div class="tDas">
-                                :'.$row['VTURNO_DAS'].'
-                            </div>
-                            <div class="tAte">
-                            -'.$row['VTURNO_ATE'].'
-                            </div>
-                        </div>
-                        <div class="tipo-Contrato">
-                            - '.$row['VTIPO_CONTRATO'].'
-                        </div>
-                    </div>
-                    <div class="card-conteudo-prev_down">
-                        <div class="salario">
-                            R$ '.$row['VSALARIO'].'
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
-                                Detalhes
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="collapse" id="detalheVagas'.$row['VVAGA'].'">
-                                <div class="content-vagas">
-                                    <div class="descricao">
-                                        <div class="card-titulo titulo-descricao">
-                                            <h4>DESCRIÇÃO</h4>
-                                        </div>
-                                        <div class="descricao-conteudo">
-                                        '.$row['VDESCRICAO'].'
-                                        </div>
+        <div class="dashboard-content px-3 pt-4">
+            <?php
+                if ($result->num_rows == 0) {
+                    print ' <div class="alert alert-info" role="alert"  style="width:100%;  text-align:center;">
+                                <a style="text-decoration:none;">Você ainda <b>NÃO</b> se candidatou em <b>NENHUMA</b> vaga!</a>
+                            </div>';
+                }else{    
+                    // Percorre os resultados da consulta
+                    $id_table = 1;
+                    while ($row = $result->fetch_assoc()) {
+                    print ' <div class="" data-id='.$id_table.' data-row-id='.$row['VVAGA'].'>
+                                <div class="card-vaga">
+                                    <div class="card-titulo">
+                                        <h2>'.$row['VNOME'].'</2>
                                     </div>
-                                    <div class="requisitos">
-                                        <div class="card-titulo titulo-requisitos">
-                                            <h4>REQUISITOS</h4>
-                                        </div>
-                                        <div class="requisitos-conteudo">
-                                        '.$row['VREQUISITOS'].'
-                                        </div>
+                                    
+                                    <div class="titulo-conteudo-prev">
+                                        <h3>'.$row['ENOME'].'</h3>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-            <br><br><br>';
-        }
-    $conn->close();
-    }
-?>
-</div>
-<!-- exemplo de info -->
-    <!-- <div class="container-dados">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                        <h5 class="card-title">NOME DA VAGA</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <ul>
-                                    <li>Nome Empresa:{informação do banco}</li>
-                                    <li>Turno:{informação do banco}</li>
-                                    <li>Bairro:{informação do banco}</li>
-                                    <li>Salario:{informação do banco}</li>
-                                    <li>beneficio:VT/VR/VA/Home-Office/Hibrido/Day Off</li>
-                                </ul>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#aaa" aria-expanded="false" aria-controls="aaa">
-                                    Detalhes
-                                </button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="collapse" id="aaa">
-                                        <div class="content-vagas">
-                                            <div class="descricao">
-                                                <div class="titulo-descricao">
-                                                    <h4>DESCRIÇÃO</h4>
-                                                </div>
-                                                <div class="descricao-conteudo">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non repudiandae numquam magni minus, alias maxime quidem incidunt corrupti suscipit asperiores neque nemo officiis laborum! Fugiat recusandae minus inventore quam.
-                                                </div>
+                                    <div class="card-conteudo-prev">
+                                        <div class="cidade">
+                                            '.$row['VCIDADE'].' -
+                                        </div>
+                                        <div class="turno">
+                                            <div class="turnoPeriodo">
+                                                '.$row['VTURNO'].' 
                                             </div>
-                                            <div class="requisitos">
-                                                <div class="titulo-requisitos">
-                                                    <h4>REQUISITOS</h4>
-                                                </div>
-                                                <div class="requisitos-conteudo">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non repudiandae numquam magni minus, alias maxime quidem incidunt corrupti suscipit asperiores neque nemo officiis laborum! Fugiat recusandae minus inventore quam.
+                                            <div class="tDas">
+                                                :'.$row['VTURNO_DAS'].'
+                                            </div>
+                                            <div class="tAte">
+                                            -'.$row['VTURNO_ATE'].'
+                                            </div>
+                                        </div>
+                                        <div class="tipo-Contrato">
+                                            - '.$row['VTIPO_CONTRATO'].'
+                                        </div>
+                                    </div>
+                                    <div class="card-conteudo-prev_down">
+                                        <div class="salario">
+                                            R$ '.$row['VSALARIO'].'
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
+                                                Detalhes
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="collapse" id="detalheVagas'.$row['VVAGA'].'">
+                                                <div class="content-vagas">
+                                                    <div class="descricao">
+                                                        <div class="card-titulo titulo-descricao">
+                                                            <h4>DESCRIÇÃO</h4>
+                                                        </div>
+                                                        <div class="descricao-conteudo">
+                                                        '.$row['VDESCRICAO'].'
+                                                        </div>
+                                                    </div>
+                                                    <div class="requisitos">
+                                                        <div class="card-titulo titulo-requisitos">
+                                                            <h4>REQUISITOS</h4>
+                                                        </div>
+                                                        <div class="requisitos-conteudo">
+                                                        '.$row['VREQUISITOS'].'
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>  
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <br><br><br>';
+                    }
+                $conn->close();
+                }
+            ?>
         </div>
-    </div> -->
+    </div>
 </div>
-
-         
-
-       
-    
 
 <script src="../src/JS/swetalert2.js"></script>
 <script src="../src/JS/processos.js"></script>
