@@ -262,7 +262,7 @@ session_start();
 </div>
 
  
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-kSpN/7CfdBjN9+RY5DhN5Hz5zr+ZnysK8W1ufX0ZN0SPR20BpZiDgmWwfdKvSGtl" crossorigin="anonymous"></script>

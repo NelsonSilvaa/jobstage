@@ -53,7 +53,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/layout.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
 </head>
 <body>
 <header>

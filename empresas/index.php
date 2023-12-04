@@ -23,7 +23,7 @@ session_start();
     <link rel="stylesheet" href="../css/sweetalert2.css">
     <link rel="stylesheet" href="../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
-    <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
 </head>
 <body>
 <header>
@@ -52,7 +52,7 @@ session_start();
 </div>
 
 
-    <script src="../src/JS/jquery-3.6.4.js"></script>
+    <script src="../src/JS/jquery-3.7.1.js"></script>
     <script src="../src/JS/swetalert2.js"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
