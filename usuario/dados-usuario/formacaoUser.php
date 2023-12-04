@@ -118,7 +118,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
-                                                        '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
+                                                        '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
                                                         <button type="button" class="btn btn-danger" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')">REMOVER</button>
                                             '."</td>";
                                         print "</tr>";
@@ -127,6 +127,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         $resultadoF = mysqli_query($conn, $queryFormacao);
                                         $formQuery = mysqli_fetch_assoc($resultadoF);
                                         // <!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
+                                        
                                         print '<div class="modal fade exampleModalCenter" id="exampleModalCenter'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                         <div class="modal-content">
@@ -215,7 +216,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         ?>
 
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova formação
                             </a>
                         </p>
