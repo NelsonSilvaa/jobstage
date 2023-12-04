@@ -29,26 +29,22 @@ session_start();
     <link rel="stylesheet" href="../css/validacoes.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../src/JS/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="../src/JS/sidebar.js"></script>
 </head>
 <body>
 <header>
     <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
 </header>
 
-<div class="sec-dados">
+<div class="main-container d-flex">
+    <?php require_once "../src/template/usuario/sidebar.html" ?>
     
-    <div class="navegacao">
-        <nav class="navbarP">
-        <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
-            <li><a href="vagas.php">Vagas</a></li>
-            <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
-        </ul>
-    </div>
-    <div class="container container-vagas">
+    <div class="content">
+        <?php require_once "../src/template/usuario/navbar.html" ?>
+
+        <div class="dashboard-content px-3 pt-4">
         <?php
             $queryDados = "SELECT formulario_enviado_dados FROM usuario WHERE ID_USUARIO = $user_id"; 
             $resultadoD = mysqli_query($conn, $queryDados);
@@ -163,8 +159,11 @@ session_start();
                     </div>';
             }
         ?>
+
+        </div>
     </div>
 </div>
+
 
 
 

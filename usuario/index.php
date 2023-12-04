@@ -19,35 +19,31 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/sidebar.js"></script>
 </head>
 <body>
 <header>
     <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
 </header>
 
-<div class="sec-dados">
-    
-    <div class="navegacao">
-        <nav class="navbarP">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="./dados-usuario/dadosUser.php">Dados</a></li>
-            <li><a href="vagas.php">Vagas</a></li>
-            <li><a href="candidaturas.php">Candidaturas</a></li>
-            <li><a href="./dados-usuario/curriculo.php">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
-        </ul>
-    </div>
 
-    <div class="container-dados">
-        <h1>SEJA BEM VINDO A JOBSTAGE!!!</h1>
-        <p>complete seu perfil na aba de dados para poder visualizar novas vagas de estágio!</p>
+<div class="main-container d-flex">
+    <?php require_once "../src/template/usuario/sidebar.html" ?>
+    
+    <div class="content">
+        <?php require_once "../src/template/usuario/navbar.html" ?>
+        <div class="dashboard-content px-3 pt-4">
+            <h1>SEJA BEM VINDO A JOBSTAGE!!!</h1>
+            <p>complete seu perfil na aba de dados para poder visualizar novas vagas de estágio!</p>
+        </div>
+
     </div>
-    
-    
 </div>
+
 
 
 

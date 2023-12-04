@@ -28,30 +28,23 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="../../css/layout.css">
     <link rel="stylesheet" href="../../css/sweetalert2.css">
     <link rel="stylesheet" href="../../css/validacoes.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <script src="../../src/JS/jquery-3.6.4.js"></script>
+    <script src="../../src/JS/sidebar.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
 <header>
     <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
 </header>
-
-<div class="sec-dados">
+<div class="main-container d-flex">
+    <?php require_once "../../src/template/usuario/sidebar.html" ?>
     
-    <div class="navegacao">
-        <nav class="navbarP">
-        <ul>
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="dadosUser.php">Dados</a></li>
-            <li><a href="../vagas.php">Vagas</a></li>
-            <li><a href="../candidaturas.php">Candidaturas</a></li>
-            <li><a href="curriculo.php">Currículo</a></li>
-            <li style="background-color: red;"> <a href="../../src/configs/logout.php">Sair</a></li>
-        </ul>
-    </div>
+    <div class="content">
+        <?php require_once "../../src/template/usuario/navbar.html" ?>
 
-
-    <div class="container-dados">
+        <div class="dashboard-content px-3 pt-4">
         <nav class="nav nav-pills flex-column flex-sm-row card">
             <a id="dados-link" class="flex-sm-fill text-sm-center nav-link"    <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='dadosUser.php'":'disabled' ?>>Dados</a>
             <a id="formacao-link" class="flex-sm-fill text-sm-center nav-link" <?php echo $dadoQuery['formulario_enviado_dados'] == 1? "href='formacaoUser.php'":'disabled style="opacity: 0.5; cursor: default;"' ?>>Formação</a>
@@ -128,8 +121,9 @@ $user_id = $_SESSION['ID_USUARIO'];
                 </div>
             </div>
         </div>
+        </div>
+
     </div>
-    
 </div>
 
 
