@@ -6,38 +6,11 @@ session_start();
     }
     include("../../src/configs/conexao.php");
 
-$user_id = $_SESSION['ID_USUARIO'];
+    $user_id = $_SESSION['ID_USUARIO'];
 
     $sql_formacao = "SELECT  COUNT(*) as total FROM formacao WHERE ID_USUARIO = $user_id";
-    $sql_experiencia = "SELECT COUNT(*) as total FROM experiencia WHERE ID_USUARIO = $user_id";
-    $sql_cursos = "SELECT COUNT(*) as total FROM curso_extra WHERE ID_USUARIO = $user_id";
-
     $resultado_F = mysqli_query($conn, $sql_formacao);
-    $resultado_E = mysqli_query($conn, $sql_experiencia);
-    $resultado_C = mysqli_query($conn, $sql_cursos);
-
-
     $total_F = mysqli_fetch_assoc($resultado_F);
-    // $total_registros_F = $resultado_F['total'];
-
-    $total_E = mysqli_fetch_assoc($resultado_E);
-    // $total_registros_E = $total_registros_E['total'];
-
-    $total_C = mysqli_fetch_assoc($resultado_C);
-    // $total_registros_C = $total_registros_C['total'];
-
-
-    // pesquisas SQL
-    $queryDados = "SELECT * FROM usuario WHERE ID_USUARIO = $user_id"; 
-    $resultadoD = mysqli_query($conn, $queryDados);
-    $dadoQuery = mysqli_fetch_assoc($resultadoD);
-
-
-    $queryEscolaridade = "SELECT * FROM escolaridade WHERE ID_USUARIO = $user_id"; 
-    $resultadoE = mysqli_query($conn, $queryEscolaridade);
-    $escQuery = mysqli_fetch_assoc($resultadoE);
-
-    
 
 ?>
 
@@ -118,7 +91,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
-                                                        '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
+                                                        '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
                                                         <button type="button" class="btn btn-danger" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')">REMOVER</button>
                                             '."</td>";
                                         print "</tr>";
@@ -127,6 +100,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         $resultadoF = mysqli_query($conn, $queryFormacao);
                                         $formQuery = mysqli_fetch_assoc($resultadoF);
                                         // <!-- ADICIONANDO NOVA DIV PARA ALTERAR DADOS -->
+                                        
                                         print '<div class="modal fade exampleModalCenter" id="exampleModalCenter'.$id_table.'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                         <div class="modal-content">
@@ -194,7 +168,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         
                                                         </div>
                                                             <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                     <button type="submit" class="btn btn-primary" onclick="editarFormacao('. $row->ID_FORMACAO .')">Salvar</button>
                                                             </div>
                                                         </form>
@@ -215,7 +189,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         ?>
 
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova formação
                             </a>
                         </p>

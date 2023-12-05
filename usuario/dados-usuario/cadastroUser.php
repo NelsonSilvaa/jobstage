@@ -219,8 +219,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->CURSO."</td>";
                                         print    "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
-                                                        '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
-                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModal'.$id_table.'">REMOVER</button>
+                                                        '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter'.$id_table.'">EDITAR</button> 
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarModal'.$id_table.'">REMOVER</button>
                                             '."</td>";
                                         print "</tr>";
                                         
@@ -234,8 +234,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 </div>
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NÃO</button>
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarFormacao(' . $row->ID_FORMACAO . ')" data-bs-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>
@@ -307,7 +307,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         
                                                         </div>
                                                             <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                     <button type="submit" class="btn btn-primary">Salvar</button>
                                                             </div>
                                                         </form>
@@ -328,7 +328,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         ?>
 
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova formação
                             </a>
                         </p>
@@ -421,8 +421,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print    "<td>".$row->TIPO_CONTRATO."</td>";
                                         print    "<td>".$row->INICIO."</td>";
                                         print    "<td>".$row->FIM."</td>";
-                                        print    "<td>". '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalExp'.$id_table.'">REMOVER</button>
+                                        print    "<td>". '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarModalExp'.$id_table.'">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
 
@@ -437,8 +437,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 </div>
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NÃO</button>
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')" data-bs-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>
@@ -507,7 +507,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                             </div>
                                                         </div>
                                                             <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                     <button type="submit" class="btn btn-primary">Salvar</button>
                                                             </div>
                                                             </form>
@@ -525,7 +525,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                             }else{ echo '<p style="color: red; font-size:20px">Nenhuma experiência encontrada!</p>';}
                             ?>
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Nova Experiência
                             </a>
                         </p>
@@ -669,8 +669,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                         print   "<td>".$row->NOME."</td>";
                                         print   "<td>".$row->STATUS."</td>";
                                         print    "<td>". 
-                                                    '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModalCurso'.$id_table.'">EDITAR</button> 
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletarModalCurso'.$id_table.'">REMOVER</button>
+                                                    '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalCurso'.$id_table.'">EDITAR</button> 
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarModalCurso'.$id_table.'">REMOVER</button>
                                                 '."</td>";
                                         print "</tr>";
                                         
@@ -684,8 +684,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 </div>
                                                 <div class="modal-footer">
                                                     <div class="modal-footer-deletar">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarCurso(' . $row->ID_CURSO . ')" data-dismiss="modal">SIM</button>  
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NÃO</button>
+                                                        <button type="button" class="btn btn-primary deletar-linha" onclick="deletarCurso(' . $row->ID_CURSO . ')" data-bs-dismiss="modal">SIM</button>  
                                                     </div>
                                                 </div>
                                                 </div>
@@ -750,7 +750,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         
                                                         </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                 <button type="submit" class="btn btn-primary">Salvar</button>
                                                             </div>
                                                             </form>
@@ -767,7 +767,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                         }else{ echo  '<p style="color: red; font-size:20px">Nenhum curso encontrado!</p>';}
                         ?>
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                 Novo Curso
                             </a>
                         </p>

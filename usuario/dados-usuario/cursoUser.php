@@ -114,7 +114,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                 print   "<td>".$row->NOME."</td>";
                                                 print   "<td>".$row->STATUS."</td>";
                                                 print    "<td>". 
-                                                            '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModalCurso'.$id_table.'">EDITAR</button> 
+                                                            '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalCurso'.$id_table.'">EDITAR</button> 
                                                             <button type="button" class="btn btn-danger" onclick="deletarCurso(' . $row->ID_CURSO . ')">REMOVER</button>
                                                         '."</td>";
                                                 print "</tr>";
@@ -129,8 +129,8 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                         </div>
                                                         <div class="modal-footer">
                                                             <div class="modal-footer-deletar">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">NÃO</button>
-                                                                <button type="button" class="btn btn-primary deletar-linha" onclick="deletarCurso(' . $row->ID_CURSO . ')" data-dismiss="modal">SIM</button>  
+                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NÃO</button>
+                                                                <button type="button" class="btn btn-primary deletar-linha" onclick="deletarCurso(' . $row->ID_CURSO . ')" data-bs-dismiss="modal">SIM</button>  
                                                             </div>
                                                         </div>
                                                         </div>
@@ -199,7 +199,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 
                                                                 </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                         <button type="submit" class="btn btn-primary" onclick="editarCurso('. $row->ID_CURSO .')">Salvar</button>
                                                                     </div>
                                                                     </form>
@@ -216,7 +216,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 }else{ echo  '<p style="color: red; font-size:20px">Nenhum curso encontrado!</p>';}
                                 ?>
                                 <p>
-                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                         Novo Curso
                                     </a>
                                 </p>

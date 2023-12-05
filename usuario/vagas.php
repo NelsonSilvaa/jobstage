@@ -112,7 +112,7 @@ session_start();
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
+                                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#detalheVagas'.$row['VVAGA'].'" aria-expanded="false" aria-controls="detalheVagas">
                                             Detalhes
                                         </button>
                                     </div>

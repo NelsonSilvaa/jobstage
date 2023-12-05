@@ -84,7 +84,7 @@ session_start();
                         <div class="card-titulo">
                             <h2>'.$vaga['nome_vaga'].'</2>
                         </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCandidatos'.$idModal.'">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCandidatos'.$idModal.'">
                             Ver candidaturas
                         </button> 
                     </div>

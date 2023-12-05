@@ -89,7 +89,7 @@ session_start();
                                     </div>
                                     <div class="botoes-vagas">
                                         <div class="btn-editar-vaga">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarModalVagas'.$id_table.'">EDITAR</button> 
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarModalVagas'.$id_table.'">EDITAR</button> 
                                         </div>
                                         <div class="btn-delete-vaga">
                                             <button type="button" class="btn btn-danger" id="idDelete" value="'.$row->ID_VAGA.'"onclick="deleteVaga('.$row->ID_VAGA.')">REMOVER</button> 
@@ -232,7 +232,7 @@ session_start();
                                 </div>
                                 <div class="botoes-vagas">
                                     <div class="btn-editar-vaga">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> 
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> 
                                     </div>
                                     <div class="btn-delete-vaga">
                                         <button type="submit" class="btn btn-primary" onclick="crudVaga('. $row->ID_VAGA .')">Salvar</button>

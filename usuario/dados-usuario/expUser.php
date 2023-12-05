@@ -6,39 +6,11 @@ session_start();
     }
     include("../../src/configs/conexao.php");
 
-$user_id = $_SESSION['ID_USUARIO'];
+    $user_id = $_SESSION['ID_USUARIO'];
 
-    $sql_formacao = "SELECT  COUNT(*) as total FROM formacao WHERE ID_USUARIO = $user_id";
     $sql_experiencia = "SELECT COUNT(*) as total FROM experiencia WHERE ID_USUARIO = $user_id";
-    $sql_cursos = "SELECT COUNT(*) as total FROM curso_extra WHERE ID_USUARIO = $user_id";
-
-    $resultado_F = mysqli_query($conn, $sql_formacao);
     $resultado_E = mysqli_query($conn, $sql_experiencia);
-    $resultado_C = mysqli_query($conn, $sql_cursos);
-
-
-    $total_F = mysqli_fetch_assoc($resultado_F);
-    // $total_registros_F = $resultado_F['total'];
-
     $total_E = mysqli_fetch_assoc($resultado_E);
-    // $total_registros_E = $total_registros_E['total'];
-
-    $total_C = mysqli_fetch_assoc($resultado_C);
-    // $total_registros_C = $total_registros_C['total'];
-
-
-    // pesquisas SQL
-    $queryDados = "SELECT * FROM usuario WHERE ID_USUARIO = $user_id"; 
-    $resultadoD = mysqli_query($conn, $queryDados);
-    $dadoQuery = mysqli_fetch_assoc($resultadoD);
-
-
-    $queryEscolaridade = "SELECT * FROM escolaridade WHERE ID_USUARIO = $user_id"; 
-    $resultadoE = mysqli_query($conn, $queryEscolaridade);
-    $escQuery = mysqli_fetch_assoc($resultadoE);
-
-    
-
 ?>
 
 
@@ -59,7 +31,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/sidebar.css">
-    <script src="../../src/JS/jquery-3.7.1.js"></script>
+    
     
 </head>
 <body>
@@ -117,7 +89,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                             print    "<td>".$row->TIPO_CONTRATO."</td>";
                                             print    "<td>".$row->INICIO."</td>";
                                             print    "<td>".($row->FIM?$row->FIM:'Atual')."</td>";
-                                            print    "<td>". '<button type="button" class="btn btn-primary editarExp" data-toggle="modal" id="editarExp" value="'.$row->ID_EXPERIENCIA.'" data-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
+                                            print    "<td>". '<button type="button" class="btn btn-primary editarExp" data-bs-toggle="modal" id="editarExp" value="'.$row->ID_EXPERIENCIA.'" data-bs-target="#ModalEditEXP'.$id_table.'">EDITAR</button> 
                                                         <button type="button" class="btn btn-danger" onclick="deletarExperiencia(' . $row->ID_EXPERIENCIA . ')">REMOVER</button>
                                                     '."</td>";
                                             print "</tr>";
@@ -191,7 +163,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                                                 </div>
                                                             </div>
                                                                 <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                                                         <button type="submit" class="btn btn-primary" onclick="editarExp('. $row->ID_EXPERIENCIA .')">Salvar</button>
                                                                 </div>
                                                                 </form>
@@ -209,7 +181,7 @@ $user_id = $_SESSION['ID_USUARIO'];
                                 }else{ echo '<p style="color: red; font-size:20px">Nenhuma experiência encontrada!</p>';}
                                 ?>
                             <p>
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
+                                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin: 0 auto">
                                     Nova Experiência
                                 </a>
                             </p>
@@ -304,6 +276,7 @@ $user_id = $_SESSION['ID_USUARIO'];
     <script src="../../src/JS/app.js"></script>
     <script src="../../src/JS/processos.js"></script>
     <script src="../../src/JS/swetalert2.js"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <script src="../../src/JS/sidebar.js"></script>    
 </body>
 </html>
