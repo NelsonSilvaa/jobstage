@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar-se</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="../../src/JS/jquery-3.7.1.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/index.css">
     <link rel="stylesheet" type="text/css" href="../../css/layout.css">
     <link rel="stylesheet" type="text/css" href="../../css/validacoes.css">
@@ -19,58 +22,61 @@
 </header>
 
 <section class="wallpaper-empresa">
-    <div class="container-dados-login">
-        
-        <div class="card">
-            <div class="card-header">
-                CADASTRO
-            </div>
-            <div class="card"  style="padding: 10px;">
-                <form>
-                    <input type="hidden" id="tipoCad" value="cadEmpresa">
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="nomeEmpresa">Nome da empresa<span style="color: red;">*</span> </label>
-                            <input type="text" class="form-control" placeholder="Nome da empresa" name="nomeEmpresa" id="nomeEmpresa"  autocomplete="off">
-                            <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
-                        </div>
-                        <div class="col">
-                            <label for="cnpj">CNPJ<span style="color: red;">*</span> </label>
-                            <input type="number" class="form-control" placeholder="Digite seu CNPJ" name="cnpj" id="cnpj"  autocomplete="off">
-                            <span id="cnpj-error" style="display:none; color:red;">Campo obrigatório!</span>
-                        </div>
+    <div class="container" style="padding-top: 10%;">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        CADASTRO
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="email">E-mail<span style="color: red;">*</span> </label>
-                            <input type="email" class="form-control" placeholder="Digite seu email" name="email" id="email"  autocomplete="off">
-                            <span id="email-invalido" style="display:none; color:red;">Email inválido!</span>
-                            <span id="email-error" style="display:none; color:red;">Campo obrigatório!</span>
-                        </div>
+                    <div class="card"  style="padding: 10px;">
+                        <form>
+                            <input type="hidden" id="tipoCad" value="cadEmpresa">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="nomeEmpresa">Nome da empresa<span style="color: red;">*</span> </label>
+                                    <input type="text" class="form-control" placeholder="Nome da empresa" name="nomeEmpresa" id="nomeEmpresa"  autocomplete="off">
+                                    <span id="nome-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                </div>
+                                <div class="col">
+                                    <label for="cnpj">CNPJ<span style="color: red;">*</span> </label>
+                                    <input type="number" class="form-control" placeholder="Digite seu CNPJ" name="cnpj" id="cnpj"  autocomplete="off">
+                                    <span id="cnpj-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="email">E-mail<span style="color: red;">*</span> </label>
+                                    <input type="email" class="form-control" placeholder="Digite seu email" name="email" id="email"  autocomplete="off">
+                                    <span id="email-invalido" style="display:none; color:red;">Email inválido!</span>
+                                    <span id="email-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                </div>
+                            </div>
+                            <div class="form-row" style="padding-top: 13px;">
+                                <div class="col">
+                                    <label for="senha01">Senha<span style="color: red;">*</span> </label>
+                                    <input type="password" class="form-control" placeholder="Digite uma senha" name="senha01" id="senha01"  autocomplete="off">
+                                    <span id="senha01-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                    <span id="senha01-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
+                                </div>
+                                <div class="col">
+                                    <label for="senha02">Confirmar senha<span style="color: red;">*</span> </label>
+                                    <input type="password" class="form-control" placeholder="Confirme a senha" name="senha02" id="senha02"  autocomplete="off">
+                                    <span id="senha02-error" style="display:none; color:red;">Campo obrigatório!</span>
+                                    <span id="senha02-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary btn-block" onclick="cadEmpresa()">Entrar</button>
+                            </div>
+                        </form>
+                        
                     </div>
-                    <div class="form-row" style="padding-top: 13px;">
-                        <div class="col">
-                            <label for="senha01">Senha<span style="color: red;">*</span> </label>
-                            <input type="password" class="form-control" placeholder="Digite uma senha" name="senha01" id="senha01"  autocomplete="off">
-                            <span id="senha01-error" style="display:none; color:red;">Campo obrigatório!</span>
-                            <span id="senha01-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
-                        </div>
-                        <div class="col">
-                            <label for="senha02">Confirmar senha<span style="color: red;">*</span> </label>
-                            <input type="password" class="form-control" placeholder="Confirme a senha" name="senha02" id="senha02"  autocomplete="off">
-                            <span id="senha02-error" style="display:none; color:red;">Campo obrigatório!</span>
-                            <span id="senha02-error-igual" style="display:none; color:red;">As senhas não são iguais!</span>
-                        </div>
+                    <div class="footer-login">
+                        <p>Já tem uma conta?</p>
+                        <p><a href="./loginempresa.html">Entrar</a></p>
                     </div>
-                    <div style="margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary btn-block" onclick="cadEmpresa()">Entrar</button>
-                    </div>
-                </form>
-                
-            </div>
-            <div class="footer-login">
-                <p>Já tem uma conta?</p>
-                <p><a href="./loginempresa.html">Entrar</a></p>
+                </div>
             </div>
         </div>
     </div>
