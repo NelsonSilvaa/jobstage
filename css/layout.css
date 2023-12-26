@@ -5,6 +5,10 @@ header{
     background-color: rgb(12, 10, 10);
   }
   
+  .cadastro-login{
+    display: flex;
+    justify-content: space-around;
+  }
   
   
   .sec-dados{
