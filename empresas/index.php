@@ -21,35 +21,30 @@ session_start();
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/sweetalert2.css">
     <link rel="stylesheet" href="../css/validacoes.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-    <h1 style="text-align: center; color:white; font-family: Ubuntu;">JOB'STAGE</h1>
-</header>
 
-<div class="sec-dados">
-    
-    <div class="navegacao">
-        <nav class="navbarP">
-        <ul>
-          <li><a href="index.php">Inicio</a></li>
-          <li><a href="./vagas/cadastro-vagas.php"> Nova vaga</a></li>
-          <li><a href="./vagas/editar-vagas.php"> Editar vagas</a></li>
-          <li><a href="./vagas/candidaturas.php">Candidaturas</a></li>
-          <li style="background-color: red;"> <a href="../src/configs/logout.php">Sair</a></li>
-        </ul>
-    </div>
 
-    <div class="container-dados">
-        <h1>SEJA BEM VINDO A JOBSTAGE!!!</h1>
-        <p>complete seu perfil na aba de dados para poder visualizar novas vagas de estágio!</p>
+    
+<div class="main-container d-flex">
+    <?php require_once "../src/template/empresa/sidebar.html" ?>
+    
+    <div class="content">
+        <?php require_once "../src/template/empresa/navbar.html" ?>
+
+        <div class="container">
+            
+            
+
+
+        </div>
     </div>
-    
-    
+   
 </div>
 
 
